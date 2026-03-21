@@ -186,10 +186,10 @@ nav{
 }
 .sanpo-item:last-child{border-bottom:none;}
 .sanpo-icon{
-  width:48px;height:48px;border:none;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;flex-shrink:0;background:var(--accent-dim);
+  width:64px;height:64px;border:none;border-radius:50%;
+  flex-shrink:0;overflow:hidden;
 }
+.sanpo-icon img{width:100%;height:100%;object-fit:cover;}
 .sanpo-text{}
 .sanpo-title{font-weight:700;font-size:0.95rem;margin-bottom:4px;color:var(--text);}
 .sanpo-desc{font-size:0.82rem;color:var(--muted);line-height:1.8;}
@@ -238,6 +238,7 @@ nav{
   background:rgba(0,102,204,0.1);padding:4px 10px;border-radius:4px;
 }
 
+.sc-photo{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:16px;}
 .sc-num{
   font-size:0.68rem;font-weight:700;
   color:var(--muted);letter-spacing:0.15em;margin-bottom:20px;display:block;
@@ -356,6 +357,13 @@ footer{
   to{opacity:1;transform:translateY(0);}
 }
 
+.hero-banner{
+  width:100%;overflow:hidden;
+  border-top:1px solid var(--border);
+}
+.hero-banner img{width:100%;height:320px;object-fit:cover;display:block;}
+@media(max-width:768px){.hero-banner img{height:200px;}}
+
 .reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 </style>
@@ -399,6 +407,11 @@ footer{
   </div>
 </section>
 
+<!-- HERO BANNER -->
+<div class="hero-banner">
+  <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1600&h=500&fit=crop&q=80" alt="貿易・国際物流">
+</div>
+
 <!-- PHILOSOPHY -->
 <section class="philosophy" id="philosophy">
   <div class="phil-left reveal">
@@ -416,21 +429,21 @@ footer{
   </div>
   <div class="phil-right reveal">
     <div class="sanpo-item">
-      <div class="sanpo-icon">🤝</div>
+      <div class="sanpo-icon"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=200&h=200&fit=crop&q=80" alt="売り手よし"></div>
       <div class="sanpo-text">
         <div class="sanpo-title">売り手よし</div>
         <div class="sanpo-desc">持続可能で健全な利益を追求。従業員が誇りを持って働ける企業であること。</div>
       </div>
     </div>
     <div class="sanpo-item">
-      <div class="sanpo-icon">💎</div>
+      <div class="sanpo-icon"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&h=200&fit=crop&q=80" alt="買い手よし"></div>
       <div class="sanpo-text">
         <div class="sanpo-title">買い手よし</div>
         <div class="sanpo-desc">顧客に本当の価値を提供する。品質と信頼で選ばれ続ける企業であること。</div>
       </div>
     </div>
     <div class="sanpo-item">
-      <div class="sanpo-icon">🌏</div>
+      <div class="sanpo-icon"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=200&h=200&fit=crop&q=80" alt="世間よし"></div>
       <div class="sanpo-text">
         <div class="sanpo-title">世間よし</div>
         <div class="sanpo-desc">地域社会への貢献と環境への配慮。ビジネスを通じて社会をより良くすること。</div>
@@ -449,7 +462,7 @@ footer{
   <div class="services-grid reveal">
     <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
       <span class="sc-num">01</span>
-      <span class="sc-icon">🚀</span>
+      <img class="sc-photo" src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600&h=300&fit=crop&q=80" alt="越境EC">
       <div class="sc-title">Amazon越境EC事業</div>
       <p class="sc-desc">日本製品を世界へ。Amazon.comを主力に、米国・欧州市場向けの輸出販売を展開。独自のスクールで次世代の輸出事業者も育成。</p>
       <div class="sc-link">詳細ページ準備中</div>
@@ -457,7 +470,7 @@ footer{
 
     <a class="service-card featured" href="logistics.html">
       <span class="sc-num">02</span>
-      <span class="sc-icon">📦</span>
+      <img class="sc-photo" src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=300&fit=crop&q=80" alt="物流">
       <div class="sc-title">物流事業</div>
       <p class="sc-desc">FedEx・DHL・EMSを活用した海外発送サービス。豊富な実績と自社ノウハウで、スピーディかつ低コストな国際配送を実現。</p>
       <div class="sc-link">詳細を見る</div>
@@ -465,7 +478,7 @@ footer{
 
     <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
       <span class="sc-num">03</span>
-      <span class="sc-icon">🏠</span>
+      <img class="sc-photo" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=300&fit=crop&q=80" alt="不動産">
       <div class="sc-title">不動産事業</div>
       <p class="sc-desc">新潟エリアを中心に古家を再生し、賃貸物件として運用。空き家問題の解決と地域活性化に貢献する不動産ポートフォリオを構築。</p>
       <div class="sc-link">詳細ページ準備中</div>
@@ -566,9 +579,6 @@ footer{
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 Glocal Inc. All rights reserved.</div>
-    <ul class="footer-sns">
-      <li><a href="https://amazon.com" target="_blank">Amazon</a></li>
-    </ul>
   </div>
 </footer>
 

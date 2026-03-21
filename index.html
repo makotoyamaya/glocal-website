@@ -44,10 +44,10 @@ nav{
   transition:all 0.3s;
 }
 .nav-logo{text-decoration:none;}
-.nav-logo-img{height:28px;}
+.nav-logo-img{height:40px;}
 .nav-links{display:flex;gap:40px;list-style:none;}
 .nav-links a{
-  font-size:0.82rem;color:var(--text);text-decoration:none;
+  font-size:0.95rem;color:var(--text);text-decoration:none;
   letter-spacing:0.02em;font-weight:400;
   transition:color 0.2s;
 }
@@ -71,7 +71,7 @@ nav{
   display:flex;align-items:center;
   padding:120px 60px 100px;
   position:relative;overflow:hidden;
-  background:linear-gradient(135deg,#f0f4ff 0%,#ffffff 40%,#fff8f0 100%);
+  background:linear-gradient(135deg,#d0e0ff 0%,#e8f0ff 30%,#ffffff 60%,#fff0e0 100%);
 }
 .hero-bg{display:none;}
 .hero-grid{display:none;}
@@ -370,7 +370,7 @@ footer{
     <li><a href="#about">会社概要</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
-  <a class="nav-cta" href="#contact">CONTACT</a>
+  <a class="nav-cta" href="#contact">お問い合わせ</a>
 </nav>
 
 <!-- HERO -->
@@ -382,7 +382,7 @@ footer{
     <div class="hero-tag">NIIGATA, JAPAN — EST. 1981</div>
     <h1>世界と地域を<br><em>繋ぐ</em>企業</h1>
     <p class="hero-sub">
-      新潟から世界へ。Amazon越境ECを起点に、物流・不動産・製菓・自動車まで——
+      新潟から世界へ。Amazon越境ECを起点に、物流・不動産まで——
       多角経営で地域と世界に価値を届ける株式会社Glocalです。
     </p>
     <div class="hero-actions">
@@ -393,14 +393,6 @@ footer{
       <div class="stat-item">
         <span class="stat-num">44<span>期</span></span>
         <div class="stat-label">YEARS OF HISTORY</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">2.8<span>億</span></span>
-        <div class="stat-label">ANNUAL REVENUE</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">5<span>事業</span></span>
-        <div class="stat-label">BUSINESS DOMAINS</div>
       </div>
     </div>
   </div>
@@ -416,8 +408,9 @@ footer{
       デジタルと物流が交差する現代のビジネスに活かしています。
     </p>
     <p class="phil-text">
-      代表の山谷は「挑戦」をスローガンに、できないではなく「今できることに挑戦しよう」という姿勢を大切にしています。
-      従業員の定着率の高さと、事業の多様性がその証明です。
+      「できない」ではなく「今できることに挑戦しよう」。
+      この言葉を軸に、44年にわたり事業を積み重ねてきました。
+      長く働き続ける社員と、広がり続ける事業領域が、その挑戦の証です。
     </p>
   </div>
   <div class="phil-right reveal">
@@ -449,8 +442,8 @@ footer{
 <section id="services" style="border-top:1px solid var(--border);">
 <div class="services">
   <div class="sec-eyebrow reveal">BUSINESS</div>
-  <h2 class="sec-title reveal"><em>5つ</em>の事業領域</h2>
-  <p class="sec-lead reveal">越境ECから物流、不動産、製菓、自動車まで——多角的に価値を創出します。</p>
+  <h2 class="sec-title reveal">事業<em>領域</em></h2>
+  <p class="sec-lead reveal">越境ECから物流、不動産まで——多角的に価値を創出します。</p>
 
   <div class="services-grid reveal">
     <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
@@ -477,22 +470,6 @@ footer{
       <div class="sc-link">詳細ページ準備中</div>
     </a>
 
-    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
-      <span class="sc-num">04</span>
-      <span class="sc-icon">🍪</span>
-      <div class="sc-title">製菓事業</div>
-      <p class="sc-desc">M&Aで取得した米粉クッキーブランドを展開。グルテンフリー・健康志向の市場に向けた高品質な製品を提供しています。</p>
-      <div class="sc-link">詳細ページ準備中</div>
-    </a>
-
-    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
-      <span class="sc-num">05</span>
-      <span class="sc-icon">🚗</span>
-      <div class="sc-title">中古高級車販売</div>
-      <p class="sc-desc">メルセデス・ベンツをはじめとした中古高級車の販売事業。代表の自動車整備資格と深い知識を活かした信頼できる車選びを。</p>
-      <div class="sc-link">詳細ページ準備中</div>
-    </a>
-
     <div class="service-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:var(--accent-dim);cursor:default;">
       <span style="font-size:2.2rem;font-weight:900;color:var(--accent);">挑戦</span>
       <p style="font-size:0.82rem;color:var(--muted);text-align:center;letter-spacing:0.03em;line-height:1.8;">
@@ -510,12 +487,13 @@ footer{
       <div class="sec-eyebrow">COMPANY</div>
       <h2 class="sec-title" style="margin-bottom:32px;">会社<em>概要</em></h2>
       <table class="company-table">
-        <tr><th>篾名</th><td>株式会社Glocal（グローカル）</td></tr>
+        <tr><th>社名</th><td>株式会社Glocal（グローカル）</td></tr>
         <tr><th>代表</th><td>代表取締役　山谷 真（やまや まこと）</td></tr>
-        <tr><th>設立</th><td>創業44期（5月末決算）</td></tr>
-        <tr><th>売上高</th><td>約2億8,000万円</td></tr>
-        <tr><th>所在地</th><td>新潟県新潟市南区</td></tr>
-        <tr><th>事業内容</th><td>越境EC / 物流 / 不動産 / 製菓 / 中古高級車販売</td></tr>
+        <tr><th>創業</th><td>1981年（昭和56年）</td></tr>
+        <tr><th>設立</th><td>44期目（5月末決算）</td></tr>
+        <tr><th>資本金</th><td>1,000万円</td></tr>
+        <tr><th>所在地</th><td>新潟県新潟市南区新飯田762</td></tr>
+        <tr><th>事業内容</th><td>越境EC / 物流 / 不動産</td></tr>
         <tr><th>理念</th><td>三方良し — 売り手よし・買い手よし・世間よし</td></tr>
       </table>
     </div>
@@ -525,14 +503,14 @@ footer{
         代表<em style="font-style:normal;color:var(--accent);">メッセージ</em>
       </h3>
       <p style="font-size:0.85rem;color:var(--muted);line-height:2.2;margin-bottom:20px;">
-        赤字だった父の会社を引き継ぎ、今期で44期目を迎えました。
+        父から引き継いだ会社を、今期で44期目まで育ててきました。
         「できない」ではなく「今できることに挑戦しよう」——このスローガンのもと、
-        越境ECを起点に事業を多角化してきました。
+        越境ECを起点に物流・不動産へと事業を広げてきました。
       </p>
       <p style="font-size:0.85rem;color:var(--muted);line-height:2.2;margin-bottom:20px;">
-        40代のこれからは、既存事業の深化と並行して、不動産事業への注力、
-        そして地域が難しいと感じるビジネスへの挑戦を続けていきます。
-        ビジネスは人と社会のためにあると信じています。
+        これからは既存事業の深化と並行して、不動産事業への注力、
+        そして地域が「難しい」と感じるビジネスへの挑戦を続けていきます。
+        ビジネスは人と社会のためにある。その信念は変わりません。
       </p>
       <p style="font-size:0.9rem;color:var(--text);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.05em;">
         代表取締役　山谷 真

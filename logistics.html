@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>物流事業｜株式会社Glocal</title>
+<meta name="description" content="株式会社Glocalの海外物流事業。FedEx・DHL・EMSによる国際発送。越境EC事業者向けの低コスト・スピーディな発送サービス。新潟発、世界へ。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c;
+  --surface: #111114;
+  --surface2: #18181e;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8e6e0;
+  --muted: #68666e;
+  --gold: #c8a84b;
+  --gold2: #e8cc80;
+  --gold-dim: rgba(200,168,75,0.1);
+  --white: #f5f3ee;
+  --fedex: #4d148c;
+  --dhl: #d40511;
+  --ems: #e60020;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Noto Sans JP',sans-serif;font-weight:300;
+  line-height:1.8;overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 60px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,10,12,0.9);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;
+  letter-spacing:0.12em;color:var(--white);text-decoration:none;
+}
+.nav-logo span{color:var(--gold);}
+.nav-back{
+  font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+  color:var(--muted);text-decoration:none;letter-spacing:0.1em;
+  display:flex;align-items:center;gap:8px;transition:color 0.2s;
+}
+.nav-back::before{content:'←';}
+.nav-back:hover{color:var(--gold);}
+.nav-cta{
+  background:transparent;border:1px solid var(--gold);color:var(--gold);
+  padding:8px 20px;font-size:0.75rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:0.1em;cursor:pointer;text-decoration:none;transition:all 0.25s;
+}
+.nav-cta:hover{background:var(--gold);color:var(--bg);}
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-back span{display:none;}
+}
+
+/* HERO */
+.hero{
+  min-height:70vh;display:flex;align-items:flex-end;
+  padding:0 60px 80px;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 80% 40%,rgba(200,168,75,0.07),transparent 60%),
+    radial-gradient(ellipse 40% 60% at 5% 70%,rgba(200,168,75,0.04),transparent 50%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,168,75,0.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,168,75,0.02) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.hero-label{
+  position:absolute;top:100px;right:60px;writing-mode:vertical-rl;
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.3em;color:rgba(200,168,75,0.3);
+}
+.hero-inner{position:relative;max-width:820px;}
+.breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  color:var(--muted);letter-spacing:0.1em;margin-bottom:24px;
+}
+.breadcrumb a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--gold);}
+.breadcrumb span{color:var(--gold);}
+.hero-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.3em;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:20px;
+}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,7vw,6rem);font-weight:700;
+  line-height:1.05;letter-spacing:-0.01em;margin-bottom:24px;
+}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:0.95rem;color:var(--muted);max-width:560px;line-height:2;margin-bottom:40px;}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;}
+.hero-tag{
+  background:var(--gold-dim);border:1px solid rgba(200,168,75,0.2);
+  color:var(--gold2);padding:6px 14px;font-size:0.72rem;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;
+}
+@media(max-width:768px){.hero{padding:80px 20px 60px;min-height:auto;}.hero-label{display:none;}}
+
+/* SECTIONS */
+.section{max-width:1200px;margin:0 auto;padding:100px 60px;}
+@media(max-width:768px){.section{padding:60px 20px;}}
+
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.3em;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.sec-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;
+  line-height:1.2;margin-bottom:12px;
+}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sec-lead{color:var(--muted);font-size:0.88rem;margin-bottom:52px;line-height:2;max-width:580px;}
+
+/* STRENGTH */
+.strength-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);}
+@media(max-width:900px){.strength-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.strength-grid{grid-template-columns:1fr;}}
+
+.str-card{
+  background:var(--surface);padding:40px 32px;
+  transition:background 0.25s;
+}
+.str-card:hover{background:var(--surface2);}
+.str-num{
+  font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:600;
+  color:rgba(200,168,75,0.15);line-height:1;display:block;margin-bottom:16px;
+}
+.str-icon{font-size:1.8rem;margin-bottom:14px;display:block;}
+.str-title{font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--gold2);}
+.str-text{font-size:0.82rem;color:var(--muted);line-height:1.9;}
+
+/* CARRIERS */
+.carriers{border-top:1px solid var(--border);background:var(--surface);}
+
+.carrier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);}
+@media(max-width:700px){.carrier-grid{grid-template-columns:1fr;}}
+
+.carrier-card{
+  background:var(--bg);padding:48px 36px;position:relative;overflow:hidden;
+}
+.carrier-accent{
+  position:absolute;top:0;left:0;right:0;height:3px;
+}
+.carrier-logo{
+  font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;
+  letter-spacing:0.05em;margin-bottom:16px;display:block;
+}
+.carrier-name{font-size:0.88rem;color:var(--muted);margin-bottom:20px;}
+.carrier-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.carrier-list li{
+  font-size:0.8rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.7;
+}
+.carrier-list li::before{content:'—';color:var(--gold);flex-shrink:0;margin-top:1px;}
+.carrier-badge{
+  display:inline-block;margin-top:16px;
+  font-family:'JetBrains Mono',monospace;font-size:0.62rem;
+  padding:4px 12px;letter-spacing:0.1em;
+}
+
+/* FLOW */
+.flow-steps{display:flex;flex-direction:column;gap:0;max-width:720px;}
+.flow-step{
+  display:grid;grid-template-columns:60px 1fr;gap:0 28px;
+  padding-bottom:40px;position:relative;
+}
+.flow-step:last-child{padding-bottom:0;}
+.flow-left{display:flex;flex-direction:column;align-items:center;}
+.flow-circle{
+  width:48px;height:48px;border:1px solid rgba(200,168,75,0.4);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:700;color:var(--gold);
+  background:var(--gold-dim);flex-shrink:0;
+}
+.flow-line{
+  width:1px;flex:1;
+  background:linear-gradient(to bottom,rgba(200,168,75,0.3),rgba(200,168,75,0.05));
+  margin:8px 0;
+}
+.flow-step:last-child .flow-line{display:none;}
+.flow-content{padding-top:10px;padding-bottom:8px;}
+.flow-tag{
+  font-family:'JetBrains Mono',monospace;font-size:0.62rem;
+  letter-spacing:0.15em;color:var(--gold);display:block;margin-bottom:6px;
+}
+.flow-title{font-size:1rem;font-weight:700;margin-bottom:8px;}
+.flow-text{font-size:0.83rem;color:var(--muted);line-height:1.9;}
+
+/* FEATURE HIGHLIGHT */
+.feature-box{
+  background:linear-gradient(135deg,rgba(200,168,75,0.08),rgba(200,168,75,0.02));
+  border:1px solid rgba(200,168,75,0.25);
+  border-radius:2px;padding:48px;
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  margin-top:60px;
+}
+@media(max-width:700px){.feature-box{grid-template-columns:1fr;gap:32px;padding:32px;}}
+
+.feature-box-title{
+  font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;
+  line-height:1.2;margin-bottom:16px;
+}
+.feature-box-title em{font-style:italic;color:var(--gold);}
+.feature-box-text{font-size:0.85rem;color:var(--muted);line-height:2;}
+.feature-metrics{display:flex;flex-direction:column;gap:20px;}
+.metric-item{
+  display:flex;align-items:baseline;gap:16px;
+  padding:16px 0;border-bottom:1px solid var(--border);
+}
+.metric-item:last-child{border-bottom:none;}
+.metric-num{
+  font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;
+  color:var(--gold2);line-height:1;white-space:nowrap;
+}
+.metric-unit{font-size:1rem;color:var(--gold);}
+.metric-label{font-size:0.78rem;color:var(--muted);}
+
+/* CTA SECTION */
+.cta-section{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:100px 60px;text-align:center;
+}
+@media(max-width:768px){.cta-section{padding:60px 20px;}}
+
+.cta-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:700;
+  margin-bottom:16px;line-height:1.2;
+}
+.cta-title em{font-style:italic;color:var(--gold);}
+.cta-sub{color:var(--muted);font-size:0.9rem;margin-bottom:48px;line-height:2;}
+.btn-gold{
+  background:var(--gold);color:var(--bg);
+  padding:16px 40px;font-size:0.85rem;font-weight:700;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;
+  text-decoration:none;display:inline-block;transition:all 0.25s;
+  margin:0 8px 16px;
+}
+.btn-gold:hover{background:var(--gold2);}
+.btn-outline{
+  background:transparent;border:1px solid rgba(255,255,255,0.2);
+  color:var(--text);padding:16px 40px;font-size:0.85rem;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;
+  text-decoration:none;display:inline-block;transition:all 0.25s;
+  margin:0 8px 16px;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);padding:48px 60px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+}
+@media(max-width:768px){footer{padding:40px 20px;flex-direction:column;text-align:center;}}
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;
+  letter-spacing:0.1em;color:var(--white);
+}
+.footer-logo span{color:var(--gold);}
+.footer-copy{font-size:0.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+
+/* ANIMATION */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.delay-1{transition-delay:0.1s;}
+.delay-2{transition-delay:0.2s;}
+.delay-3{transition-delay:0.3s;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">G<span>L</span>OCAL</a>
+  <a class="nav-back" href="index.html"><span>トップページに戻る</span></a>
+  <a class="nav-cta" href="index.html#contact">CONTACT</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:100px;">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-label">LOGISTICS SERVICE</div>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">GLOCAL</a>
+      <span>→ 物流事業</span>
+    </div>
+    <div class="hero-eyebrow">LOGISTICS</div>
+    <h1>海外発送を<br>もっと<em>スマート</em>に</h1>
+    <p class="hero-sub">
+      FedEx・DHL・EMS（国際郵便）を活用した海外発送サービス。
+      越境EC専門のノウハウで、複雑な国際配送をシンプルに、低コストで実現します。
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">FedEx</span>
+      <span class="hero-tag">DHL Express</span>
+      <span class="hero-tag">EMS / 国際郵便</span>
+      <span class="hero-tag">越境EC対応</span>
+      <span class="hero-tag">SLCN対応</span>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTH -->
+<div style="border-top:1px solid var(--border);">
+<div class="section">
+  <div class="sec-eyebrow reveal">STRENGTH</div>
+  <h2 class="sec-title reveal">グローカル物流の<br><em>4つの強み</em></h2>
+  <p class="sec-lead reveal">越境EC事業者として自ら海外発送を続けてきた実績と、そこから生まれた独自のノウハウが強みです。</p>
+
+  <div class="strength-grid reveal">
+    <div class="str-card">
+      <span class="str-num">01</span>
+      <span class="str-icon">⚡</span>
+      <div class="str-title">スピード発送</div>
+      <div class="str-text">毎日の発送オペレーションを自社で構築。注文から発送まで最短即日対応。FedEX・DHL・EMSの3キャリアから荷物の重さ・サイズ・行き先に応じて最適な手段を選択します。</div>
+    </div>
+    <div class="str-card">
+      <span class="str-num">02</span>
+      <span class="str-icon">💰</span>
+      <div class="str-title">コスト最適化</div>
+      <div class="str-text">長年の越境EC実縱による運賃交渉力と、発送ルートの最適化で低コストを実現。同じ荷物でも発送方法の選択で大きくコストが変わります。</div>
+    </div>
+    <div class="str-card">
+      <span class="str-num">03</span>
+      <span class="str-icon">📋</span>
+      <div class="str-title">通関・書類サポート</div>
+      <div class="str-text">インボイス・パッキングリスト・HSコード対応など、海外発送に必要な書類手続きをサポート。輸出入の規制や税関での問題も豊富な経験で対応します。</div>
+    </div>
+    <div class="str-card">
+      <span class="str-num">04</span>
+      <span class="str-icon">🤖</span>
+      <div class="str-title">DX・自動化対応</div>
+      <div class="str-text">送り状発行・トラッキング管理・CSV連携など、発送業務のDX化に積極対応。AIツールを活用した業務効率化で、ヒューマンエラーを最小化します。</div>
+    </div>
+  </div>
+
+  <!-- FEATURE BOX -->
+  <div class="feature-box reveal">
+    <div>
+      <div class="feature-box-title">自社越境EC事業と<em>同じノウハウ</em>で</div>
+      <p class="feature-box-text">
+        グローカルの物流事業は、自社のAmazon越境EC事業から生まれました。
+        毎日数十件の海外発送を自ら行い続けてきた実践知識がベース。
+        「使う側」の視点を持つからこそ、本当に役立つサービスを提供できます。
+      </p>
+    </div>
+    <div class="feature-metrics">
+      <div class="metric-item">
+        <div>
+          <div class="metric-num">3<span class="metric-unit">社</span></div>
+          <div class="metric-label">対応キャリア（FedEx/DHL/EMS）</div>
+        </div>
+      </div>
+      <div class="metric-item">
+        <div>
+          <div class="metric-num">50<span class="metric-unit">件+</span></div>
+          <div class="metric-label">毎日の発送実績（自社EC含む）</div>
+        </div>
+      </div>
+      <div class="metric-item">
+        <div>
+          <div class="metric-num">44<span class="metric-unit">期</span></div>
+          <div class="metric-label">事業継続年数・累積ノウハウ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CARRIERS -->
+<div class="carriers">
+<div class="section">
+  <div class="sec-eyebrow reveal">CARRIERS</div>
+  <h2 class="sec-title reveal">対応<em>キャリア</em></h2>
+  <p class="sec-lead reveal">荷物の大きさ・重量・目的地・予算に応じて最適なキャリアをご提案します。</p>
+
+  <div class="carrier-grid reveal">
+    <div class="carrier-card">
+      <div class="carrier-accent" style="background:#4d148c;"></div>
+      <span class="carrier-logo" style="color:#9b77cc;">FedEx</span>
+      <div class="carrier-name">フェデックス・エクスプレス</div>
+      <ul class="carrier-list">
+        <li>米国・欧州向け最速クラスの配送</li>
+        <li>IP優先サービス（特急）対応</li>
+        <li>追跡精度が高く、高額商品に最適</li>
+        <li>CSVによる送り状一括発行対応</li>
+        <li>署名オプション・保険対応</li>
+      </ul>
+      <span class="carrier-badge" style="background:rgba(77,20,140,0.15);color:#9b77cc;border:1px solid rgba(77,20,140,0.3);">HIGH PRIORITY</span>
+    </div>
+
+    <div class="carrier-card">
+      <div class="carrier-accent" style="background:#d40511;"></div>
+      <span class="carrier-logo" style="color:#e87070;">DHL</span>
+      <div class="carrier-name">DHL エクスプレス</div>
+      <ul class="carrier-list">
+        <li>220以上の国・地域へ配送可能</li>
+        <li>欧州・東南アジアへの強みあり</li>
+        <li>DHL Express Commerce対応</li>
+        <li>CSVインポートによる一括処理</li>
+        <li>コマーシャルインボイス自動生成</li>
+      </ul>
+      <span class="carrier-badge" style="background:rgba(212,5,17,0.1);color:#e87070;border:1px solid rgba(212,5,17,0.25);">GLOBAL REACH</span>
+    </div>
+
+    <div class="carrier-card">
+      <div class="carrier-accent" style="background:var(--gold);"></div>
+      <span class="carrier-logo" style="color:var(--gold2);">EMS</span>
+      <div class="carrier-name">国際郵便（EMS・SAL・小形包装物）</div>
+      <ul class="carrier-list">
+        <li>コスト重視の発送に最適</li>
+        <li>小型・軽量荷物に圧倒的なコスパ</li>
+        <li>国際郵便マイページ一括発行対応</li>
+        <li>SAL便・航空便・船便も対応</li>
+        <li>SLCN（SLCNアカウント）対応</li>
+      </ul>
+      <span class="carrier-badge" style="background:var(--gold-dim);color:var(--gold2);border:1px solid rgba(200,168,75,0.3);">COST EFFICIENT</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FLOW -->
+<div style="border-top:1px solid var(--border);">
+<div class="section">
+  <div class="sec-eyebrow reveal">HOW IT WORKS</div>
+  <h2 class="sec-title reveal">発送までの<em>流れ</em></h2>
+  <p class="sec-lead reveal">お問い合わせから発送完了まで、シンプルなフローでサポートします。</p>
+
+  <div class="flow-steps">
+    <div class="flow-step reveal">
+      <div class="flow-left">
+        <div class="flow-circle">1</div>
+        <div class="flow-line"></div>
+      </div>
+      <div class="flow-content">
+        <span class="flow-tag">STEP 01 — お問い合わせ</span>
+        <div class="flow-title">まずはご相談ください</div>
+        <div class="flow-text">発送内容（商品の種類・重量・サイズ・送り先国）をお知らせください。お問い合わせフォームまたはメールにてお気軽にご連絡ください。</div>
+      </div>
+    </div>
+    <div class="flow-step reveal delay-1">
+      <div class="flow-left">
+        <div class="flow-circle">2</div>
+        <div class="flow-line"></div>
+      </div>
+      <div class="flow-content">
+        <span class="flow-tag">STEP 02 — お見積り</span>
+        <div class="flow-title">最適なキャリアをご提案</div>
+        <div class="flow-text">FedEx・DHL・EMSの中から、コスト・スピード・信頼性のバランスを考慮した最適な発送方法をご提案します。比較見積もよも可能です。</div>
+      </div>
+    </div>
+    <div class="flow-step reveal delay-2">
+      <div class="flow-left">
+        <div class="flow-circle">3</div>
+        <div class="flow-line"></div>
+      </div>
+      <div class="flow-content">
+        <span class="flow-tag">STEP 03 — 発送準備</span>
+        <div class="flow-title">書類・送り状の作成</div>
+        <div class="flow-text">インボイス・パッキングリスト・送り状などの必要書類を作成します。HSコードの確認や税関申告書類の作成もサポートします。</div>
+      </div>
+    </div>
+    <div class="flow-step reveal delay-3">
+      <div class="flow-left">
+        <div class="flow-circle">4</div>
+      </div>
+      <div class="flow-content">
+        <span class="flow-tag">STEP 04 — 発送・追跡</span>
+        <div class="flow-title">発送完了・トラッキング</div>
+        <div class="flow-text">発送後はトラッキング番号をお知らせします。配送状況のモニタリングも対応。万が一の遅延・紛失の際も迅速に対応します。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2 class="cta-title reveal">海外発送、<em>一緒に</em>解決しましょう</h2>
+  <p class="cta-sub reveal">
+    物量・商品種別・送り先を問わず、まずはお気軽にご相談ください。<br>
+    見積もり・ご相談は無料です。
+  </p>
+  <div class="reveal">
+    <a class="btn-gold" href="index.html#contact">お問い合わせはこちら</a>
+    <a class="btn-outline" href="index.html">トップに戻る</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="index.html">G<span>L</span>OCAL</a>
+  <div class="footer-copy">© 2025 Glocal Inc. All rights reserved.</div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

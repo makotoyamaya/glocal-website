@@ -530,7 +530,7 @@ footer{
   <form class="contact-form reveal" onsubmit="handleSubmit(event)">
     <div class="form-row">
       <label class="form-label">お名前 *</label>
-      <input class="form-input" type="text" placeholder="山谷 真" required>
+      <input class="form-input" type="text" placeholder="山田 太郎" required>
     </div>
     <div class="form-row">
       <label class="form-label">会社名</label>
@@ -579,13 +579,43 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
 
-// フォーム送信（デモ）
+// フォーム送信（GAS連携）
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.form-submit');
-  btn.textContent = '送信しました！ありがとうございます ✓';
-  btn.style.background = '#2a7a4a';
+  const inputs = e.target.querySelectorAll('.form-input, .form-textarea');
+
+  btn.textContent = '送信中...';
   btn.disabled = true;
+
+  const data = {
+    name: inputs[0].value,
+    company: inputs[1].value,
+    email: inputs[2].value,
+    message: inputs[3].value
+  };
+
+  fetch('https://script.google.com/macros/s/AKfycbwuEqQF7ifwSsYtTdP3_cVgTCFdCJjg2Ldsp_Z-ky8fDeI8c7lNo2piyvLz1b1-HPrK/exec', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  })
+  .then(r => r.json())
+  .then(res => {
+    if (res.result === 'ok') {
+      btn.textContent = '送信しました！ありがとうございます';
+      btn.style.background = '#2a7a4a';
+      e.target.reset();
+    } else {
+      btn.textContent = '送信に失敗しました。もう一度お試しください。';
+      btn.style.background = '#c0392b';
+      btn.disabled = false;
+    }
+  })
+  .catch(() => {
+    btn.textContent = '送信に失敗しました。もう一度お試しください。';
+    btn.style.background = '#c0392b';
+    btn.disabled = false;
+  });
 }
 </script>
 </body>

@@ -22,6 +22,7 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+img{max-width:100%;height:auto;}
 
 html{scroll-behavior:smooth;color-scheme:light;}
 
@@ -62,8 +63,10 @@ nav{
 .nav-cta:hover{background:var(--accent2);}
 
 @media(max-width:768px){
-  nav{padding:0 20px;}
+  nav{padding:0 16px;height:56px;}
+  .nav-logo-img{height:30px;}
   .nav-links{display:none;}
+  .nav-cta{padding:8px 16px;font-size:0.75rem;}
 }
 
 /* ===== HERO ===== */
@@ -138,9 +141,13 @@ nav{
 .stat-label{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;}
 
 @media(max-width:768px){
-  .hero{padding:100px 20px 80px;}
+  .hero{padding:80px 20px 60px;min-height:auto;}
   .hero-num{display:none;}
-  .hero-stats{flex-wrap:wrap;gap:24px;margin-top:40px;
+  .hero h1{font-size:2rem;margin-bottom:20px;}
+  .hero-sub{font-size:0.9rem;margin-bottom:32px;}
+  .hero-actions{flex-direction:column;}
+  .hero-actions a{text-align:center;}
+  .hero-stats{flex-wrap:wrap;gap:24px;margin-top:32px;
     opacity:1;animation:none;}
 }
 
@@ -151,7 +158,8 @@ nav{
   display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
   max-width:1200px;margin:0 auto;
 }
-@media(max-width:900px){.philosophy{grid-template-columns:1fr;gap:40px;padding:80px 20px;}}
+@media(max-width:900px){.philosophy{grid-template-columns:1fr;gap:40px;padding:60px 20px;}}
+@media(max-width:768px){.phil-right{padding:28px 20px;}}
 
 .phil-left{}
 .phil-eyebrow{
@@ -265,7 +273,7 @@ nav{
 .about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 @media(max-width:900px){.about-inner{grid-template-columns:1fr;gap:40px;}}
 
-.company-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+.company-table{width:100%;border-collapse:collapse;font-size:0.88rem;table-layout:fixed;word-break:break-word;}
 .company-table tr{border-bottom:1px solid var(--border);}
 .company-table th{
   padding:16px 0;width:120px;color:var(--muted);
@@ -279,7 +287,11 @@ nav{
   padding:120px 60px;
   max-width:800px;margin:0 auto;text-align:center;
 }
-@media(max-width:768px){.contact{padding:80px 20px;}}
+@media(max-width:768px){
+  .contact{padding:60px 20px;}
+  .contact-sub{font-size:0.85rem;margin-bottom:32px;}
+  .contact-sub br{display:none;}
+}
 
 .contact-eyebrow{
   font-size:0.75rem;font-weight:700;

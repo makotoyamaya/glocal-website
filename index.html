@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社Glocal｜越境EC・物流・不動産・製菓</title>
+<meta name="description" content="株式会社Glocalは新潟発の多角経営企業。Amazon越境EC・海外物流・不動産・製菓・中古高級車の5事業を展開。創業44期、三方良しの精神で地域と世界を繋ぎます。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c;
+  --surface: #111114;
+  --surface2: #18181e;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8e6e0;
+  --muted: #68666e;
+  --gold: #c8a84b;
+  --gold2: #e8cc80;
+  --gold-dim: rgba(200,168,75,0.15);
+  --white: #f5f3ee;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:300;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 60px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,10,12,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:600;
+  letter-spacing:0.12em;color:var(--white);
+  text-decoration:none;
+}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:40px;list-style:none;}
+.nav-links a{
+  font-size:0.78rem;color:var(--muted);text-decoration:none;
+  letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{
+  background:transparent;border:1px solid var(--gold);
+  color:var(--gold);padding:8px 20px;font-size:0.75rem;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;
+  cursor:pointer;text-decoration:none;transition:all 0.25s;
+}
+.nav-cta:hover{background:var(--gold);color:var(--bg);}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:flex-end;
+  padding:0 60px 100px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 30%,rgba(200,168,75,0.06),transparent 60%),
+    radial-gradient(ellipse 60% 80% at 10% 80%,rgba(200,168,75,0.04),transparent 50%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,168,75,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,168,75,0.025) 1px,transparent 1px);
+  background-size:100px 100px;
+}
+.hero-num{
+  position:absolute;right:60px;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;font-size:20rem;font-weight:600;
+  color:rgba(200,168,75,0.04);line-height:1;letter-spacing:-0.05em;
+  pointer-events:none;user-select:none;
+}
+.hero-inner{position:relative;max-width:800px;}
+.hero-tag{
+  font-family:'JetBrains Mono',monospace;font-size:0.68rem;
+  letter-spacing:0.3em;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.8s ease 0.2s forwards;
+}
+.hero-tag::before{content:'';width:40px;height:1px;background:var(--gold);}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,8vw,7rem);
+  font-weight:700;line-height:1.0;
+  letter-spacing:-0.01em;margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.8s ease 0.4s forwards;
+}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{
+  font-size:1rem;color:var(--muted);max-width:520px;
+  line-height:2;margin-bottom:48px;
+  opacity:0;animation:fadeUp 0.8s ease 0.6s forwards;
+}
+.hero-actions{
+  display:flex;gap:16px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 0.8s ease 0.8s forwards;
+}
+.btn-primary{
+  background:var(--gold);color:var(--bg);
+  padding:14px 32px;font-size:0.82rem;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;
+  text-decoration:none;transition:all 0.25s;display:inline-block;
+  font-weight:700;
+}
+.btn-primary:hover{background:var(--gold2);}
+.btn-secondary{
+  background:transparent;border:1px solid rgba(255,255,255,0.2);
+  color:var(--text);padding:14px 32px;font-size:0.82rem;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;
+  text-decoration:none;transition:all 0.25s;display:inline-block;
+}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+.hero-stats{
+  position:absolute;bottom:100px;right:60px;
+  display:flex;gap:48px;
+  opacity:0;animation:fadeUp 0.8s ease 1s forwards;
+}
+.stat-item{text-align:right;}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;font-size:2.8rem;
+  font-weight:600;color:var(--white);line-height:1;
+  display:block;
+}
+.stat-num span{font-size:1.4rem;color:var(--gold);}
+.stat-label{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;
+  font-family:'JetBrains Mono',monospace;}
+
+@media(max-width:768px){
+  .hero{padding:0 20px 80px;}
+  .hero-num{display:none;}
+  .hero-stats{position:static;flex-wrap:wrap;gap:24px;margin-top:40px;
+    opacity:1;animation:none;}
+  .stat-item{text-align:left;}
+}
+
+/* ===== PHILOSOPHY ===== */
+.philosophy{
+  padding:120px 60px;
+  border-top:1px solid var(--border);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  max-width:1200px;margin:0 auto;
+}
+@media(max-width:900px){.philosophy{grid-template-columns:1fr;gap:40px;padding:80px 20px;}}
+
+.phil-left{}
+.phil-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.3em;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:20px;
+}
+.phil-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+.phil-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:700;
+  line-height:1.2;margin-bottom:24px;
+}
+.phil-title em{font-style:italic;color:var(--gold);}
+.phil-text{font-size:0.88rem;color:var(--muted);line-height:2.2;margin-bottom:20px;}
+
+.phil-right{
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:48px 40px;position:relative;overflow:hidden;
+}
+.phil-right::before{
+  content:'三方良し';
+  position:absolute;bottom:-20px;right:-10px;
+  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:700;
+  color:rgba(200,168,75,0.04);white-space:nowrap;pointer-events:none;
+}
+.sanpo-item{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:20px 0;border-bottom:1px solid var(--border);
+}
+.sanpo-item:last-child{border-bottom:none;}
+.sanpo-icon{
+  width:44px;height:44px;border:1px solid rgba(200,168,75,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;background:var(--gold-dim);
+}
+.sanpo-text{}
+.sanpo-title{font-weight:700;font-size:0.9rem;margin-bottom:4px;color:var(--gold2);}
+.sanpo-desc{font-size:0.8rem;color:var(--muted);line-height:1.8;}
+
+/* ===== SERVICES ===== */
+.services{
+  padding:0 60px 120px;
+  max-width:1200px;margin:0 auto;
+}
+@media(max-width:768px){.services{padding:0 20px 80px;}}
+
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.3em;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.sec-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:700;
+  margin-bottom:8px;
+}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sec-lead{color:var(--muted);font-size:0.88rem;margin-bottom:56px;max-width:500px;}
+
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:var(--border);
+}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr;}}
+
+.service-card{
+  background:var(--surface);padding:40px 32px;
+  position:relative;overflow:hidden;
+  transition:all 0.3s;text-decoration:none;color:inherit;
+  display:block;
+}
+.service-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s;
+}
+.service-card:hover{background:var(--surface2);}
+.service-card:hover::after{transform:scaleX(1);}
+.service-card.featured{background:linear-gradient(135deg,rgba(200,168,75,0.08),var(--surface));}
+.service-card.featured::before{
+  content:'★ FEATURED';
+  position:absolute;top:16px;right:16px;
+  font-family:'JetBrains Mono',monospace;font-size:0.58rem;
+  letter-spacing:0.15em;color:var(--gold);
+  background:rgba(200,168,75,0.1);padding:3px 8px;
+}
+
+.sc-num{
+  font-family:'JetBrains Mono',monospace;font-size:0.62rem;
+  color:var(--muted);letter-spacing:0.2em;margin-bottom:20px;display:block;
+}
+.sc-icon{font-size:2.2rem;margin-bottom:16px;display:block;}
+.sc-title{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
+.sc-desc{font-size:0.8rem;color:var(--muted);line-height:1.9;margin-bottom:20px;}
+.sc-link{
+  font-family:'JetBrains Mono',monospace;font-size:0.68rem;
+  color:var(--gold);letter-spacing:0.1em;
+  display:flex;align-items:center;gap:8px;
+}
+.sc-link::after{content:'→';}
+
+/* ===== ABOUT ===== */
+.about{
+  padding:120px 60px;
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+@media(max-width:768px){.about{padding:80px 20px;}}
+
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+@media(max-width:900px){.about-inner{grid-template-columns:1fr;gap:40px;}}
+
+.about-left{}
+.about-right{}
+
+.company-table{width:100%;border-collapse:collapse;font-size:0.83rem;}
+.company-table tr{border-bottom:1px solid var(--border);}
+.company-table th{
+  padding:14px 0;width:120px;color:var(--muted);
+  font-weight:400;text-align:left;vertical-align:top;
+  font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.05em;
+}
+.company-table td{padding:14px 0 14px 16px;color:var(--text);line-height:1.7;}
+
+/* ===== CONTACT ===== */
+.contact{
+  padding:120px 60px;
+  max-width:800px;margin:0 auto;text-align:center;
+}
+@media(max-width:768px){.contact{padding:80px 20px;}}
+
+.contact-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.3em;color:var(--gold);
+  display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;
+}
+.contact-eyebrow::before,.contact-eyebrow::after{content:'';flex:1;max-width:40px;height:1px;background:var(--gold);}
+.contact-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin-bottom:16px;
+}
+.contact-title em{font-style:italic;color:var(--gold);}
+.contact-sub{color:var(--muted);font-size:0.88rem;margin-bottom:48px;line-height:2;}
+
+.contact-form{text-align:left;}
+.form-row{margin-bottom:20px;}
+.form-label{
+  display:block;font-family:'JetBrains Mono',monospace;font-size:0.68rem;
+  letter-spacing:0.15em;color:var(--muted);margin-bottom:8px;
+}
+.form-input,.form-textarea{
+  width:100%;background:var(--surface);
+  border:1px solid var(--border);color:var(--text);
+  padding:14px 18px;font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;
+  transition:border-color 0.2s;outline:none;
+}
+.form-input:focus,.form-textarea:focus{border-color:var(--gold);}
+.form-textarea{height:140px;resize:vertical;}
+.form-submit{
+  width:100%;background:var(--gold);color:var(--bg);
+  border:none;padding:18px;font-size:0.88rem;font-weight:700;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.15em;
+  cursor:pointer;transition:background 0.25s;margin-top:8px;
+}
+.form-submit:hover{background:var(--gold2);}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid var(--border);
+  padding:48px 60px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+}
+@media(max-width:768px){footer{padding:40px 20px;flex-direction:column;text-align:center;}}
+
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;
+  letter-spacing:0.1em;color:var(--white);
+}
+.footer-logo span{color:var(--gold);}
+.footer-nav{display:flex;gap:32px;list-style:none;flex-wrap:wrap;}
+.footer-nav a{
+  font-size:0.75rem;color:var(--muted);text-decoration:none;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;transition:color 0.2s;
+}
+.footer-nav a:hover{color:var(--gold);}
+.footer-copy{font-size:0.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">G<span>L</span>OCAL</a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">理念</a></li>
+    <li><a href="#services">事業</a></li>
+    <li><a href="#about">会社概要</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">CONTACT</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-num">44</div>
+  <div class="hero-inner">
+    <div class="hero-tag">NIIGATA, JAPAN — EST. 1981</div>
+    <h1>世界と地域を<br><em>繋ぐ</em>企業</h1>
+    <p class="hero-sub">
+      新潟から世界へ。Amazon越境ECを起点に、物流・不動産・製菓・自動車まで——
+      多角経営で地域と世界に価値を届ける株式会社Glocalです。
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#services">事業内容を見る</a>
+      <a class="btn-secondary" href="#about">会社概要</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">44<span>期</span></span>
+        <div class="stat-label">YEARS OF HISTORY</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2.8<span>億</span></span>
+        <div class="stat-label">ANNUAL REVENUE</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5<span>事業</span></span>
+        <div class="stat-label">BUSINESS DOMAINS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="phil-left reveal">
+    <div class="phil-eyebrow">PHILOSOPHY</div>
+    <h2 class="phil-title">三方良しの<br><em>精神</em>で</h2>
+    <p class="phil-text">
+      売り手よし、買い手よし、世間よし——近江商人の伝統的な経営哲学を、
+      デジタルと物流が交差する現代のビジネスに活かしています。
+    </p>
+    <p class="phil-text">
+      代表の山谷は「挑戦」をスローガンに、できないではなく「今できることに挑戦しよう」という姿勢を大切にしています。
+      従業員の定着率の高さと、事業の多様性がその証明です。
+    </p>
+  </div>
+  <div class="phil-right reveal">
+    <div class="sanpo-item">
+      <div class="sanpo-icon">🤝</div>
+      <div class="sanpo-text">
+        <div class="sanpo-title">売り手よし</div>
+        <div class="sanpo-desc">持続可能で健全な利益を追求。従業員が誇りを持って働ける企業であること。</div>
+      </div>
+    </div>
+    <div class="sanpo-item">
+      <div class="sanpo-icon">💎</div>
+      <div class="sanpo-text">
+        <div class="sanpo-title">買い手よし</div>
+        <div class="sanpo-desc">顧客に本当の価値を提供する。品質と信頼で選ばれ続ける企業であること。</div>
+      </div>
+    </div>
+    <div class="sanpo-item">
+      <div class="sanpo-icon">🌏</div>
+      <div class="sanpo-text">
+        <div class="sanpo-title">世間よし</div>
+        <div class="sanpo-desc">地域社会への貢献と環境への配慮。ビジネスを通じて社会をより良くすること。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="border-top:1px solid var(--border);">
+<div class="services">
+  <div class="sec-eyebrow reveal">BUSINESS</div>
+  <h2 class="sec-title reveal"><em>5つ</em>の事業領域</h2>
+  <p class="sec-lead reveal">越境ECから物流、不動産、製菓、自動車まで——多角的に価値を創出します。</p>
+
+  <div class="services-grid reveal">
+    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
+      <span class="sc-num">01</span>
+      <span class="sc-icon">🚀</span>
+      <div class="sc-title">Amazon越境EC事業</div>
+      <p class="sc-desc">日本製品を世界へ。Amazon.comを主力に、米国・欧州市場向けの輸出販売を展開。独自のスクールで次世代の輸出事業者も育成。</p>
+      <div class="sc-link">詳細ページ準備中</div>
+    </a>
+
+    <a class="service-card featured" href="logistics.html">
+      <span class="sc-num">02</span>
+      <span class="sc-icon">📦</span>
+      <div class="sc-title">物流事業</div>
+      <p class="sc-desc">FedEx・DHL・EMSを活用した海外発送サービス。豊富な実績と自社ノウハウで、スピーディかつ低コストな国際配送を実現。</p>
+      <div class="sc-link">詳細を見る</div>
+    </a>
+
+    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
+      <span class="sc-num">03</span>
+      <span class="sc-icon">🏠</span>
+      <div class="sc-title">不動産事業</div>
+      <p class="sc-desc">新潟エリアを中心に古家を再生し、賃貸物件として運用。空き家問題の解決と地域活性化に貢献する不動産ポートフォリオを構築。</p>
+      <div class="sc-link">詳細ページ準備中</div>
+    </a>
+
+    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
+      <span class="sc-num">04</span>
+      <span class="sc-icon">🍪</span>
+      <div class="sc-title">製菓事業</div>
+      <p class="sc-desc">M&Aで取得した米粉クッキーブランドを展開。グルテンフリー・健康志向の市場に向けた高品質な製品を提供しています。</p>
+      <div class="sc-link">詳細ページ準備中</div>
+    </a>
+
+    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
+      <span class="sc-num">05</span>
+      <span class="sc-icon">🚗</span>
+      <div class="sc-title">中古高級車販売</div>
+      <p class="sc-desc">メルセデス・ベンツをはじめとした中古高級車の販売事業。代表の自動車整備資格と深い知識を活かした信頼できる車選びを。</p>
+      <div class="sc-link">詳細ページ準備中</div>
+    </a>
+
+    <div class="service-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:var(--gold-dim);cursor:default;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-style:italic;">挑戦</span>
+      <p style="font-size:0.78rem;color:var(--muted);text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;line-height:1.8;">
+        できない、ではなく<br>今できることに挑戦しよう
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-left reveal">
+      <div class="sec-eyebrow">COMPANY</div>
+      <h2 class="sec-title" style="margin-bottom:32px;">会社<em>概要</em></h2>
+      <table class="company-table">
+        <tr><th>篾名</th><td>株式会社Glocal（グローカル）</td></tr>
+        <tr><th>代表</th><td>代表取締役　山谷 真（やまや まこと）</td></tr>
+        <tr><th>設立</th><td>創業44期（5月末決算）</td></tr>
+        <tr><th>売上高</th><td>約2億8,000万円</td></tr>
+        <tr><th>所在地</th><td>新潟県新潟市南区</td></tr>
+        <tr><th>事業内容</th><td>越境EC / 物流 / 不動産 / 製菓 / 中古高級車販売</td></tr>
+        <tr><th>理念</th><td>三方良し — 売り手よし・買い手よし・世間よし</td></tr>
+      </table>
+    </div>
+    <div class="about-right reveal">
+      <div class="sec-eyebrow">MESSAGE</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;margin-bottom:24px;line-height:1.2;">
+        代表<em style="font-style:italic;color:var(--gold);">メッセージ</em>
+      </h3>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:2.2;margin-bottom:20px;">
+        赤字だった父の会社を引き継ぎ、今期で44期目を迎えました。
+        「できない」ではなく「今できることに挑戦しよう」——このスローガンのもと、
+        越境ECを起点に事業を多角化してきました。
+      </p>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:2.2;margin-bottom:20px;">
+        40代のこれからは、既存事業の深化と並行して、不動産事業への注力、
+        そして地域が難しいと感じるビジネスへの挑戦を続けていきます。
+        ビジネスは人と社会のためにあると信じています。
+      </p>
+      <p style="font-size:0.9rem;color:var(--text);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.05em;">
+        代表取締役　山谷 真
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-eyebrow reveal">CONTACT</div>
+  <h2 class="contact-title reveal">お<em>問い合わせ</em></h2>
+  <p class="contact-sub reveal">
+    事業に関するご相談、取材・メディアのお問い合わせなど、<br>
+    お気軽にご連絡ください。
+  </p>
+  <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <label class="form-label">お名前 *</label>
+      <input class="form-input" type="text" placeholder="山谷 真" required>
+    </div>
+    <div class="form-row">
+      <label class="form-label">会社名</label>
+      <input class="form-input" type="text" placeholder="株式会社〇〇">
+    </div>
+    <div class="form-row">
+      <label class="form-label">メールアドレス *</label>
+      <input class="form-input" type="email" placeholder="info@example.com" required>
+    </div>
+    <div class="form-row">
+      <label class="form-label">お喉い合わせ内容 *</label>
+      <textarea class="form-textarea" placeholder="ご用件をご記入ください。" required></textarea>
+    </div>
+    <button class="form-submit" type="submit">送信する →</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">G<span>L</span>OCAL</div>
+  <ul class="footer-nav">
+    <li><a href="#philosophy">理念</a></li>
+    <li><a href="#services">事業内容</a></li>
+    <li><a href="logistics.html">物流事業</a></li>
+    <li><a href="#about">会社概要</a></li>
+    <li><a href="#contact">お喉い合わせ</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Glocal Inc. All rights reserved.</div>
+</footer>
+
+<script>
+// スクロールアニメーション
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+
+// フォーム送信（デモ）
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '送信しました！ありがとうございます ✓';
+  btn.style.background = '#2a7a4a';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>

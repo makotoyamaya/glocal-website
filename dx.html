@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DX推進の取り組み｜株式会社Glocal</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="description" content="株式会社GlocalのDX推進の取り組み。AI・自動化技術を事業運営の大前提とし、越境ECを核としたグローバルビジネスで持続的な成長を実現します。経済産業省DX認定制度対応。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --surface: #f7f7f8;
+  --surface2: #eeeef0;
+  --border: rgba(0,0,0,0.08);
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --accent: #0066cc;
+  --accent2: #0052a3;
+  --accent-dim: rgba(0,102,204,0.08);
+  --white: #ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+img{max-width:100%;height:auto;}
+html{scroll-behavior:smooth;color-scheme:light;overflow-x:hidden;}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Noto Sans JP',sans-serif;font-weight:300;
+  line-height:1.8;overflow-x:hidden;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 60px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{text-decoration:none;}
+.nav-logo-img{height:40px;}
+.nav-back{
+  font-size:0.85rem;color:var(--muted);text-decoration:none;
+  display:flex;align-items:center;gap:8px;transition:color 0.2s;
+}
+.nav-back::before{content:'←';}
+.nav-back:hover{color:var(--accent);}
+.nav-cta{
+  background:var(--accent);border:none;
+  color:#fff;padding:10px 24px;font-size:0.8rem;
+  font-weight:700;border-radius:6px;
+  cursor:pointer;text-decoration:none;transition:all 0.25s;
+}
+.nav-cta:hover{background:var(--accent2);}
+@media(max-width:768px){
+  nav{padding:0 16px;height:56px;}
+  .nav-logo-img{height:30px;}
+  .nav-back span{display:none;}
+  .nav-cta{padding:8px 16px;font-size:0.75rem;}
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:60vh;display:flex;align-items:center;
+  padding:120px 60px 80px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#d0e0ff 0%,#e8f0ff 30%,#ffffff 60%,#fff0e0 100%);
+}
+.hero-inner{position:relative;max-width:720px;}
+.hero-eyebrow{
+  font-size:0.78rem;font-weight:700;
+  letter-spacing:0.2em;color:var(--accent);
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+}
+.hero-eyebrow::before{content:'';width:40px;height:2px;background:var(--accent);}
+.hero h1{
+  font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;
+  line-height:1.2;letter-spacing:0.02em;margin-bottom:24px;color:var(--text);
+}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:560px;line-height:2;margin-bottom:32px;}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;}
+.hero-tag{
+  background:var(--accent-dim);border:1px solid rgba(0,102,204,0.15);
+  color:var(--accent);padding:6px 16px;font-size:0.78rem;
+  font-weight:700;border-radius:6px;
+}
+@media(max-width:768px){
+  .hero{padding:80px 20px 60px;min-height:auto;}
+  .hero h1{font-size:2rem;}
+  .hero-sub{font-size:0.9rem;}
+}
+
+/* ===== HERO BANNER ===== */
+.hero-banner{width:100%;overflow:hidden;border-top:1px solid var(--border);}
+.hero-banner img{width:100%;height:280px;object-fit:cover;display:block;}
+@media(max-width:768px){.hero-banner img{height:180px;}}
+
+/* ===== SECTIONS ===== */
+.section{max-width:1200px;margin:0 auto;padding:100px 60px;}
+@media(max-width:768px){.section{padding:60px 20px;}}
+
+.sec-eyebrow{
+  font-size:0.75rem;font-weight:700;
+  letter-spacing:0.2em;color:var(--accent);
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.sec-eyebrow::before{content:'';width:28px;height:2px;background:var(--accent);}
+.sec-title{
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;
+  line-height:1.2;margin-bottom:12px;color:var(--text);
+}
+.sec-title em{font-style:normal;color:var(--accent);}
+.sec-lead{color:var(--muted);font-size:0.92rem;margin-bottom:52px;line-height:2;max-width:580px;}
+
+/* ===== VISION ===== */
+.vision-box{
+  background:var(--accent-dim);
+  border:1px solid rgba(0,102,204,0.15);
+  border-radius:16px;padding:48px;
+  position:relative;overflow:hidden;
+}
+.vision-box::before{
+  content:'DX';
+  position:absolute;bottom:-30px;right:-10px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:12rem;font-weight:700;
+  color:rgba(0,102,204,0.04);line-height:1;
+  pointer-events:none;user-select:none;
+}
+.vision-label{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.15em;
+  color:var(--accent);margin-bottom:16px;display:block;
+}
+.vision-text{
+  font-size:1.15rem;font-weight:700;line-height:1.8;
+  color:var(--text);margin-bottom:24px;
+}
+.vision-desc{font-size:0.88rem;color:var(--muted);line-height:2.2;}
+
+/* ===== STRATEGY CARDS ===== */
+.strategy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:700px){.strategy-grid{grid-template-columns:1fr;}}
+
+.strategy-card{
+  background:var(--white);padding:36px 28px;
+  border:1px solid var(--border);border-radius:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.03);
+  transition:all 0.3s;position:relative;overflow:hidden;
+}
+.strategy-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+.strategy-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;font-weight:700;color:rgba(0,102,204,0.1);
+  line-height:1;margin-bottom:12px;display:block;
+}
+.strategy-title{font-size:1.05rem;font-weight:700;margin-bottom:12px;color:var(--text);}
+.strategy-text{font-size:0.82rem;color:var(--muted);line-height:1.9;}
+
+/* ===== ORGANIZATION ===== */
+.org-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+@media(max-width:700px){.org-grid{grid-template-columns:1fr;gap:32px;}}
+
+.org-box{
+  background:var(--white);padding:36px 28px;
+  border:1px solid var(--border);border-radius:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.03);
+}
+.org-box-title{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.15em;
+  color:var(--accent);margin-bottom:20px;display:block;
+}
+.org-box h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:var(--text);}
+.org-box p{font-size:0.85rem;color:var(--muted);line-height:2.2;}
+
+/* ===== IT SYSTEM ===== */
+.it-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:700px){.it-grid{grid-template-columns:1fr;}}
+
+.it-card{
+  background:var(--white);padding:28px 24px;
+  border:1px solid var(--border);border-radius:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.03);
+}
+.it-icon{font-size:1.8rem;margin-bottom:12px;display:block;}
+.it-title{font-size:0.95rem;font-weight:700;margin-bottom:10px;color:var(--text);}
+.it-text{font-size:0.82rem;color:var(--muted);line-height:1.9;}
+
+/* ===== KPI ===== */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.kpi-grid{grid-template-columns:1fr;}}
+
+.kpi-card{
+  background:var(--white);padding:32px 24px;
+  border:1px solid var(--border);border-radius:16px;
+  text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.03);
+}
+.kpi-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem;font-weight:700;color:var(--accent);
+  line-height:1;margin-bottom:4px;display:block;
+}
+.kpi-unit{font-size:1rem;color:var(--accent);}
+.kpi-label{font-size:0.75rem;color:var(--muted);margin-bottom:8px;display:block;}
+.kpi-strategy{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.08em;
+  color:var(--accent);background:var(--accent-dim);
+  padding:3px 10px;border-radius:4px;display:inline-block;
+}
+
+/* ===== MESSAGE ===== */
+.message-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.message-inner{
+  max-width:800px;margin:0 auto;
+}
+.message-quote{
+  font-size:1.4rem;font-weight:900;line-height:1.5;
+  color:var(--text);margin-bottom:32px;
+  padding-left:24px;border-left:4px solid var(--accent);
+}
+.message-quote em{font-style:normal;color:var(--accent);}
+.message-body{font-size:0.88rem;color:var(--muted);line-height:2.4;margin-bottom:24px;}
+.message-body p{margin-bottom:20px;}
+.message-body p:last-child{margin-bottom:0;}
+.message-sign{
+  font-size:0.95rem;color:var(--text);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  letter-spacing:0.05em;margin-top:32px;
+}
+.message-date{
+  font-size:0.75rem;color:var(--muted);
+  font-family:'JetBrains Mono',monospace;margin-top:8px;
+}
+
+/* ===== CTA ===== */
+.cta-section{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:100px 60px;text-align:center;
+}
+@media(max-width:768px){.cta-section{padding:60px 20px;}}
+.cta-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:16px;line-height:1.3;}
+.cta-title em{font-style:normal;color:var(--accent);}
+.cta-sub{color:var(--muted);font-size:0.9rem;margin-bottom:48px;line-height:2;}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  padding:16px 36px;font-size:0.88rem;border-radius:8px;
+  text-decoration:none;transition:all 0.25s;display:inline-block;
+  font-weight:700;margin:0 8px 16px;
+}
+.btn-primary:hover{background:var(--accent2);}
+.btn-secondary{
+  background:transparent;border:2px solid var(--border);
+  color:var(--text);padding:16px 36px;font-size:0.88rem;border-radius:8px;
+  text-decoration:none;transition:all 0.25s;display:inline-block;
+  font-weight:700;margin:0 8px 16px;
+}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid var(--border);
+  padding:48px 60px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+}
+.footer-logo-img{height:36px;}
+.footer-copy{font-size:0.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.footer-links{display:flex;gap:24px;list-style:none;}
+.footer-links a{
+  font-size:0.72rem;color:var(--muted);text-decoration:none;
+  font-family:'JetBrains Mono',monospace;transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--accent);}
+@media(max-width:768px){
+  footer{padding:32px 20px;flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;flex-wrap:wrap;}
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="Glocal" class="nav-logo-img"></a>
+  <a class="nav-back" href="index.html"><span>トップページに戻る</span></a>
+  <a class="nav-cta" href="index.html#contact">お問い合わせ</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">DX — DIGITAL TRANSFORMATION</div>
+    <h1>AIを前提に、<br><em>挑戦</em>を加速する</h1>
+    <p class="hero-sub">
+      株式会社Glocalは、AI・デジタル技術を事業運営の大前提として、
+      越境ECを核としたグローバルビジネスの持続的成長を推進しています。
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">経済産業省 DX認定制度</span>
+      <span class="hero-tag">AI活用</span>
+      <span class="hero-tag">業務自動化</span>
+      <span class="hero-tag">越境EC</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO BANNER -->
+<div class="hero-banner">
+  <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&h=400&fit=crop&q=80" alt="デジタルトランスフォーメーション">
+</div>
+
+<!-- VISION: 設問(1) -->
+<div class="section">
+  <div class="sec-eyebrow reveal">VISION</div>
+  <h2 class="sec-title reveal">経営<em>ビジョン</em>とDXの方針</h2>
+  <p class="sec-lead reveal">デジタル技術をビジネスの前提と位置づけ、世界と地域をつなぐ価値を創出します。</p>
+
+  <div class="vision-box reveal">
+    <span class="vision-label">MANAGEMENT VISION</span>
+    <div class="vision-text">
+      世界と地域をつなぎ、AI・デジタル技術を事業運営の大前提として、<br>
+      越境ECを核としたグローバルビジネスで持続的な成長を実現する。
+    </div>
+    <div class="vision-desc">
+      <strong>ビジネスモデルの方向性</strong><br><br>
+      <strong>1. 越境EC事業の高度化</strong> — AI・自動化技術を活用し、仕入れ・出品・出荷の各プロセスを効率化。これまで数時間かかっていた業務をワンクリックで完了する仕組みを構築し、少人数で高い生産性を実現します。<br><br>
+      <strong>2. 地域からのグローバル展開</strong> — 新潟を拠点に、地域の商品や価値を海外市場へ届けることで地域経済に貢献します。<br><br>
+      <strong>3. AI活用支援の展開</strong> — 自社で培ったAI活用のノウハウを、地域の中小企業へ提供し、地方企業のデジタル変革を支援します。
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGY: 設問(2) -->
+<div style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+<div class="section">
+  <div class="sec-eyebrow reveal">STRATEGY</div>
+  <h2 class="sec-title reveal">DX<em>戦略</em></h2>
+  <p class="sec-lead reveal">4つの戦略で、デジタルを軸とした事業変革を推進します。</p>
+
+  <div class="strategy-grid reveal">
+    <div class="strategy-card">
+      <span class="strategy-num">01</span>
+      <div class="strategy-title">AI・自動化による越境ECオペレーションの変革</div>
+      <div class="strategy-text">
+        仕入れリサーチはAIエージェントが幅広いサイトを巡回し候補を抽出、最終判断を人間が行うハイブリッド体制を構築。出品説明文のAI生成、API連携による自社販売支援システムの開発、送り状発行のGAS＋Gemini APIによるワンクリック化など、各業務プロセスにAIとデータ活用を組み込み、少人数で高い生産性を実現しています。
+      </div>
+    </div>
+    <div class="strategy-card">
+      <span class="strategy-num">02</span>
+      <div class="strategy-title">業務ナレッジのスキル資産化</div>
+      <div class="strategy-text">
+        PC上で繰り返す業務をすべてClaude Coworkのスキルとして定義・蓄積し、成功事例の再現性を社内資産として構築。属人化を排し、誰でも同品質のアウトプットを出せる仕組みを1年以内に全業務へ展開します。
+      </div>
+    </div>
+    <div class="strategy-card">
+      <span class="strategy-num">03</span>
+      <div class="strategy-title">データ駆動型の経営管理体制の構築</div>
+      <div class="strategy-text">
+        販売管理のエコシステム化を進め、会計処理の自動化と月次決算の確実な実施を実現。経営データをリアルタイムに把握できる体制を整え、意思決定の質とスピードを高めます。
+      </div>
+    </div>
+    <div class="strategy-card">
+      <span class="strategy-num">04</span>
+      <div class="strategy-title">人員増なき売上倍増の実現</div>
+      <div class="strategy-text">
+        自社ECシステムの機能拡張と既存販路のAI活用強化により、現行の人員体制のまま売上倍増を目指します。社員自身もClaudeを活用したGAS開発で業務効率化を行えるレベルに成長しており、全社的なDX推進力を基盤とします。
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ORGANIZATION: 設問(2)① -->
+<div class="section">
+  <div class="sec-eyebrow reveal">ORGANIZATION</div>
+  <h2 class="sec-title reveal">推進<em>体制</em>と人材育成</h2>
+  <p class="sec-lead reveal">代表直轄のDX推進体制と、AI活用を基盤とした人材育成を両輪で推進しています。</p>
+
+  <div class="org-grid reveal">
+    <div class="org-box">
+      <span class="org-box-title">DX PROMOTION STRUCTURE</span>
+      <h3>DX推進体制</h3>
+      <p>
+        代表取締役 山谷真がDX推進の責任者として、戦略立案からツール選定・スキル設計・社員教育までを直轄で推進。少数精鋭の組織体制（役員2名・社員1名・パート1名）において、AI・デジタル技術が判断・テキスト生成・データ処理を担い、人間は検品・梱包・出荷など物理的作業に集中する明確な役割分担を確立しています。自社販売支援ツールの開発は外部システム開発パートナーと連携して行っています。
+      </p>
+    </div>
+    <div class="org-box">
+      <span class="org-box-title">HUMAN RESOURCE DEVELOPMENT</span>
+      <h3>人材育成</h3>
+      <p>
+        代表自らがAIを活用して研修資料を作成し、社員向けに実施。翌日にはAIで作成した振り返りドリルで定着度を確認する教育サイクルを運用しています。その結果、社員自身がClaudeを活用してGASによる業務自動化スクリプトを開発できるレベルに到達しており、全社員がDX推進の担い手として機能しています。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- IT SYSTEM: 設問(2)② -->
+<div style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+<div class="section">
+  <div class="sec-eyebrow reveal">IT INFRASTRUCTURE</div>
+  <h2 class="sec-title reveal">IT<em>システム</em>環境</h2>
+  <p class="sec-lead reveal">マルチAI環境とクラウド基盤を組み合わせ、少人数でも高い生産性を支えるIT環境を構築しています。</p>
+
+  <div class="it-grid reveal">
+    <div class="it-card">
+      <span class="it-icon">🤖</span>
+      <div class="it-title">AI基盤の整備</div>
+      <div class="it-text">
+        Claude（Desktop / claude.ai / Cowork / Chrome）、Gemini API、ChatGPTを業務目的に応じて使い分けるマルチAI環境を構築。社員にも有料アカウントを付与し、全社員がAIを日常業務で活用できる体制を整備しています。
+      </div>
+    </div>
+    <div class="it-card">
+      <span class="it-icon">📊</span>
+      <div class="it-title">業務システム・データ基盤</div>
+      <div class="it-text">
+        Google Workspaceをクラウド基盤とし、スプレッドシートとGASによるデータ管理・業務自動化基盤を運用。自社開発の販売支援ツールと連携し、仕入れから出品・受注・出荷・会計までのデータを一元管理するエコシステムを構築中。会計処理はMFクラウドを活用し、自動化による月次決算の確実な実施を目指しています。
+      </div>
+    </div>
+    <div class="it-card">
+      <span class="it-icon">🌍</span>
+      <div class="it-title">EC・物流連携</div>
+      <div class="it-text">
+        Amazon・eBay・Yahoo!オークション・メルカリの各プラットフォームとAPI連携。出荷業務は郵便局・FedEx・DHLの各キャリアサイトとGAS＋Gemini APIで連携し、CSV生成から送り状発行までをワンクリックで完了する仕組みを実現しています。
+      </div>
+    </div>
+    <div class="it-card">
+      <span class="it-icon">💬</span>
+      <div class="it-title">コミュニケーション基盤</div>
+      <div class="it-text">
+        Chatworkを10年以上にわたり活用。MCP連携により、未読メッセージの自動集約や朝礼レポートの自動生成など、情報共有の効率化を推進しています。
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- KPI: 設問(3) -->
+<div class="section">
+  <div class="sec-eyebrow reveal">KPI</div>
+  <h2 class="sec-title reveal">DX推進<em>指標</em></h2>
+  <p class="sec-lead reveal">4つの戦略に対応したKPIを設定し、DXの進捗を定量的に測定します。</p>
+
+  <div class="kpi-grid reveal">
+    <div class="kpi-card">
+      <span class="kpi-num">90<span class="kpi-unit">%</span></span>
+      <span class="kpi-label">送り状処理時間の削減率</span>
+      <span class="kpi-strategy">戦略1 対応</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-num">80<span class="kpi-unit">%</span></span>
+      <span class="kpi-label">業務スキル化完了率（1年以内）</span>
+      <span class="kpi-strategy">戦略2 対応</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-num">5<span class="kpi-unit">日</span></span>
+      <span class="kpi-label">月次決算完了（翌月営業日以内）</span>
+      <span class="kpi-strategy">戦略3 対応</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-num">1.2<span class="kpi-unit">倍</span></span>
+      <span class="kpi-label">販売処理件数（人員増なし）</span>
+      <span class="kpi-strategy">戦略4 対応</span>
+    </div>
+  </div>
+</div>
+
+<!-- CEO MESSAGE: 設問(4) -->
+<div class="message-section">
+<div class="section message-inner">
+  <div class="sec-eyebrow reveal">CEO MESSAGE</div>
+  <h2 class="sec-title reveal">経営者<em>メッセージ</em></h2>
+  <p class="sec-lead reveal">DX推進に関する代表取締役からのメッセージです。</p>
+
+  <div class="reveal">
+    <div class="message-quote">
+      「AIを前提に、世界と地域をつなぐ<em>挑戦</em>を加速する」
+    </div>
+
+    <div class="message-body">
+      <p>
+        私は起業して12年余り、インターネットをはじめとするデジタル技術があったからこそ、新潟から越境ECというビジネスを続けてくることができました。海外へ売るという事業の価値は変わりませんが、事業の進め方そのものは大きく変わってきています。
+      </p>
+      <p>
+        スプレッドシートの活用、自社ツールの開発、GASによる自動化を進めてきた中で、AI活用はもはや単なる手法ではなく、事業を進めるうえでの大前提になりました。かつて数時間かかっていた業務がワンクリックで完了し、技術の壁もAIのおかげで大幅に低くなっています。
+      </p>
+      <p>
+        これからは、自社で培ったAI活用のノウハウを社内に資産として蓄積しながら、その知見を地域の中小企業にも届けていきたいと考えています。「できない」ではなく「今できることに挑戦しよう」。この信念のもと、AIを武器に世界と地域をつなぐ挑戦を続けてまいります。
+      </p>
+    </div>
+
+    <div class="message-sign">代表取締役　山谷 真</div>
+    <div class="message-date">Published: 2026-03-26</div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2 class="cta-title reveal">DXに関する<em>ご相談</em>もお気軽に</h2>
+  <p class="cta-sub reveal">
+    AI活用や業務効率化に関するご質問、お問い合わせはこちらから。
+  </p>
+  <div class="reveal">
+    <a class="btn-primary" href="index.html#contact">お問い合わせはこちら</a>
+    <a class="btn-secondary" href="index.html">トップに戻る</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html"><img src="logo.png" alt="Glocal" class="footer-logo-img"></a>
+  <ul class="footer-links">
+    <li><a href="index.html">トップ</a></li>
+    <li><a href="logistics.html">物流事業</a></li>
+    <li><a href="dx.html">DX推進</a></li>
+    <li><a href="security-policy.html">セキュリティ方針</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Glocal Inc. All rights reserved.</div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

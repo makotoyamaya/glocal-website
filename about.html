@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沿革・代表紹介｜株式会社Glocal</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="description" content="株式会社Glocalの沿革と代表取締役 山谷真のプロフィール。1982年創業、電子回路設計から越境EC・物流・不動産へ。多業種の経験を活かし、新潟から世界へ価値を届けます。">
+<meta property="og:title" content="沿革・代表紹介｜株式会社Glocal">
+<meta property="og:description" content="1982年創業、44期の歴史。代表 山谷真の経歴と、メカトロデザインからGlocalへの歩み。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glocal.link/about.html">
+<meta property="og:site_name" content="株式会社Glocal">
+<link rel="canonical" href="https://glocal.link/about.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "株式会社Glocal",
+  "alternateName": ["Glocal Inc.", "グローカル"],
+  "url": "https://glocal.link",
+  "foundingDate": "1982-01-06",
+  "founder": {
+    "@type": "Person",
+    "name": "山谷 真",
+    "alternateName": "Makoto Yamaya",
+    "jobTitle": "代表取締役",
+    "alumniOf": [
+      {"@type": "EducationalOrganization", "name": "新潟国際自動車大学校"},
+      {"@type": "CollegeOrUniversity", "name": "慶應義塾大学経済学部"}
+    ],
+    "knowsAbout": ["越境EC", "Amazon輸出", "国際物流", "不動産投資", "DX推進"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "新飯田762",
+    "addressLocality": "新潟市南区",
+    "addressRegion": "新潟県",
+    "postalCode": "950-1455",
+    "addressCountry": "JP"
+  },
+  "numberOfEmployees": {"@type": "QuantitativeValue", "value": "10-50"},
+  "areaServed": ["JP", "US", "AU", "EU"],
+  "knowsAbout": ["越境EC", "Amazon FBA/FBM", "国際物流", "不動産賃貸", "EC教育"],
+  "description": "1982年創業。電子回路設計会社として出発し、現在はAmazon越境EC・海外物流・不動産・EC教育を展開する多角経営企業。延べ1,200人以上の教え子を輩出するSHiFT塾を運営。"
+}
+</script>
+
+<style>
+:root {
+  --bg: #ffffff;
+  --surface: #f7f7f8;
+  --surface2: #eeeef0;
+  --border: rgba(0,0,0,0.08);
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --accent: #0066cc;
+  --accent2: #0052a3;
+  --accent-dim: rgba(0,102,204,0.08);
+  --white: #ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+img{max-width:100%;height:auto;}
+html{scroll-behavior:smooth;color-scheme:light;overflow-x:hidden;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:300;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 60px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{text-decoration:none;}
+.nav-logo-img{height:40px;}
+.nav-links{display:flex;gap:40px;list-style:none;}
+.nav-links a{
+  font-size:0.95rem;color:var(--text);text-decoration:none;
+  letter-spacing:0.02em;font-weight:400;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{
+  background:var(--accent);border:none;
+  color:#fff;padding:10px 24px;font-size:0.8rem;
+  font-weight:700;border-radius:6px;
+  cursor:pointer;text-decoration:none;transition:all 0.25s;
+}
+.nav-cta:hover{background:var(--accent2);}
+
+/* Hamburger */
+.hamburger{
+  display:none;background:none;border:none;
+  cursor:pointer;padding:8px;margin-left:auto;margin-right:12px;
+  flex-direction:column;gap:5px;z-index:200;
+}
+.hamburger span{
+  display:block;width:22px;height:2px;
+  background:var(--text);border-radius:2px;
+  transition:all 0.3s;
+}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+@media(max-width:768px){
+  nav{padding:0 16px;height:56px;}
+  .nav-logo-img{height:30px;}
+  .hamburger{display:flex;}
+  .nav-links{
+    display:none;
+    position:fixed;top:56px;left:0;right:0;
+    background:rgba(255,255,255,0.98);
+    backdrop-filter:blur(20px);
+    flex-direction:column;gap:0;
+    padding:8px 0;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 8px 32px rgba(0,0,0,0.08);
+    z-index:99;
+    list-style:none;
+  }
+  .nav-links.open{display:flex;}
+  .nav-links li{}
+  .nav-links a{
+    display:block;
+    padding:14px 24px;
+    border-bottom:1px solid var(--border);
+    font-size:0.92rem;
+  }
+  .nav-links li:last-child a{border-bottom:none;}
+  .nav-cta{padding:8px 16px;font-size:0.75rem;}
+}
+
+/* ===== HERO ===== */
+.hero{
+  padding:140px 60px 80px;
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#d0e0ff 0%,#e8f0ff 30%,#ffffff 60%,#fff0e0 100%);
+}
+.hero-inner{max-width:800px;position:relative;}
+.hero-eyebrow{
+  font-size:0.78rem;font-weight:700;
+  letter-spacing:0.2em;color:var(--accent);
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.8s ease 0.2s forwards;
+}
+.hero-eyebrow::before{content:'';width:40px;height:2px;background:var(--accent);}
+.hero h1{
+  font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:900;line-height:1.3;
+  letter-spacing:0.02em;margin-bottom:20px;
+  opacity:0;animation:fadeUp 0.8s ease 0.4s forwards;
+}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{
+  font-size:1rem;color:var(--muted);max-width:600px;
+  line-height:2;
+  opacity:0;animation:fadeUp 0.8s ease 0.6s forwards;
+}
+
+@media(max-width:768px){
+  .hero{padding:100px 20px 60px;}
+  .hero h1{font-size:1.8rem;}
+  .hero-sub{font-size:0.9rem;}
+}
+
+/* ===== SECTION COMMON ===== */
+.sec-eyebrow{
+  font-size:0.75rem;font-weight:700;
+  letter-spacing:0.2em;color:var(--accent);
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.sec-eyebrow::before{content:'';width:28px;height:2px;background:var(--accent);}
+.sec-title{
+  font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;
+  margin-bottom:8px;color:var(--text);
+}
+.sec-title em{font-style:normal;color:var(--accent);}
+.sec-lead{color:var(--muted);font-size:0.92rem;margin-bottom:48px;max-width:600px;line-height:2;}
+
+/* ===== TIMELINE ===== */
+.timeline-section{
+  padding:100px 60px;
+  max-width:900px;margin:0 auto;
+  border-top:1px solid var(--border);
+}
+
+.timeline{
+  position:relative;
+  padding-left:40px;
+}
+.timeline::before{
+  content:'';position:absolute;
+  left:11px;top:8px;bottom:8px;
+  width:2px;background:var(--border);
+}
+
+.tl-item{
+  position:relative;
+  margin-bottom:8px;
+}
+.tl-item::before{
+  content:'';position:absolute;
+  left:-33px;top:18px;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--accent);
+  border:3px solid var(--bg);
+  box-shadow:0 0 0 2px var(--accent);
+  z-index:1;
+}
+
+.tl-accordion{
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--white);
+  transition:box-shadow 0.3s;
+}
+.tl-accordion:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06);}
+
+.tl-summary{
+  display:flex;align-items:center;gap:16px;
+  padding:20px 24px;
+  cursor:pointer;
+  list-style:none;
+  user-select:none;
+  transition:background 0.2s;
+}
+.tl-summary:hover{background:var(--surface);}
+.tl-summary::-webkit-details-marker{display:none;}
+
+.tl-year{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:700;
+  color:var(--accent);min-width:56px;
+  flex-shrink:0;
+}
+.tl-headline{
+  font-size:0.95rem;font-weight:700;color:var(--text);
+  flex:1;line-height:1.5;
+}
+.tl-arrow{
+  width:20px;height:20px;flex-shrink:0;
+  transition:transform 0.3s;
+  color:var(--muted);
+}
+details[open] .tl-arrow{transform:rotate(180deg);}
+
+.tl-detail{
+  padding:0 24px 24px 96px;
+  font-size:0.88rem;color:var(--muted);line-height:2;
+  border-top:1px solid var(--border);
+  animation:slideDown 0.3s ease;
+}
+.tl-detail p{margin-bottom:8px;}
+.tl-detail p:last-child{margin-bottom:0;}
+
+@media(max-width:768px){
+  .timeline-section{padding:60px 20px;}
+  .timeline{padding-left:28px;}
+  .timeline::before{left:7px;}
+  .tl-item::before{left:-24px;top:16px;width:8px;height:8px;}
+  .tl-summary{padding:16px 16px;gap:12px;flex-wrap:wrap;}
+  .tl-year{font-size:1.1rem;min-width:48px;}
+  .tl-headline{font-size:0.88rem;}
+  .tl-detail{padding:0 16px 20px 16px;}
+}
+
+/* ===== CEO PROFILE ===== */
+.profile-section{
+  padding:100px 60px;
+  background:var(--surface);
+  border-top:1px solid var(--border);
+}
+.profile-inner{
+  max-width:900px;margin:0 auto;
+}
+
+.profile-header{
+  display:grid;grid-template-columns:auto 1fr;gap:40px;
+  align-items:start;margin-bottom:48px;
+}
+.profile-avatar{
+  width:160px;height:160px;
+  border-radius:50%;
+  background:var(--accent-dim);
+  border:4px solid var(--white);
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3rem;font-weight:900;color:var(--accent);
+  font-family:'Cormorant Garamond',serif;
+  flex-shrink:0;
+}
+.profile-name-area{}
+.profile-name{
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  font-weight:900;margin-bottom:4px;
+}
+.profile-name-en{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;color:var(--muted);
+  font-style:italic;letter-spacing:0.05em;
+  margin-bottom:16px;
+}
+.profile-titles{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;
+}
+.profile-title-tag{
+  font-size:0.72rem;font-weight:700;
+  background:var(--accent-dim);color:var(--accent);
+  padding:4px 12px;border-radius:20px;
+  letter-spacing:0.03em;
+}
+.profile-intro{
+  font-size:0.92rem;color:var(--muted);line-height:2.2;
+}
+
+@media(max-width:768px){
+  .profile-section{padding:60px 20px;}
+  .profile-header{grid-template-columns:1fr;text-align:center;gap:24px;}
+  .profile-avatar{margin:0 auto;width:120px;height:120px;font-size:2.4rem;}
+  .profile-titles{justify-content:center;}
+}
+
+/* ===== PROFILE ACCORDION ===== */
+.profile-cards{
+  display:flex;flex-direction:column;gap:12px;
+  margin-bottom:48px;
+}
+
+.pf-accordion{
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--white);
+  transition:box-shadow 0.3s;
+}
+.pf-accordion:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06);}
+
+.pf-summary{
+  display:flex;align-items:center;gap:16px;
+  padding:20px 24px;
+  cursor:pointer;
+  list-style:none;
+  user-select:none;
+  transition:background 0.2s;
+}
+.pf-summary:hover{background:var(--surface);}
+.pf-summary::-webkit-details-marker{display:none;}
+
+.pf-icon{
+  width:40px;height:40px;
+  border-radius:10px;
+  background:var(--accent-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.pf-label{
+  font-size:0.95rem;font-weight:700;color:var(--text);
+  flex:1;
+}
+.pf-arrow{
+  width:20px;height:20px;flex-shrink:0;
+  transition:transform 0.3s;
+  color:var(--muted);
+}
+details[open] .pf-arrow{transform:rotate(180deg);}
+
+.pf-detail{
+  padding:0 24px 24px 80px;
+  font-size:0.88rem;color:var(--muted);line-height:2;
+  border-top:1px solid var(--border);
+  animation:slideDown 0.3s ease;
+}
+.pf-detail ul{
+  list-style:none;padding:0;
+}
+.pf-detail li{
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+}
+.pf-detail li:last-child{border-bottom:none;}
+.pf-detail .pf-year{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;color:var(--accent);
+  margin-right:12px;font-size:0.92rem;
+}
+.pf-detail .pf-role{font-weight:400;color:var(--text);}
+.pf-detail .pf-sub{display:block;color:var(--muted);font-size:0.82rem;margin-top:2px;}
+
+@media(max-width:768px){
+  .pf-summary{padding:16px 16px;gap:12px;}
+  .pf-detail{padding:0 16px 20px 16px;}
+}
+
+/* ===== MESSAGE ===== */
+.message-section{
+  padding:100px 60px;
+  max-width:800px;margin:0 auto;
+  border-top:1px solid var(--border);
+}
+.message-text{
+  font-size:0.95rem;color:var(--muted);line-height:2.4;
+  margin-bottom:20px;
+}
+.message-sign{
+  font-size:1rem;color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;letter-spacing:0.05em;
+  text-align:right;margin-top:32px;
+}
+
+@media(max-width:768px){
+  .message-section{padding:60px 20px;}
+  .message-text{font-size:0.88rem;}
+}
+
+/* ===== NUMBERS ===== */
+.numbers-section{
+  padding:80px 60px;
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.numbers-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+  text-align:center;
+}
+.num-item{}
+.num-value{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem;font-weight:700;
+  color:var(--text);line-height:1;
+  display:block;margin-bottom:8px;
+}
+.num-value span{font-size:1rem;color:var(--accent);font-weight:700;}
+.num-label{font-size:0.72rem;color:var(--muted);letter-spacing:0.1em;}
+
+@media(max-width:768px){
+  .numbers-section{padding:48px 20px;}
+  .numbers-inner{grid-template-columns:repeat(2,1fr);gap:24px;}
+  .num-value{font-size:2.2rem;}
+}
+
+/* ===== CTA ===== */
+.cta-section{
+  padding:80px 60px;
+  text-align:center;
+  max-width:600px;margin:0 auto;
+}
+.cta-title{
+  font-size:1.4rem;font-weight:900;margin-bottom:12px;
+}
+.cta-sub{font-size:0.88rem;color:var(--muted);margin-bottom:32px;line-height:2;}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  padding:16px 36px;font-size:0.88rem;
+  border-radius:8px;
+  text-decoration:none;transition:all 0.25s;display:inline-block;
+  font-weight:700;
+}
+.btn-primary:hover{background:var(--accent2);}
+
+@media(max-width:768px){
+  .cta-section{padding:60px 20px;}
+}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid var(--border);
+  padding:64px 60px 40px;
+}
+.footer-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:40px;margin-bottom:48px;
+}
+.footer-logo-img{height:36px;margin-bottom:16px;}
+.footer-tagline{font-size:0.9rem;color:var(--muted);line-height:1.8;}
+.footer-nav{display:flex;gap:32px;list-style:none;flex-wrap:wrap;padding-top:8px;}
+.footer-nav a{
+  font-size:0.88rem;color:var(--muted);text-decoration:none;
+  letter-spacing:0.03em;transition:color 0.2s;
+}
+.footer-nav a:hover{color:var(--accent);}
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.footer-copy{font-size:0.82rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+@media(max-width:768px){
+  footer{padding:40px 20px 32px;}
+  .footer-top{flex-direction:column;text-align:center;align-items:center;}
+  .footer-nav{justify-content:center;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-8px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="Glocal" class="nav-logo-img"></a>
+  <button class="hamburger" aria-label="メニューを開く" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open');">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html#philosophy">理念</a></li>
+    <li><a href="index.html#services">事業</a></li>
+    <li><a href="index.html#about">会社概要</a></li>
+    <li><a href="about.html" style="color:var(--accent);">沿革・代表紹介</a></li>
+    <li><a href="dx.html">DX推進</a></li>
+    <li><a href="index.html#contact">お問い合わせ</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html#contact">お問い合わせ</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">HISTORY & PROFILE</div>
+    <h1>挑戦の<em>軌跡</em></h1>
+    <p class="hero-sub">
+      1982年、電子回路設計の小さな会社として始まった物語。<br>
+      40年以上にわたり形を変えながら挑戦を続け、<br>
+      今、新潟から世界へ価値を届ける企業へ。
+    </p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="history">
+  <div class="sec-eyebrow reveal">HISTORY</div>
+  <h2 class="sec-title reveal">会社<em>沿革</em></h2>
+  <p class="sec-lead reveal">電子回路設計から越境EC、物流、不動産へ——時代に合わせて進化を続けてきた44年間の歩み。</p>
+
+  <div class="timeline reveal">
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="1982">1982</time>
+          <span class="tl-headline">株式会社メカトロデザインとして創業</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>昭和57年1月6日、新潟県三条市にて設立。電気制御機器・自動制御装置・電子回路の設計・製作・販売を主業務とする技術系企業として事業をスタート。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2011">2011</time>
+          <span class="tl-headline">eBayで海外販売を開始——越境ECの第一歩</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>代表の山谷がeBayアカウントを開設し、日本の商品を世界へ届ける越境ECに参入。「どこにいても世界とつながれる働き方」を模索する中での新たな挑戦。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2013">2013</time>
+          <span class="tl-headline">Amazon輸出（越境EC）事業を本格開始</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>Amazon.comを主力プラットフォームに、米国・欧州市場向けの輸出販売を本格展開。日本製品の品質と信頼を武器に、越境ECビジネスを拡大していく。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2017">2017</time>
+          <span class="tl-headline">SHiFT塾スタート / SLCN物流拠点を設立</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>東証上場企業 株式会社オークファンとの業務提携により、越境EC教育事業「SHiFT塾」を開講。同時に、個別配送代行の物流拠点「SLCN」を立ち上げ、海外個別発送事業を拡大。教育と物流、二つの柱が加わる転換点に。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2018">2018</time>
+          <span class="tl-headline">社名を「株式会社Glocal」に変更 / 米国拠点開設</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>事業領域の拡大に合わせ、「メカトロデザイン」から「Glocal（グローカル）」へ商号を変更。"Global × Local"——世界と地域を繋ぐ企業としての新たなアイデンティティを確立。</p>
+          <p>同年、米国向け発送拠点「SLC-US」を開設し、日米両拠点体制を確立。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2020">2020</time>
+          <span class="tl-headline">先代の事業を承継、3年でBS含め経営再建に成功</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>M&Aにより先代（父）の会社を事業承継。引き継ぎ時は赤字体質だったが、3年でPL・BSともに健全化し、黒字経営へ転換。本店を新潟市南区に移転。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2021">2021</time>
+          <span class="tl-headline">不動産賃貸業を開始 / 事業継続力強化計画 認定取得</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>新潟エリアを中心に古家を再生し、賃貸物件として運用する不動産賃貸事業をスタート。空き家問題の解決と地域活性化に貢献する、地域に明かりを灯していく新たな事業の柱。</p>
+          <p>同年、経済産業省「事業継続力強化計画」の認定を取得。中小企業の防災・減災に関する事前対策計画を策定し、事業の持続可能性を強化。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2022">2022</time>
+          <span class="tl-headline">自社ツール「Glocal Tool」をリリース</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>Amazon FBM出品者向けの自動価格改定ツール「Glocal Tool」米国版をリリース。新事業チャレンジ補助金の採択をもって開発を推進し、自社の越境ECノウハウをプロダクトとして昇華。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2024">2024</time>
+          <span class="tl-headline">「Glocal Tool AU」リリース——オーストラリア市場へ</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>自動価格改定ツールのオーストラリア版「Glocal Tool AU」をリリース。対応マーケットプレイスを米国からオセアニアへ拡大。</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="tl-item">
+      <details class="tl-accordion">
+        <summary class="tl-summary">
+          <time class="tl-year" datetime="2026">2026</time>
+          <span class="tl-headline">ワールドシフト株式会社と新体制のSHiFT塾を展開</span>
+          <svg class="tl-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="tl-detail">
+          <p>ワールドシフト株式会社との協業により、越境EC教育事業「SHiFT塾」を新体制で展開開始。開講以来20期以上、延べ1,200人を超える教え子を輩出。培ってきたノウハウを次世代へ継承し続ける。</p>
+        </div>
+      </details>
+    </article>
+
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers-section" aria-label="実績の数字">
+  <div class="numbers-inner reveal">
+    <div class="num-item">
+      <span class="num-value">44<span>期</span></span>
+      <div class="num-label">YEARS OF HISTORY</div>
+    </div>
+    <div class="num-item">
+      <span class="num-value">1,200<span>人+</span></span>
+      <div class="num-label">SHiFT塾 卒業生</div>
+    </div>
+    <div class="num-item">
+      <span class="num-value">17<span>カ国</span></span>
+      <div class="num-label">渡航40回以上</div>
+    </div>
+    <div class="num-item">
+      <span class="num-value">3<span>年</span></span>
+      <div class="num-label">事業承継→経営再建</div>
+    </div>
+  </div>
+</section>
+
+<!-- CEO PROFILE -->
+<section class="profile-section" id="ceo">
+  <div class="profile-inner">
+    <div class="sec-eyebrow reveal">CEO PROFILE</div>
+    <h2 class="sec-title reveal" style="margin-bottom:32px;">代表<em>紹介</em></h2>
+
+    <div class="profile-header reveal">
+      <div class="profile-avatar">MY</div>
+      <div class="profile-name-area">
+        <h3 class="profile-name">山谷 真</h3>
+        <div class="profile-name-en">Makoto Yamaya</div>
+        <div class="profile-titles">
+          <span class="profile-title-tag">株式会社Glocal 代表取締役</span>
+          <span class="profile-title-tag">SHiFT塾 副塾長</span>
+          <span class="profile-title-tag">SLCN 代表</span>
+          <span class="profile-title-tag">SLC-US 代表</span>
+        </div>
+        <p class="profile-intro">
+          日産自動車の研究開発職、飲食業での店長経験、アパレル企業での商品企画、上場企業での営業職——多様な業界で現場を経験した後、越境ECの世界へ。「どこにいても世界とつながれる働き方」を追い求め、Amazon・eBay輸出を起点にビジネスを構築。現在は物流・不動産・教育を含む多角経営を展開しながら、延べ1,200人を超える教え子にノウハウを伝え続けている。
+        </p>
+      </div>
+    </div>
+
+    <!-- Profile Accordions -->
+    <div class="profile-cards reveal">
+
+      <!-- 学歴 -->
+      <details class="pf-accordion">
+        <summary class="pf-summary">
+          <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg></div>
+          <span class="pf-label">学歴</span>
+          <svg class="pf-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="pf-detail">
+          <ul>
+            <li>
+              <span class="pf-role">高校2年次に大学入学資格検定（大検）を取得</span>
+            </li>
+            <li>
+              <span class="pf-role">新潟国際自動車大学校 卒業</span>
+              <span class="pf-sub">2年制課程修了。自動車整備士3級・車体整備士の資格を取得</span>
+            </li>
+            <li>
+              <span class="pf-role">慶應義塾大学 経済学部（社会人枠入学）</span>
+              <span class="pf-sub">社会人として働きながら入学。経済学・経営学を学ぶ</span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- 職歴 -->
+      <details class="pf-accordion">
+        <summary class="pf-summary">
+          <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M12 12v.01"/></svg></div>
+          <span class="pf-label">職歴</span>
+          <svg class="pf-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="pf-detail">
+          <ul>
+            <li>
+              <span class="pf-role">日産自動車株式会社 研究開発部門</span>
+              <span class="pf-sub">研究実験試作部 試作技術科にて勤務。ものづくりの最前線で技術力を磨く</span>
+            </li>
+            <li>
+              <span class="pf-role">飲食業界にて店長職</span>
+              <span class="pf-sub">レストラン・居酒屋・専門店で店長を経験。現場マネジメントと経営感覚を体得</span>
+            </li>
+            <li>
+              <span class="pf-role">アパレル企業にて商品担当</span>
+              <span class="pf-sub">海外ブランドを扱う企業で商品企画・仕入れを担当。目利き力とバイヤー経験を培う</span>
+            </li>
+            <li>
+              <span class="pf-role">上場企業にて営業職</span>
+              <span class="pf-sub">法人営業を経験。ビジネスの構造と顧客折衝力を習得</span>
+            </li>
+            <li>
+              <span class="pf-role">独立——越境ECの世界へ</span>
+              <span class="pf-sub">2011年にeBay、2013年にAmazon輸出を開始。以降、物流・不動産・教育へと事業を拡大</span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- 資格 -->
+      <details class="pf-accordion">
+        <summary class="pf-summary">
+          <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
+          <span class="pf-label">保有資格</span>
+          <svg class="pf-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="pf-detail">
+          <ul>
+            <li><span class="pf-role">自動車整備士 3級</span></li>
+            <li><span class="pf-role">車体整備士</span></li>
+            <li><span class="pf-role">大学入学資格検定（大検）</span></li>
+            <li><span class="pf-role">バーベキューインストラクター検定 ～上級～</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- 社会活動 -->
+      <details class="pf-accordion">
+        <summary class="pf-summary">
+          <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <span class="pf-label">社会活動</span>
+          <svg class="pf-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="pf-detail">
+          <ul>
+            <li>
+              <span class="pf-year">2015</span>
+              <span class="pf-role">白根青年会議所（JC）入会</span>
+            </li>
+            <li>
+              <span class="pf-year">2022</span>
+              <span class="pf-role">白根青年会議所 理事長</span>
+              <span class="pf-sub">地域リーダーとして組織を牽引</span>
+            </li>
+            <li>
+              <span class="pf-year">2023</span>
+              <span class="pf-role">日本青年会議所 国際グループ / 北陸信越地区新潟ブロック協議会 役員として出向</span>
+              <span class="pf-sub">国際交流・地区運営に貢献し、40歳で卒業</span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- 人物像 -->
+      <details class="pf-accordion">
+        <summary class="pf-summary">
+          <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <span class="pf-label">人物像</span>
+          <svg class="pf-arrow" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="pf-detail">
+          <ul>
+            <li>
+              <span class="pf-role">2010年、ハーレーダビッドソンで日本一周（約半年間）</span>
+              <span class="pf-sub">47都道府県すべてを走破。この旅が「地域と世界を繋ぐ」という現在の事業理念の原体験に</span>
+            </li>
+            <li>
+              <span class="pf-role">2021年末、真冬の北海道をハンターカブで最北端へ</span>
+              <span class="pf-sub">挑戦と冒険の精神。厳冬期の北海道をバイクで走破する行動力</span>
+            </li>
+            <li>
+              <span class="pf-role">海外渡航 17カ国・40回以上</span>
+              <span class="pf-sub">ビジネス・プライベートを通じて世界を体感。越境ECの現場感覚はこの経験が土台</span>
+            </li>
+            <li>
+              <span class="pf-role">フィンランド式薪サウナを自宅に設計・建設</span>
+              <span class="pf-sub">IKI（フィンランド製）薪ストーブを採用。2025年完成。やると決めたら自分で作る精神</span>
+            </li>
+            <li>
+              <span class="pf-role">高校時代にヤフーオークションで商売の原体験</span>
+              <span class="pf-sub">10代から「売る」ことへの興味を持ち、後の越境ECビジネスにつながる原点</span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="message-section" id="message">
+  <div class="sec-eyebrow reveal">MESSAGE</div>
+  <h2 class="sec-title reveal" style="margin-bottom:32px;">代表<em>メッセージ</em></h2>
+
+  <div class="reveal">
+    <p class="message-text">
+      私のスローガンは「挑戦」です。
+    </p>
+    <p class="message-text">
+      日産自動車でものづくりの現場を経験し、飲食・アパレル・営業と様々な業界を歩いてきました。その中で一つの確信を得ています。行動する前に自分自身にブレーキをかけるのではなく、今できることに一歩踏み込んで挑戦すること——それが、新しい環境へと自分を導いてくれるということです。
+    </p>
+    <p class="message-text">
+      2011年、eBayで初めて海外に商品が売れた時の感動は、今でも忘れません。新潟にいながら世界とつながれる。この可能性に賭けて越境ECの世界に飛び込み、2013年にはAmazon輸出を本格的に開始しました。
+    </p>
+    <p class="message-text">
+      2020年には父の会社を引き継ぎ、赤字体質だった経営をBS含め3年で立て直しました。越境EC・物流・不動産・教育と事業を広げてこられたのは、「できない」ではなく「今できることに挑戦しよう」と、常に一歩前へ踏み出してきたからだと思っています。
+    </p>
+    <p class="message-text">
+      SHiFT塾では延べ1,200人を超える方々にノウハウをお伝えしてきました。売り手よし、買い手よし、世間よし——「三方良し」の事業を進め、社業を充実させることこそ、地域がより良くなる一助になる。そう信じています。
+    </p>
+    <p class="message-text">
+      出来る限りの準備をし、できないではなく、いま出来ることに挑戦していく。会社を発展させ、地域に還元していく。これからも、地域が難しいと感じるビジネスにこそ挑戦し続けて参ります。
+    </p>
+    <div class="message-sign">
+      代表取締役　山谷 真
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="reveal">
+    <h2 class="cta-title">お気軽に<em style="font-style:normal;color:var(--accent);">ご相談</em>ください</h2>
+    <p class="cta-sub">
+      越境EC・物流・不動産に関するご相談、<br>
+      取材・講演のお問い合わせなど。
+    </p>
+    <a class="btn-primary" href="index.html#contact">お問い合わせ →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html"><img src="logo.png" alt="Glocal" class="footer-logo-img"></a>
+      <p class="footer-tagline">世界と地域を繋ぐ企業<br>新潟から世界へ。</p>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="index.html#philosophy">理念</a></li>
+      <li><a href="index.html#services">事業内容</a></li>
+      <li><a href="logistics.html">物流事業</a></li>
+      <li><a href="about.html">沿革・代表紹介</a></li>
+      <li><a href="dx.html">DX推進</a></li>
+      <li><a href="security-policy.html">セキュリティ方針</a></li>
+      <li><a href="index.html#contact">お問い合わせ</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Glocal Inc. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// スクロールアニメーション
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

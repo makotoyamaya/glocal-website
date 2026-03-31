@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
   <style>
     /* ===== CSS Variables ===== */
     :root {
@@ -332,6 +336,46 @@
       margin: 2rem 0;
     }
 
+    /* ===== flatpickr カスタム（土日祝を赤色表示） ===== */
+    .flatpickr-day.flatpickr-disabled,
+    .flatpickr-day.flatpickr-disabled:hover {
+      color: #e74c3c !important;
+      background: rgba(231,76,60,.08) !important;
+      text-decoration: line-through;
+    }
+    .flatpickr-calendar {
+      font-family: 'LINE Seed JP', -apple-system, sans-serif;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+    }
+    .flatpickr-day.selected {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
+
+    /* ===== お任せチェックボックス ===== */
+    .omakase-wrap {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: .6rem;
+      padding: .6rem .8rem;
+      background: var(--accent-light);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .omakase-wrap input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .omakase-label {
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
     /* ===== Phone Date Picker ===== */
     .phone-schedule {
       display: none;
@@ -596,16 +640,11 @@
   <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="header-logo">
+      <span class="header-logo">
         <img src="/logo.png" alt="Glocal">
-        <span class="header-logo-text" style="display:none">Glocal</span>
-      </a>
-      <a href="/" class="header-back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-        トップページへ
-      </a>
+      </span>
+      <!-- トップページリンク: HP完成後に復活 -->
+      <span></span>
     </div>
   </header>
 
@@ -789,7 +828,7 @@
               </div>
               <div class="schedule-slot">
                 <span class="slot-label">第1希望</span>
-                <input type="date" class="slot-date" id="date1">
+                <input type="text" class="slot-date" id="date1" placeholder="日付を選択" readonly>
                 <select class="slot-time" id="time1">
                   <option value="" disabled selected>時間</option>
                   <option value="09:00">9:00</option><option value="09:30">9:30</option>
@@ -804,7 +843,7 @@
               </div>
               <div class="schedule-slot">
                 <span class="slot-label">第2希望</span>
-                <input type="date" class="slot-date" id="date2">
+                <input type="text" class="slot-date" id="date2" placeholder="日付を選択" readonly>
                 <select class="slot-time" id="time2">
                   <option value="" disabled selected>時間</option>
                   <option value="09:00">9:00</option><option value="09:30">9:30</option>
@@ -819,7 +858,7 @@
               </div>
               <div class="schedule-slot">
                 <span class="slot-label">第3希望</span>
-                <input type="date" class="slot-date" id="date3">
+                <input type="text" class="slot-date" id="date3" placeholder="日付を選択" readonly>
                 <select class="slot-time" id="time3">
                   <option value="" disabled selected>時間</option>
                   <option value="09:00">9:00</option><option value="09:30">9:30</option>
@@ -832,8 +871,12 @@
                   <option value="16:00">16:00</option><option value="16:30">16:30</option>
                 </select>
               </div>
+              <label class="omakase-wrap">
+                <input type="checkbox" id="timeOmakase">
+                <span class="omakase-label">時間帯はお任せ（営業時間内で調整します）</span>
+              </label>
               <p class="phone-schedule-hint">
-                ※ 土日祝日はお選びいただけません。ご都合が合わない場合は、メールにて調整させていただきます。
+                ※ <span style="color:#e74c3c;font-weight:700">赤色の日付</span>は定休日（土日祝）です。平日のみお選びいただけます。
               </p>
             </div>
 
@@ -889,7 +932,7 @@
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="footer-logo"><img src="/logo.png" alt="Glocal" style="height:24px;width:auto;display:inline-block;filter:brightness(0) invert(1);margin-bottom:.3rem"></div>
-    <p>株式会社Glocal &nbsp;|&nbsp; <a href="/">トップページへ戻る</a></p>
+    <p>株式会社Glocal</p>
     <p style="margin-top:.5rem">&copy; 2026 Glocal Inc. All rights reserved.</p>
   </footer>
 
@@ -907,7 +950,7 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // ----- Phone Schedule: 表示切替 + 日付制御 -----
+    // ----- Phone Schedule: 表示切替 + flatpickrカレンダー -----
     const phoneSchedule = document.getElementById('phoneSchedule');
     const radioPhone = document.getElementById('radioPhone');
     const contactRadios = document.querySelectorAll('input[name="contactMethod"]');
@@ -918,7 +961,7 @@
       });
     });
 
-    // 土日祝日を選択不可にする
+    // 2026年 日本の祝日
     const holidays2026 = [
       '2026-01-01','2026-01-12','2026-02-11','2026-02-23',
       '2026-03-20','2026-04-29','2026-05-03','2026-05-04',
@@ -927,28 +970,50 @@
       '2026-11-23'
     ];
 
-    function isHolidayOrWeekend(dateStr) {
-      if (holidays2026.includes(dateStr)) return true;
-      const d = new Date(dateStr + 'T00:00:00');
-      const day = d.getDay();
-      return day === 0 || day === 6;
-    }
-
-    // 最小日 = 明日
+    // flatpickr: 土日祝を無効化 + 赤色表示 + 過去日不可
     function getTomorrow() {
       const d = new Date();
       d.setDate(d.getDate() + 1);
       return d.toISOString().split('T')[0];
     }
 
-    const dateInputs = document.querySelectorAll('.slot-date');
-    dateInputs.forEach(input => {
-      input.min = getTomorrow();
-      // 日付変更時に土日祝チェック
-      input.addEventListener('change', function() {
-        if (isHolidayOrWeekend(this.value)) {
-          alert('土日祝日はお選びいただけません。平日をお選びください。');
-          this.value = '';
+    const fpConfig = {
+      locale: 'ja',
+      dateFormat: 'Y-m-d',
+      altInput: true,
+      altFormat: 'Y年n月j日（D）',
+      minDate: getTomorrow(),
+      disableMobile: false,
+      disable: [
+        function(date) {
+          // 土日を無効化
+          const day = date.getDay();
+          if (day === 0 || day === 6) return true;
+          // 祝日を無効化
+          const y = date.getFullYear();
+          const m = String(date.getMonth() + 1).padStart(2, '0');
+          const d = String(date.getDate()).padStart(2, '0');
+          return holidays2026.includes(y + '-' + m + '-' + d);
+        }
+      ]
+    };
+
+    // 3つの日付入力にflatpickrをアタッチ
+    flatpickr('#date1', fpConfig);
+    flatpickr('#date2', fpConfig);
+    flatpickr('#date3', fpConfig);
+
+    // 「時間帯はお任せ」チェックボックス
+    const timeOmakase = document.getElementById('timeOmakase');
+    const timeSelects = document.querySelectorAll('.slot-time');
+    timeOmakase.addEventListener('change', () => {
+      timeSelects.forEach(sel => {
+        sel.disabled = timeOmakase.checked;
+        if (timeOmakase.checked) {
+          sel.value = '';
+          sel.style.opacity = '0.4';
+        } else {
+          sel.style.opacity = '1';
         }
       });
     });
@@ -993,14 +1058,15 @@
           msgError.style.display = 'block';
           return;
         }
+        const isOmakase = document.getElementById('timeOmakase').checked;
         const slots = [];
         for (let i = 1; i <= 3; i++) {
           const d = document.getElementById('date' + i).value;
-          const t = document.getElementById('time' + i).value;
-          if (d && t) slots.push('第' + i + '希望: ' + d + ' ' + t);
+          const t = isOmakase ? 'お任せ' : document.getElementById('time' + i).value;
+          if (d) slots.push('第' + i + '希望: ' + d + (t ? ' ' + t : ''));
         }
         if (slots.length === 0) {
-          msgError.textContent = '電話相談をご希望の場合は、候補日時を1つ以上お選びください。';
+          msgError.textContent = '電話相談をご希望の場合は、候補日を1つ以上お選びください。';
           msgError.style.display = 'block';
           return;
         }

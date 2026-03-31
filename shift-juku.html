@@ -1023,38 +1023,12 @@
       submitBtn.textContent = '送信中...';
 
       try {
-        // ===== Hidden Form + iframe 方式（GAS Web App最確実） =====
-        await new Promise((resolve, reject) => {
-          const iframe = document.createElement('iframe');
-          iframe.name = 'gas_submit_frame_' + Date.now();
-          iframe.style.display = 'none';
-          document.body.appendChild(iframe);
-
-          const hiddenForm = document.createElement('form');
-          hiddenForm.method = 'POST';
-          hiddenForm.action = GAS_URL;
-          hiddenForm.target = iframe.name;
-
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = 'payload';
-          input.value = JSON.stringify(payload);
-          hiddenForm.appendChild(input);
-          document.body.appendChild(hiddenForm);
-
-          let resolved = false;
-          iframe.onload = () => {
-            if (!resolved) { resolved = true; resolve(); }
-          };
-          setTimeout(() => {
-            if (!resolved) { resolved = true; resolve(); }
-          }, 5000);
-
-          hiddenForm.submit();
-
-          setTimeout(() => {
-            try { hiddenForm.remove(); iframe.remove(); } catch(_){}
-          }, 8000);
+        // ===== fetch (no-cors) — PC・スマホ・LINEブラウザ実績あり =====
+        await fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
         });
 
         form.reset();

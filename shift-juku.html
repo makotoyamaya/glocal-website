@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料相談会 お申し込み | Shift塾 – 株式会社Glocal</title>
+  <meta name="description" content="Shift塾の無料相談会にお申し込みいただけます。Amazon越境ECや物販ビジネスについて、担当者が丁寧にお答えします。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --accent:      #0066cc;
+      --accent-dark: #004fa3;
+      --accent-light:#e8f0fb;
+      --text:        #1a1a1a;
+      --text-sub:    #555;
+      --bg:          #ffffff;
+      --surface:     #f7f7f8;
+      --border:      #e0e0e3;
+      --success:     #1a7a4a;
+      --error:       #c0392b;
+      --radius:      8px;
+      --shadow:      0 2px 16px rgba(0,0,0,.07);
+      --transition:  .25s ease;
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== Simple Header ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+    }
+    .header-logo img { height: 28px; width: auto; }
+    .header-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .04em;
+    }
+    .header-back {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .header-back:hover { color: var(--accent); text-decoration: none; }
+    .header-back svg { width: 16px; height: 16px; }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(135deg, #f0f5ff 0%, var(--surface) 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(0,102,204,.05);
+    }
+    .hero-label {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      padding: .3rem .9rem;
+      border-radius: 100px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .hero h1 span {
+      color: var(--accent);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      font-weight: 600;
+      display: block;
+    }
+    .hero-desc {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: var(--text-sub);
+      font-size: .95rem;
+      line-height: 1.9;
+    }
+
+    /* ===== Flow Cards ===== */
+    .flow-section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .flow-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      position: relative;
+    }
+    .flow-card::after {
+      content: '';
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid var(--border);
+    }
+    .flow-card:last-child::after { display: none; }
+    .flow-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: .08em;
+      margin-bottom: .4rem;
+    }
+    .flow-card-icon {
+      margin: .4rem auto .8rem;
+      width: 40px; height: 40px;
+    }
+    .flow-card-title { font-size: .9rem; font-weight: 700; }
+    .flow-card-sub { font-size: .78rem; color: var(--text-sub); margin-top: .3rem; }
+
+    /* ===== Form Section ===== */
+    .form-section {
+      padding: 2rem 2rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .14em;
+      color: var(--accent);
+      font-weight: 600;
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+    }
+    .form-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+    .form-group {
+      margin-bottom: 1.8rem;
+    }
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .6rem;
+    }
+    .badge-required {
+      font-size: .65rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+      padding: .1rem .5rem;
+      border-radius: 4px;
+      letter-spacing: .04em;
+    }
+    .badge-optional {
+      font-size: .65rem;
+      font-weight: 700;
+      background: var(--surface);
+      color: var(--text-sub);
+      border: 1px solid var(--border);
+      padding: .1rem .5rem;
+      border-radius: 4px;
+      letter-spacing: .04em;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,102,204,.12);
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: #bbb; }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .8rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.8;
+    }
+    .form-hint {
+      font-size: .78rem;
+      color: var(--text-sub);
+      margin-top: .4rem;
+    }
+
+    /* ===== Radio Group ===== */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .radio-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .9rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .radio-item:hover { border-color: var(--accent); background: var(--accent-light); }
+    .radio-item input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: border-color var(--transition);
+      position: relative;
+    }
+    .radio-item input[type="radio"]:checked {
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: inset 0 0 0 3px #fff;
+    }
+    .radio-item:has(input:checked) {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .radio-label-wrap { flex: 1; }
+    .radio-label-main { font-size: .93rem; font-weight: 500; }
+    .radio-label-sub { font-size: .78rem; color: var(--text-sub); margin-top: .15rem; }
+    .radio-badge-coming {
+      font-size: .68rem;
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffc107;
+      padding: .1rem .5rem;
+      border-radius: 100px;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+
+    /* ===== Divider ===== */
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ===== Submit Button ===== */
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      letter-spacing: .04em;
+    }
+    .btn-submit:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0,102,204,.3);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .btn-submit svg { width: 20px; height: 20px; }
+
+    /* ===== Messages ===== */
+    .msg-success,
+    .msg-error {
+      display: none;
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius);
+      margin-top: 1.5rem;
+      font-size: .93rem;
+    }
+    .msg-success {
+      background: #e8f7ef;
+      border: 1px solid #a3d9b8;
+      color: var(--success);
+    }
+    .msg-error {
+      background: #fdf0ef;
+      border: 1px solid #f5c4c0;
+      color: var(--error);
+    }
+
+    /* ===== Privacy Note ===== */
+    .privacy-note {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--text-sub);
+      margin-top: 1.2rem;
+      line-height: 1.7;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      background: var(--text);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: .8rem;
+    }
+    .site-footer a {
+      color: rgba(255,255,255,.6);
+      text-decoration: underline;
+    }
+    .site-footer a:hover { color: #fff; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: .6rem;
+      letter-spacing: .06em;
+    }
+
+    /* ===== Scroll Reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .flow-grid {
+        grid-template-columns: 1fr;
+        gap: .5rem;
+      }
+      .flow-card::after { display: none; }
+      .form-card { padding: 1.6rem 1.2rem; }
+      .header-logo-text { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="header-logo">
+        <img src="/logo.png" alt="Glocal">
+        <span class="header-logo-text">Glocal</span>
+      </a>
+      <a href="/" class="header-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        トップページへ
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <span class="hero-label">SHIFT JUKU — FREE CONSULTATION</span>
+    <h1>
+      入塾前に、なんでも聞いてください。
+      <span>Shift塾 無料相談会</span>
+    </h1>
+    <p class="hero-desc">
+      「説明会を聞いたけど、もう少し詳しく知りたい」「自分に合うか不安」<br>
+      そんな方のために、担当者が個別にお答えする無料相談会をご用意しました。<br>
+      お気軽にお申し込みください。
+    </p>
+  </section>
+
+  <!-- ===== Flow ===== -->
+  <section class="flow-section">
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <div class="flow-num">STEP 01</div>
+        <svg class="flow-card-icon" viewBox="0 0 40 40" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="6" width="24" height="28" rx="2"/>
+          <line x1="14" y1="14" x2="26" y2="14"/>
+          <line x1="14" y1="20" x2="26" y2="20"/>
+          <line x1="14" y1="26" x2="20" y2="26"/>
+        </svg>
+        <div class="flow-card-title">フォーム送信</div>
+        <div class="flow-card-sub">このページから申し込み</div>
+      </div>
+      <div class="flow-card reveal reveal-delay-1">
+        <div class="flow-num">STEP 02</div>
+        <svg class="flow-card-icon" viewBox="0 0 40 40" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 10h24v22H8z" rx="2"/>
+          <polyline points="8,10 20,22 32,10"/>
+        </svg>
+        <div class="flow-card-title">自動返信メール</div>
+        <div class="flow-card-sub">受付完了メールが届きます</div>
+      </div>
+      <div class="flow-card reveal reveal-delay-2">
+        <div class="flow-num">STEP 03</div>
+        <svg class="flow-card-icon" viewBox="0 0 40 40" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6h20v4H10zM6 10h28v4H6z" opacity=".3"/>
+          <path d="M8 14h24l-2 20H10L8 14z"/>
+          <path d="M16 20a4 4 0 0 0 8 0"/>
+        </svg>
+        <div class="flow-card-title">担当者よりご連絡</div>
+        <div class="flow-card-sub">1〜2営業日以内に返信</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Form ===== -->
+  <section class="form-section">
+    <div class="section-header reveal">
+      <span class="section-label">APPLICATION FORM</span>
+      <h2 class="section-title">相談会 お申し込みフォーム</h2>
+    </div>
+
+    <div class="form-card reveal">
+      <form id="consultationForm" novalidate>
+
+        <!-- お名前 -->
+        <div class="form-group">
+          <label class="form-label" for="name">
+            お名前
+            <span class="badge-required">必須</span>
+          </label>
+          <input class="form-input" type="text" id="name" name="name"
+            placeholder="山谷 真" autocomplete="name" required>
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス
+            <span class="badge-required">必須</span>
+          </label>
+          <input class="form-input" type="email" id="email" name="email"
+            placeholder="example@email.com" autocomplete="email" required>
+          <p class="form-hint">ご返信に使用します。受信できるアドレスをご記入ください。</p>
+        </div>
+
+        <!-- 電話番号 -->
+        <div class="form-group">
+          <label class="form-label" for="phone">
+            電話番号
+            <span class="badge-optional">任意</span>
+          </label>
+          <input class="form-input" type="tel" id="phone" name="phone"
+            placeholder="090-0000-0000" autocomplete="tel">
+          <p class="form-hint">電話・LINEでのご相談を希望される場合はご記入ください。</p>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- ご職業 -->
+        <div class="form-group">
+          <label class="form-label">
+            現在のご職業
+            <span class="badge-required">必須</span>
+          </label>
+          <select class="form-select" id="job" name="job" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="会社員">会社員</option>
+            <option value="主婦・主夫">主婦・主夫</option>
+            <option value="フリーランス">フリーランス</option>
+            <option value="個人事業主">個人事業主</option>
+            <option value="経営者">経営者</option>
+            <option value="学生">学生</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <!-- Amazon・物販経験 -->
+        <div class="form-group">
+          <label class="form-label">
+            Amazon・物販の経験
+            <span class="badge-required">必須</span>
+          </label>
+          <div class="radio-group" id="experienceGroup">
+            <label class="radio-item">
+              <input type="radio" name="experience" value="未経験">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">未経験</div>
+                <div class="radio-label-sub">物販・ECは初めて。これから始めたい。</div>
+              </div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="experience" value="少しある（副業程度）">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">少しある（副業程度）</div>
+                <div class="radio-label-sub">メルカリ・国内Amazon等を試したことがある。</div>
+              </div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="experience" value="経験あり（現在進行中）">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">経験あり（現在進行中）</div>
+                <div class="radio-label-sub">すでに取り組んでいるが、さらにスケールしたい。</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- ご相談方法 -->
+        <div class="form-group">
+          <label class="form-label">
+            ご希望の相談方法
+            <span class="badge-required">必須</span>
+          </label>
+          <div class="radio-group" id="contactMethodGroup">
+            <label class="radio-item">
+              <input type="radio" name="contactMethod" value="メールで質問を送りたい">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">
+                  <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                  メールで質問を送りたい
+                </div>
+                <div class="radio-label-sub">フォーム下の「ご質問・相談内容」に事前にまとめて送付。担当者が回答します。</div>
+              </div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="contactMethod" value="電話で相談したい">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">
+                  <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 9.81a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  電話で相談したい
+                </div>
+                <div class="radio-label-sub">担当者から折り返しお電話します。上記に電話番号をご記入ください。</div>
+              </div>
+            </label>
+            <label class="radio-item" style="opacity:.6;pointer-events:none;">
+              <input type="radio" name="contactMethod" value="LINEで相談したい" disabled>
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">
+                  <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  LINEで相談したい
+                  <span class="radio-badge-coming">近日開設予定</span>
+                </div>
+                <div class="radio-label-sub">現在準備中です。開設後にご利用いただけます。</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- ご質問・相談内容 -->
+        <div class="form-group">
+          <label class="form-label" for="message">
+            ご質問・相談内容
+            <span class="badge-optional">任意</span>
+          </label>
+          <textarea class="form-textarea" id="message" name="message"
+            placeholder="例）・月にどのくらいの時間が必要ですか？&#10;・初期費用はどのくらいかかりますか？&#10;・副業で取り組めますか？"></textarea>
+          <p class="form-hint">事前にまとめていただくと、担当者がより的確にお答えできます。</p>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn-submit" type="submit" id="submitBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          申し込みを送信する
+        </button>
+
+        <div class="msg-success" id="msgSuccess">
+          お申し込みを受け付けました。まもなく自動返信メールが届きます。担当者より1〜2営業日以内にご連絡いたします。
+        </div>
+        <div class="msg-error" id="msgError">
+          送信中にエラーが発生しました。お手数ですが、しばらく経ってから再度お試しください。
+        </div>
+
+        <p class="privacy-note">
+          ご入力いただいた情報は、相談会の対応および株式会社Glocalからのご連絡にのみ使用します。<br>
+          第三者への提供は行いません。<a href="/">プライバシーポリシー</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-logo">Glocal</div>
+    <p>株式会社Glocal &nbsp;|&nbsp; <a href="/">トップページへ戻る</a></p>
+    <p style="margin-top:.5rem">&copy; 2026 Glocal Inc. All rights reserved.</p>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // ----- Scroll Reveal -----
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ----- Form Submit -----
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbwuEqQF7ifwSsYtTdP3_cVgTCFdCJjg2Ldsp_Z-ky8fDeI8c7lNo2piyvLz1b1-HPrK/exec';
+
+    const form       = document.getElementById('consultationForm');
+    const submitBtn  = document.getElementById('submitBtn');
+    const msgSuccess = document.getElementById('msgSuccess');
+    const msgError   = document.getElementById('msgError');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msgSuccess.style.display = 'none';
+      msgError.style.display   = 'none';
+
+      // バリデーション
+      const name     = document.getElementById('name').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const job      = document.getElementById('job').value;
+      const expEl    = document.querySelector('input[name="experience"]:checked');
+      const methodEl = document.querySelector('input[name="contactMethod"]:checked');
+
+      if (!name || !email || !job || !expEl || !methodEl) {
+        msgError.textContent = '必須項目をすべて入力・選択してください。';
+        msgError.style.display = 'block';
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msgError.textContent = 'メールアドレスの形式が正しくありません。';
+        msgError.style.display = 'block';
+        return;
+      }
+
+      const payload = {
+        type:          'shift-juku',
+        name,
+        email,
+        phone:         document.getElementById('phone').value.trim(),
+        job,
+        experience:    expEl.value,
+        contactMethod: methodEl.value,
+        message:       document.getElementById('message').value.trim()
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+
+      try {
+        await fetch(GAS_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+        // no-cors では response body は読めないため、成功扱いにする
+        form.reset();
+        msgSuccess.style.display = 'block';
+        msgSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (err) {
+        msgError.textContent = '送信中にエラーが発生しました。しばらく経ってから再度お試しください。';
+        msgError.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          申し込みを送信する`;
+      }
+    });
+  </script>
+</body>
+</html>

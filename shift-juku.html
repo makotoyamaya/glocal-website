@@ -759,40 +759,43 @@
       submitBtn.textContent = '送信中...';
 
       try {
-        // 方法1: fetch (text/plain — CORS-safelistedヘッダー)
-        const fetchOk = await fetch(GAS_URL, {
-          method:  'POST',
-          mode:    'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body:    JSON.stringify(payload)
-        }).then(() => true).catch(() => false);
+        // ===== Hidden Form + iframe 方式（GAS Web App最確実） =====
+        // fetchはGASの302リダイレクトでPOST→GET変換されbodyが失われるため使わない
+        await new Promise((resolve, reject) => {
+          const iframe = document.createElement('iframe');
+          iframe.name = 'gas_submit_frame_' + Date.now();
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
 
-        // 方法2: fetch失敗時のバックアップ — hidden form + iframe
-        if (!fetchOk) {
-          await new Promise((resolve) => {
-            const iframe = document.createElement('iframe');
-            iframe.name = 'backup_submit';
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-            const backupForm = document.createElement('form');
-            backupForm.method = 'POST';
-            backupForm.action = GAS_URL;
-            backupForm.target = 'backup_submit';
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'payload';
-            input.value = JSON.stringify(payload);
-            backupForm.appendChild(input);
-            document.body.appendChild(backupForm);
-            iframe.onload = () => { resolve(); };
-            setTimeout(resolve, 5000);
-            backupForm.submit();
-            setTimeout(() => {
-              backupForm.remove();
-              iframe.remove();
-            }, 6000);
-          });
-        }
+          const hiddenForm = document.createElement('form');
+          hiddenForm.method = 'POST';
+          hiddenForm.action = GAS_URL;
+          hiddenForm.target = iframe.name;
+
+          // payloadフィールドにJSON文字列を格納
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'payload';
+          input.value = JSON.stringify(payload);
+          hiddenForm.appendChild(input);
+          document.body.appendChild(hiddenForm);
+
+          let resolved = false;
+          iframe.onload = () => {
+            if (!resolved) { resolved = true; resolve(); }
+          };
+          // 5秒タイムアウト（GASレスポンスが遅い場合でも成功扱い）
+          setTimeout(() => {
+            if (!resolved) { resolved = true; resolve(); }
+          }, 5000);
+
+          hiddenForm.submit();
+
+          // クリーンアップ
+          setTimeout(() => {
+            try { hiddenForm.remove(); iframe.remove(); } catch(_){}
+          }, 8000);
+        });
 
         form.reset();
         msgSuccess.style.display = 'block';

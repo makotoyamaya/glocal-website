@@ -2,14 +2,14 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>無料相談会 お申し込み | SHiFT塾 – 株式会社Glocal</title>
   <meta name="description" content="SHiFT塾の無料相談会にお申し込みいただけます。Amazon越境ECや物販ビジネスについて、担当者が丁寧にお答えします。">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* ===== CSS Variables ===== */
     :root {
@@ -32,11 +32,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.8;
       -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -101,20 +102,8 @@
       border-radius: 50%;
       background: rgba(0,102,204,.05);
     }
-    .hero-label {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      padding: .3rem .9rem;
-      border-radius: 100px;
-      margin-bottom: 1.2rem;
-    }
     .hero h1 {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
       font-weight: 700;
       line-height: 1.4;
       color: var(--text);
@@ -249,8 +238,8 @@
       padding: .8rem 1rem;
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .95rem;
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 1rem;
       color: var(--text);
       background: var(--bg);
       transition: border-color var(--transition), box-shadow var(--transition);
@@ -343,6 +332,72 @@
       margin: 2rem 0;
     }
 
+    /* ===== Phone Date Picker ===== */
+    .phone-schedule {
+      display: none;
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .phone-schedule.active { display: block; }
+    .phone-schedule-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .8rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .phone-schedule-title svg { width: 16px; height: 16px; color: var(--accent); }
+    .schedule-slot {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .6rem;
+    }
+    .schedule-slot:last-of-type { margin-bottom: 0; }
+    .slot-label {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 4.5rem;
+    }
+    .slot-date, .slot-time {
+      flex: 1;
+      padding: .6rem .8rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: .9rem;
+      color: var(--text);
+      background: var(--bg);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .slot-date { max-width: 180px; }
+    .slot-time {
+      max-width: 130px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .6rem center;
+      padding-right: 2rem;
+    }
+    .slot-date:focus, .slot-time:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,102,204,.12);
+    }
+    .phone-schedule-hint {
+      font-size: .75rem;
+      color: var(--text-sub);
+      margin-top: .8rem;
+      line-height: 1.6;
+    }
+
     /* ===== Submit Button ===== */
     .btn-submit {
       display: flex;
@@ -353,7 +408,7 @@
       padding: 1rem 2rem;
       background: var(--accent);
       color: #fff;
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 1rem;
       font-weight: 700;
       border: none;
@@ -440,16 +495,99 @@
     .reveal-delay-2 { transition-delay: .2s; }
     .reveal-delay-3 { transition-delay: .3s; }
 
-    /* ===== Responsive ===== */
+    /* ===== Responsive — スマホ最適化（LINE内ブラウザ想定） ===== */
     @media (max-width: 768px) {
-      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .site-header { padding: 0 1rem; }
+      .header-inner { height: 52px; }
+      .header-logo img { height: 22px; }
+      .header-logo-text { display: none; }
+      .header-back { font-size: .8rem; }
+
+      .hero {
+        padding: 2.5rem 1.2rem 2rem;
+      }
+      .hero h1 {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+      }
+      .hero h1 span {
+        font-size: 1.6rem;
+        margin-top: .3rem;
+      }
+      .hero-desc {
+        font-size: .85rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .hero-desc br { display: none; }
+
+      .flow-section { padding: 2rem 1rem; }
       .flow-grid {
         grid-template-columns: 1fr;
         gap: .5rem;
       }
+      .flow-card {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        padding: 1rem;
+        text-align: left;
+      }
       .flow-card::after { display: none; }
-      .form-card { padding: 1.6rem 1.2rem; }
-      .header-logo-text { display: none; }
+      .flow-card-icon { margin: 0; width: 32px; height: 32px; flex-shrink: 0; }
+      .flow-num { font-size: .7rem; margin-bottom: .1rem; }
+      .flow-card-title { font-size: .85rem; }
+      .flow-card-sub { font-size: .75rem; margin-top: .1rem; }
+
+      .form-section { padding: 1.5rem 1rem 3rem; }
+      .section-header { margin-bottom: 1.5rem; }
+      .section-label { font-size: .7rem; }
+      .section-title { font-size: 1.15rem; }
+      .form-card { padding: 1.4rem 1rem; border-radius: 10px; }
+
+      .form-group { margin-bottom: 1.4rem; }
+      .form-label { font-size: .85rem; }
+      .form-input, .form-select, .form-textarea {
+        font-size: 1rem;
+        padding: .75rem .8rem;
+      }
+      .form-hint { font-size: .75rem; }
+
+      .radio-item { padding: .75rem .8rem; gap: .6rem; }
+      .radio-label-main { font-size: .88rem; }
+      .radio-label-sub { font-size: .75rem; }
+
+      /* Schedule slots — スマホ縦積み */
+      .schedule-slot {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .4rem;
+      }
+      .slot-label { min-width: auto; }
+      .slot-date, .slot-time { max-width: 100%; }
+      .phone-schedule { padding: 1rem; }
+
+      .btn-submit {
+        padding: .9rem 1.5rem;
+        font-size: .95rem;
+      }
+      .msg-success, .msg-error {
+        padding: 1rem;
+        font-size: .85rem;
+      }
+      .privacy-note { font-size: .72rem; }
+
+      .site-footer { padding: 2rem 1rem; font-size: .75rem; }
+    }
+
+    /* ===== 超小型スマホ (iPhone SE等) ===== */
+    @media (max-width: 375px) {
+      .hero { padding: 2rem 1rem 1.5rem; }
+      .hero h1 { font-size: 1.15rem; }
+      .hero h1 span { font-size: 1.4rem; }
+      .form-card { padding: 1.2rem .8rem; }
     }
   </style>
 </head>
@@ -473,7 +611,6 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero">
-    <span class="hero-label">SHiFT JUKU — FREE CONSULTATION</span>
     <h1>
       入塾前に、なんでも聞いてください。
       <span>SHiFT塾 無料相談会</span>
@@ -560,7 +697,7 @@
           </label>
           <input class="form-input" type="tel" id="phone" name="phone"
             placeholder="090-0000-0000" autocomplete="tel">
-          <p class="form-hint">電話・LINEでのご相談を希望される場合はご記入ください。</p>
+          <p class="form-hint">電話でのご相談を希望される場合はご記入ください。</p>
         </div>
 
         <hr class="form-divider">
@@ -634,15 +771,72 @@
               </div>
             </label>
             <label class="radio-item">
-              <input type="radio" name="contactMethod" value="電話で相談したい">
+              <input type="radio" name="contactMethod" value="電話で相談したい" id="radioPhone">
               <div class="radio-label-wrap">
                 <div class="radio-label-main">
                   <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 9.81a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   電話で相談したい
                 </div>
-                <div class="radio-label-sub">お申し込み後、メールで日程を調整し、ご都合の良い日時にお電話します。上記に電話番号をご記入ください。</div>
+                <div class="radio-label-sub">ご希望の日時を第3希望までお選びください。上記に電話番号もご記入ください。</div>
               </div>
             </label>
+
+            <!-- 電話相談 候補日選択 -->
+            <div class="phone-schedule" id="phoneSchedule">
+              <div class="phone-schedule-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                ご希望の日時（営業時間 平日 9:00〜17:00）
+              </div>
+              <div class="schedule-slot">
+                <span class="slot-label">第1希望</span>
+                <input type="date" class="slot-date" id="date1">
+                <select class="slot-time" id="time1">
+                  <option value="" disabled selected>時間</option>
+                  <option value="09:00">9:00</option><option value="09:30">9:30</option>
+                  <option value="10:00">10:00</option><option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option><option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option><option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option><option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option><option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option><option value="15:30">15:30</option>
+                  <option value="16:00">16:00</option><option value="16:30">16:30</option>
+                </select>
+              </div>
+              <div class="schedule-slot">
+                <span class="slot-label">第2希望</span>
+                <input type="date" class="slot-date" id="date2">
+                <select class="slot-time" id="time2">
+                  <option value="" disabled selected>時間</option>
+                  <option value="09:00">9:00</option><option value="09:30">9:30</option>
+                  <option value="10:00">10:00</option><option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option><option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option><option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option><option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option><option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option><option value="15:30">15:30</option>
+                  <option value="16:00">16:00</option><option value="16:30">16:30</option>
+                </select>
+              </div>
+              <div class="schedule-slot">
+                <span class="slot-label">第3希望</span>
+                <input type="date" class="slot-date" id="date3">
+                <select class="slot-time" id="time3">
+                  <option value="" disabled selected>時間</option>
+                  <option value="09:00">9:00</option><option value="09:30">9:30</option>
+                  <option value="10:00">10:00</option><option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option><option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option><option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option><option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option><option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option><option value="15:30">15:30</option>
+                  <option value="16:00">16:00</option><option value="16:30">16:30</option>
+                </select>
+              </div>
+              <p class="phone-schedule-hint">
+                ※ 土日祝日はお選びいただけません。ご都合が合わない場合は、メールにて調整させていただきます。
+              </p>
+            </div>
+
             <label class="radio-item" style="opacity:.6;pointer-events:none;">
               <input type="radio" name="contactMethod" value="LINEで相談したい" disabled>
               <div class="radio-label-wrap">
@@ -713,6 +907,52 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
+    // ----- Phone Schedule: 表示切替 + 日付制御 -----
+    const phoneSchedule = document.getElementById('phoneSchedule');
+    const radioPhone = document.getElementById('radioPhone');
+    const contactRadios = document.querySelectorAll('input[name="contactMethod"]');
+
+    contactRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        phoneSchedule.classList.toggle('active', radio.checked);
+      });
+    });
+
+    // 土日祝日を選択不可にする
+    const holidays2026 = [
+      '2026-01-01','2026-01-12','2026-02-11','2026-02-23',
+      '2026-03-20','2026-04-29','2026-05-03','2026-05-04',
+      '2026-05-05','2026-05-06','2026-07-20','2026-08-11',
+      '2026-09-21','2026-09-23','2026-10-12','2026-11-03',
+      '2026-11-23'
+    ];
+
+    function isHolidayOrWeekend(dateStr) {
+      if (holidays2026.includes(dateStr)) return true;
+      const d = new Date(dateStr + 'T00:00:00');
+      const day = d.getDay();
+      return day === 0 || day === 6;
+    }
+
+    // 最小日 = 明日
+    function getTomorrow() {
+      const d = new Date();
+      d.setDate(d.getDate() + 1);
+      return d.toISOString().split('T')[0];
+    }
+
+    const dateInputs = document.querySelectorAll('.slot-date');
+    dateInputs.forEach(input => {
+      input.min = getTomorrow();
+      // 日付変更時に土日祝チェック
+      input.addEventListener('change', function() {
+        if (isHolidayOrWeekend(this.value)) {
+          alert('土日祝日はお選びいただけません。平日をお選びください。');
+          this.value = '';
+        }
+      });
+    });
+
     // ----- Form Submit -----
     const GAS_URL = 'https://script.google.com/macros/s/AKfycbwuEqQF7ifwSsYtTdP3_cVgTCFdCJjg2Ldsp_Z-ky8fDeI8c7lNo2piyvLz1b1-HPrK/exec';
 
@@ -744,6 +984,29 @@
         return;
       }
 
+      // 電話選択時: 候補日を収集
+      let scheduleSlots = '';
+      if (methodEl.value === '電話で相談したい') {
+        const phone = document.getElementById('phone').value.trim();
+        if (!phone) {
+          msgError.textContent = '電話相談をご希望の場合は、電話番号をご記入ください。';
+          msgError.style.display = 'block';
+          return;
+        }
+        const slots = [];
+        for (let i = 1; i <= 3; i++) {
+          const d = document.getElementById('date' + i).value;
+          const t = document.getElementById('time' + i).value;
+          if (d && t) slots.push('第' + i + '希望: ' + d + ' ' + t);
+        }
+        if (slots.length === 0) {
+          msgError.textContent = '電話相談をご希望の場合は、候補日時を1つ以上お選びください。';
+          msgError.style.display = 'block';
+          return;
+        }
+        scheduleSlots = slots.join(' / ');
+      }
+
       const payload = {
         type:          'shift-juku',
         name,
@@ -752,6 +1015,7 @@
         job,
         experience:    expEl.value,
         contactMethod: methodEl.value,
+        schedule:      scheduleSlots,
         message:       document.getElementById('message').value.trim()
       };
 
@@ -760,7 +1024,6 @@
 
       try {
         // ===== Hidden Form + iframe 方式（GAS Web App最確実） =====
-        // fetchはGASの302リダイレクトでPOST→GET変換されbodyが失われるため使わない
         await new Promise((resolve, reject) => {
           const iframe = document.createElement('iframe');
           iframe.name = 'gas_submit_frame_' + Date.now();
@@ -772,7 +1035,6 @@
           hiddenForm.action = GAS_URL;
           hiddenForm.target = iframe.name;
 
-          // payloadフィールドにJSON文字列を格納
           const input = document.createElement('input');
           input.type = 'hidden';
           input.name = 'payload';
@@ -784,20 +1046,19 @@
           iframe.onload = () => {
             if (!resolved) { resolved = true; resolve(); }
           };
-          // 5秒タイムアウト（GASレスポンスが遅い場合でも成功扱い）
           setTimeout(() => {
             if (!resolved) { resolved = true; resolve(); }
           }, 5000);
 
           hiddenForm.submit();
 
-          // クリーンアップ
           setTimeout(() => {
             try { hiddenForm.remove(); iframe.remove(); } catch(_){}
           }, 8000);
         });
 
         form.reset();
+        phoneSchedule.classList.remove('active');
         msgSuccess.style.display = 'block';
         msgSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } catch (err) {

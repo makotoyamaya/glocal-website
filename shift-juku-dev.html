@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>無料相談会 お申し込み | SHiFT塾 – 株式会社Glocal</title>
+  <meta name="description" content="SHiFT塾の無料相談会にお申し込みいただけます。Amazon越境ECや物販ビジネスについて、担当者が丁寧にお答えします。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --accent:      #0066cc;
+      --accent-dark: #004fa3;
+      --accent-light:#e8f0fb;
+      --text:        #1a1a1a;
+      --text-sub:    #555;
+      --bg:          #ffffff;
+      --surface:     #f7f7f8;
+      --border:      #e0e0e3;
+      --success:     #1a7a4a;
+      --error:       #c0392b;
+      --radius:      8px;
+      --shadow:      0 2px 16px rgba(0,0,0,.07);
+      --transition:  .25s ease;
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== Simple Header ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+    }
+    .header-logo img { height: 28px; width: auto; }
+    .header-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .04em;
+    }
+    .header-back {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .header-back:hover { color: var(--accent); text-decoration: none; }
+    .header-back svg { width: 16px; height: 16px; }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: url('/フォーム背景.png') center center / cover no-repeat;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 15, 50, .72) 0%,
+        rgba(0, 30, 80, .58) 50%,
+        rgba(0, 15, 50, .72) 100%
+      );
+      z-index: 0;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    .hero h1 span {
+      color: #ffffff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      font-weight: 600;
+      display: block;
+      text-shadow: 0 2px 16px rgba(0,102,204,.4);
+    }
+    .hero-desc {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+      line-height: 1.9;
+      text-shadow: 0 1px 6px rgba(0,0,0,.3);
+    }
+
+    /* ===== Flow Cards ===== */
+    .flow-section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .flow-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      position: relative;
+    }
+    .flow-card::after {
+      content: '';
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid var(--border);
+    }
+    .flow-card:last-child::after { display: none; }
+    .flow-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: .08em;
+      margin-bottom: .4rem;
+    }
+    .flow-card-icon {
+      margin: .4rem auto .8rem;
+      width: 40px; height: 40px;
+    }
+    .flow-card-title { font-size: .9rem; font-weight: 700; }
+    .flow-card-sub { font-size: .78rem; color: var(--text-sub); margin-top: .3rem; }
+
+    /* ===== Form Section ===== */
+    .form-section {
+      padding: 2rem 2rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .14em;
+      color: var(--accent);
+      font-weight: 600;
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+    }
+    .form-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+    .form-group {
+      margin-bottom: 1.8rem;
+    }
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .6rem;
+    }
+    .badge-required {
+      font-size: .65rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+      padding: .1rem .5rem;
+      border-radius: 4px;
+      letter-spacing: .04em;
+    }
+    .badge-optional {
+      font-size: .65rem;
+      font-weight: 700;
+      background: var(--surface);
+      color: var(--text-sub);
+      border: 1px solid var(--border);
+      padding: .1rem .5rem;
+      border-radius: 4px;
+      letter-spacing: .04em;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,102,204,.12);
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: #bbb; }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .8rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.8;
+    }
+    .form-hint {
+      font-size: .78rem;
+      color: var(--text-sub);
+      margin-top: .4rem;
+    }
+
+    /* ===== Radio Group ===== */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .radio-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .9rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .radio-item:hover { border-color: var(--accent); background: var(--accent-light); }
+    .radio-item input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: border-color var(--transition);
+      position: relative;
+    }
+    .radio-item input[type="radio"]:checked {
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: inset 0 0 0 3px #fff;
+    }
+    .radio-item:has(input:checked) {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .radio-label-wrap { flex: 1; }
+    .radio-label-main { font-size: .93rem; font-weight: 500; }
+    .radio-label-sub { font-size: .78rem; color: var(--text-sub); margin-top: .15rem; }
+    .radio-badge-coming {
+      font-size: .68rem;
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffc107;
+      padding: .1rem .5rem;
+      border-radius: 100px;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+
+    /* ===== Divider ===== */
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ===== flatpickr カスタム（土日祝を赤色表示） ===== */
+    .flatpickr-day.flatpickr-disabled,
+    .flatpickr-day.flatpickr-disabled:hover {
+      color: #e74c3c !important;
+      background: rgba(231,76,60,.08) !important;
+      text-decoration: line-through;
+    }
+    .flatpickr-calendar {
+      font-family: 'LINE Seed JP', -apple-system, sans-serif;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+    }
+    .flatpickr-day.selected {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
+
+    /* ===== お任せチェックボックス ===== */
+    .omakase-wrap {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: .6rem;
+      padding: .6rem .8rem;
+      background: var(--accent-light);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .omakase-wrap input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .omakase-label {
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ===== Phone Date Picker ===== */
+    .phone-schedule {
+      display: none;
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .phone-schedule.active { display: block; }
+    .phone-schedule-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .8rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .phone-schedule-title svg { width: 16px; height: 16px; color: var(--accent); }
+    .schedule-slot {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .6rem;
+    }
+    .schedule-slot:last-of-type { margin-bottom: 0; }
+    .slot-label {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 4.5rem;
+    }
+    .slot-date, .slot-time {
+      flex: 1;
+      padding: .6rem .8rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: .9rem;
+      color: var(--text);
+      background: var(--bg);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .slot-date { max-width: 180px; }
+    .slot-time {
+      max-width: 130px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .6rem center;
+      padding-right: 2rem;
+    }
+    .slot-date:focus, .slot-time:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,102,204,.12);
+    }
+    .phone-schedule-hint {
+      font-size: .75rem;
+      color: var(--text-sub);
+      margin-top: .8rem;
+      line-height: 1.6;
+    }
+
+    /* ===== Submit Button ===== */
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'LINE Seed JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      letter-spacing: .04em;
+    }
+    .btn-submit:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0,102,204,.3);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .btn-submit svg { width: 20px; height: 20px; }
+
+    /* ===== Messages ===== */
+    .msg-success,
+    .msg-error {
+      display: none;
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius);
+      margin-top: 1.5rem;
+      font-size: .93rem;
+    }
+    .msg-success {
+      background: #e8f7ef;
+      border: 1px solid #a3d9b8;
+      color: var(--success);
+    }
+    .msg-error {
+      background: #fdf0ef;
+      border: 1px solid #f5c4c0;
+      color: var(--error);
+    }
+
+    /* ===== Privacy Note ===== */
+    .privacy-note {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--text-sub);
+      margin-top: 1.2rem;
+      line-height: 1.7;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      background: var(--text);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: .8rem;
+    }
+    .site-footer a {
+      color: rgba(255,255,255,.6);
+      text-decoration: underline;
+    }
+    .site-footer a:hover { color: #fff; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: .6rem;
+      letter-spacing: .06em;
+    }
+
+    /* ===== Scroll Reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ===== Responsive — スマホ最適化（LINE内ブラウザ想定） ===== */
+    @media (max-width: 768px) {
+      .site-header { padding: 0 1rem; }
+      .header-inner { height: 52px; }
+      .header-logo img { height: 22px; }
+      .header-logo-text { display: none; }
+      .header-back { font-size: .8rem; }
+
+      .hero {
+        padding: 2.5rem 1.2rem 2rem;
+        background-position: center right;
+      }
+      .hero h1 {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+      }
+      .hero h1 span {
+        font-size: 1.6rem;
+        margin-top: .3rem;
+      }
+      .hero-desc {
+        font-size: .85rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .hero-desc br { display: none; }
+
+      .flow-section { padding: 2rem 1rem; }
+      .flow-grid {
+        grid-template-columns: 1fr;
+        gap: .5rem;
+      }
+      .flow-card {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        padding: 1rem;
+        text-align: left;
+      }
+      .flow-card::after { display: none; }
+      .flow-card-icon { margin: 0; width: 32px; height: 32px; flex-shrink: 0; }
+      .flow-num { font-size: .7rem; margin-bottom: .1rem; }
+      .flow-card-title { font-size: .85rem; }
+      .flow-card-sub { font-size: .75rem; margin-top: .1rem; }
+
+      .form-section { padding: 1.5rem 1rem 3rem; }
+      .section-header { margin-bottom: 1.5rem; }
+      .section-label { font-size: .7rem; }
+      .section-title { font-size: 1.15rem; }
+      .form-card { padding: 1.4rem 1rem; border-radius: 10px; }
+
+      .form-group { margin-bottom: 1.4rem; }
+      .form-label { font-size: .85rem; }
+      .form-input, .form-select, .form-textarea {
+        font-size: 1rem;
+        padding: .75rem .8rem;
+      }
+      .form-hint { font-size: .75rem; }
+
+      .radio-item { padding: .75rem .8rem; gap: .6rem; }
+      .radio-label-main { font-size: .88rem; }
+      .radio-label-sub { font-size: .75rem; }
+
+      /* Schedule slots — スマホ縦積み */
+      .schedule-slot {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .4rem;
+      }
+      .slot-label { min-width: auto; }
+      .slot-date, .slot-time { max-width: 100%; }
+      .phone-schedule { padding: 1rem; }
+
+      .btn-submit {
+        padding: .9rem 1.5rem;
+        font-size: .95rem;
+      }
+      .msg-success, .msg-error {
+        padding: 1rem;
+        font-size: .85rem;
+      }
+      .privacy-note { font-size: .72rem; }
+
+      .site-footer { padding: 2rem 1rem; font-size: .75rem; }
+    }
+
+    /* ===== 超小型スマホ (iPhone SE等) ===== */
+    @media (max-width: 375px) {
+      .hero { padding: 2rem 1rem 1.5rem; }
+      .hero h1 { font-size: 1.15rem; }
+      .hero h1 span { font-size: 1.4rem; }
+      .form-card { padding: 1.2rem .8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="header-logo">
+        <img src="/logo.png" alt="Glocal">
+      </span>
+      <!-- トップページリンク: HP完成後に復活 -->
+      <span></span>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <h1>
+      入塾前に、なんでも聞いてください。
+      <span>SHiFT塾 無料相談会</span>
+    </h1>
+    <p class="hero-desc">
+      「説明会を聞いたけど、もう少し詳しく知りたい」「自分に合うか不安」<br>
+      そんな方のために、担当者が個別にお答えする無料相談会をご用意しました。<br>
+      お気軽にお申し込みください。
+    </p>
+  </section>
+
+  <!-- ===== Flow ===== -->
+  <section class="flow-section">
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <div class="flow-num">STEP 01</div>
+        <svg class="flow-card-icon" viewBox="0 0 40 40" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="6" width="24" height="28" rx="2"/>
+          <line x1="14" y1="14" x2="26" y2="14"/>
+          <line x1="14" y1="20" x2="26" y2="20"/>
+          <line x1="14" y1="26" x2="20" y2="26"/>
+        </svg>
+        <div class="flow-card-title">フォーム送信</div>
+        <div class="flow-card-sub">このページから申し込み</div>
+      </div>
+      <div class="flow-card reveal reveal-delay-1">
+        <div class="flow-num">STEP 02</div>
+        <svg class="flow-card-icon" viewBox="0 0 40 40" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 10h24v22H8z" rx="2"/>
+          <polyline points="8,10 20,22 32,10"/>
+        </svg>
+        <div class="flow-card-title">自動返信メール</div>
+        <div class="flow-card-sub">受付完了メールが届きます</div>
+      </div>
+      <div class="flow-card reveal reveal-delay-2">
+        <div class="flow-num">STEP 03</div>
+        <svg class="flow-card-icon" viewBox="0 0 40 40" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6h20v4H10zM6 10h28v4H6z" opacity=".3"/>
+          <path d="M8 14h24l-2 20H10L8 14z"/>
+          <path d="M16 20a4 4 0 0 0 8 0"/>
+        </svg>
+        <div class="flow-card-title">担当者よりご連絡</div>
+        <div class="flow-card-sub">1〜2営業日以内に返信</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Form ===== -->
+  <section class="form-section">
+    <div class="section-header reveal">
+      <span class="section-label">APPLICATION FORM</span>
+      <h2 class="section-title">相談会 お申し込みフォーム</h2>
+    </div>
+
+    <div class="form-card reveal">
+      <form id="consultationForm" novalidate>
+
+        <!-- お名前 -->
+        <div class="form-group">
+          <label class="form-label" for="name">
+            お名前
+            <span class="badge-required">必須</span>
+          </label>
+          <input class="form-input" type="text" id="name" name="name"
+            placeholder="山田 太郎" autocomplete="name" required>
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス
+            <span class="badge-required">必須</span>
+          </label>
+          <input class="form-input" type="email" id="email" name="email"
+            placeholder="example@email.com" autocomplete="email" required>
+          <p class="form-hint">ご返信に使用します。受信できるアドレスをご記入ください。</p>
+        </div>
+
+        <!-- 電話番号 -->
+        <div class="form-group">
+          <label class="form-label" for="phone">
+            電話番号
+            <span class="badge-optional">任意</span>
+          </label>
+          <input class="form-input" type="tel" id="phone" name="phone"
+            placeholder="090-0000-0000" autocomplete="tel">
+          <p class="form-hint">電話でのご相談を希望される場合はご記入ください。</p>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- ご職業 -->
+        <div class="form-group">
+          <label class="form-label">
+            現在のご職業
+            <span class="badge-required">必須</span>
+          </label>
+          <select class="form-select" id="job" name="job" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="会社員">会社員</option>
+            <option value="主婦・主夫">主婦・主夫</option>
+            <option value="フリーランス">フリーランス</option>
+            <option value="個人事業主">個人事業主</option>
+            <option value="経営者">経営者</option>
+            <option value="学生">学生</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <!-- Amazon・物販経験 -->
+        <div class="form-group">
+          <label class="form-label">
+            Amazon・物販の経験
+            <span class="badge-required">必須</span>
+          </label>
+          <div class="radio-group" id="experienceGroup">
+            <label class="radio-item">
+              <input type="radio" name="experience" value="未経験">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">未経験</div>
+                <div class="radio-label-sub">物販・ECは初めて。これから始めたい。</div>
+              </div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="experience" value="少しある（副業程度）">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">少しある（副業程度）</div>
+                <div class="radio-label-sub">メルカリ・国内Amazon等を試したことがある。</div>
+              </div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="experience" value="経験あり（現在進行中）">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">経験あり（現在進行中）</div>
+                <div class="radio-label-sub">すでに取り組んでいるが、さらにスケールしたい。</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- ご相談方法 -->
+        <div class="form-group">
+          <label class="form-label">
+            ご希望の相談方法
+            <span class="badge-required">必須</span>
+          </label>
+          <div class="radio-group" id="contactMethodGroup">
+            <label class="radio-item">
+              <input type="radio" name="contactMethod" value="メールで質問を送りたい">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">
+                  <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                  メールで質問を送りたい
+                </div>
+                <div class="radio-label-sub">フォーム下の「ご質問・相談内容」に事前にまとめて送付。担当者が回答します。</div>
+              </div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="contactMethod" value="電話で相談したい" id="radioPhone">
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">
+                  <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 9.81a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  電話で相談したい
+                </div>
+                <div class="radio-label-sub">ご希望の日時を第3希望まですべてお選びください（必須）。上記に電話番号もご記入ください。</div>
+              </div>
+            </label>
+
+            <!-- 電話相談 候補日選択 -->
+            <div class="phone-schedule" id="phoneSchedule">
+              <div class="phone-schedule-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                ご希望の日時（営業時間 平日 9:00〜17:00）
+              </div>
+              <div class="schedule-slot">
+                <span class="slot-label">第1希望</span>
+                <input type="text" class="slot-date" id="date1" placeholder="日付を選択" readonly>
+                <select class="slot-time" id="time1">
+                  <option value="" disabled selected>時間</option>
+                  <option value="09:00">9:00</option><option value="09:30">9:30</option>
+                  <option value="10:00">10:00</option><option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option><option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option><option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option><option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option><option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option><option value="15:30">15:30</option>
+                  <option value="16:00">16:00</option><option value="16:30">16:30</option>
+                </select>
+              </div>
+              <div class="schedule-slot">
+                <span class="slot-label">第2希望</span>
+                <input type="text" class="slot-date" id="date2" placeholder="日付を選択" readonly>
+                <select class="slot-time" id="time2">
+                  <option value="" disabled selected>時間</option>
+                  <option value="09:00">9:00</option><option value="09:30">9:30</option>
+                  <option value="10:00">10:00</option><option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option><option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option><option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option><option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option><option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option><option value="15:30">15:30</option>
+                  <option value="16:00">16:00</option><option value="16:30">16:30</option>
+                </select>
+              </div>
+              <div class="schedule-slot">
+                <span class="slot-label">第3希望</span>
+                <input type="text" class="slot-date" id="date3" placeholder="日付を選択" readonly>
+                <select class="slot-time" id="time3">
+                  <option value="" disabled selected>時間</option>
+                  <option value="09:00">9:00</option><option value="09:30">9:30</option>
+                  <option value="10:00">10:00</option><option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option><option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option><option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option><option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option><option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option><option value="15:30">15:30</option>
+                  <option value="16:00">16:00</option><option value="16:30">16:30</option>
+                </select>
+              </div>
+              <label class="omakase-wrap">
+                <input type="checkbox" id="timeOmakase">
+                <span class="omakase-label">時間帯はお任せ（営業時間内で調整します）</span>
+              </label>
+              <p class="phone-schedule-hint">
+                ※ <span style="color:#e74c3c;font-weight:700">赤色の日付</span>は定休日（土日祝）です。平日のみお選びいただけます。
+              </p>
+            </div>
+
+            <label class="radio-item" style="opacity:.6;pointer-events:none;">
+              <input type="radio" name="contactMethod" value="LINEで相談したい" disabled>
+              <div class="radio-label-wrap">
+                <div class="radio-label-main">
+                  <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  LINEで相談したい
+                  <span class="radio-badge-coming">近日開設予定</span>
+                </div>
+                <div class="radio-label-sub">現在準備中です。開設後にご利用いただけます。</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- ご質問・相談内容 -->
+        <div class="form-group">
+          <label class="form-label" for="message">
+            ご質問・相談内容
+            <span class="badge-optional">任意</span>
+          </label>
+          <textarea class="form-textarea" id="message" name="message"
+            placeholder="例）・月にどのくらいの時間が必要ですか？&#10;・初期費用はどのくらいかかりますか？&#10;・副業で取り組めますか？"></textarea>
+          <p class="form-hint">事前にまとめていただくと、担当者がより的確にお答えできます。</p>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn-submit" type="submit" id="submitBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          申し込みを送信する
+        </button>
+
+        <div class="msg-success" id="msgSuccess">
+          お申し込みを受け付けました。まもなく自動返信メールが届きます。担当者より1〜2営業日以内にご連絡いたします。
+        </div>
+        <div class="msg-error" id="msgError">
+          送信中にエラーが発生しました。お手数ですが、しばらく経ってから再度お試しください。
+        </div>
+
+        <p class="privacy-note">
+          ご入力いただいた情報は、相談会の対応および株式会社Glocalからのご連絡にのみ使用します。<br>
+          第三者への提供は行いません。<a href="/privacy-policy.html">プライバシーポリシー</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-logo"><img src="/logo.png" alt="Glocal" style="height:24px;width:auto;display:inline-block;filter:brightness(0) invert(1);margin-bottom:.3rem"></div>
+    <p>株式会社Glocal</p>
+    <p style="margin-top:.5rem">&copy; 2026 Glocal Inc. All rights reserved.</p>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // ----- Scroll Reveal -----
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ----- Phone Schedule: 表示切替 + flatpickrカレンダー -----
+    const phoneSchedule = document.getElementById('phoneSchedule');
+    const radioPhone = document.getElementById('radioPhone');
+    const contactRadios = document.querySelectorAll('input[name="contactMethod"]');
+
+    contactRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        phoneSchedule.classList.toggle('active', radio.checked);
+      });
+    });
+
+    // 2026年 日本の祝日
+    const holidays2026 = [
+      '2026-01-01','2026-01-12','2026-02-11','2026-02-23',
+      '2026-03-20','2026-04-29','2026-05-03','2026-05-04',
+      '2026-05-05','2026-05-06','2026-07-20','2026-08-11',
+      '2026-09-21','2026-09-23','2026-10-12','2026-11-03',
+      '2026-11-23'
+    ];
+
+    // flatpickr: 土日祝を無効化 + 赤色表示 + 過去日不可
+    function getTomorrow() {
+      const d = new Date();
+      d.setDate(d.getDate() + 1);
+      return d.toISOString().split('T')[0];
+    }
+
+    const fpConfig = {
+      locale: 'ja',
+      dateFormat: 'Y-m-d',
+      altInput: true,
+      altFormat: 'Y年n月j日（D）',
+      minDate: getTomorrow(),
+      disableMobile: false,
+      disable: [
+        function(date) {
+          // 土日を無効化
+          const day = date.getDay();
+          if (day === 0 || day === 6) return true;
+          // 祝日を無効化
+          const y = date.getFullYear();
+          const m = String(date.getMonth() + 1).padStart(2, '0');
+          const d = String(date.getDate()).padStart(2, '0');
+          return holidays2026.includes(y + '-' + m + '-' + d);
+        }
+      ]
+    };
+
+    // 3つの日付入力にflatpickrをアタッチ
+    flatpickr('#date1', fpConfig);
+    flatpickr('#date2', fpConfig);
+    flatpickr('#date3', fpConfig);
+
+    // 「時間帯はお任せ」チェックボックス
+    const timeOmakase = document.getElementById('timeOmakase');
+    const timeSelects = document.querySelectorAll('.slot-time');
+    timeOmakase.addEventListener('change', () => {
+      timeSelects.forEach(sel => {
+        sel.disabled = timeOmakase.checked;
+        if (timeOmakase.checked) {
+          sel.value = '';
+          sel.style.opacity = '0.4';
+        } else {
+          sel.style.opacity = '1';
+        }
+      });
+    });
+
+    // ----- Form Submit -----
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbwuEqQF7ifwSsYtTdP3_cVgTCFdCJjg2Ldsp_Z-ky8fDeI8c7lNo2piyvLz1b1-HPrK/exec';
+
+    const form       = document.getElementById('consultationForm');
+    const submitBtn  = document.getElementById('submitBtn');
+    const msgSuccess = document.getElementById('msgSuccess');
+    const msgError   = document.getElementById('msgError');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msgSuccess.style.display = 'none';
+      msgError.style.display   = 'none';
+
+      // バリデーション
+      const name     = document.getElementById('name').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const job      = document.getElementById('job').value;
+      const expEl    = document.querySelector('input[name="experience"]:checked');
+      const methodEl = document.querySelector('input[name="contactMethod"]:checked');
+
+      if (!name || !email || !job || !expEl || !methodEl) {
+        msgError.textContent = '必須項目をすべて入力・選択してください。';
+        msgError.style.display = 'block';
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msgError.textContent = 'メールアドレスの形式が正しくありません。';
+        msgError.style.display = 'block';
+        return;
+      }
+
+      // 電話選択時: 候補日を収集
+      let scheduleSlots = '';
+      if (methodEl.value === '電話で相談したい') {
+        const phone = document.getElementById('phone').value.trim();
+        if (!phone) {
+          msgError.textContent = '電話相談をご希望の場合は、電話番号をご記入ください。';
+          msgError.style.display = 'block';
+          return;
+        }
+        const isOmakase = document.getElementById('timeOmakase').checked;
+        const slots = [];
+        const missing = [];
+        for (let i = 1; i <= 3; i++) {
+          const d = document.getElementById('date' + i).value;
+          const t = isOmakase ? 'お任せ' : document.getElementById('time' + i).value;
+          if (d) {
+            slots.push('第' + i + '希望: ' + d + (t ? ' ' + t : ''));
+          } else {
+            missing.push('第' + i + '希望');
+          }
+        }
+        if (missing.length > 0) {
+          msgError.textContent = '電話相談をご希望の場合は、候補日を第3希望まですべてお選びください（' + missing.join('・') + ' が未入力です）。';
+          msgError.style.display = 'block';
+          return;
+        }
+        scheduleSlots = slots.join(' / ');
+      }
+
+      const payload = {
+        type:          'shift-juku',
+        name,
+        email,
+        phone:         document.getElementById('phone').value.trim(),
+        job,
+        experience:    expEl.value,
+        contactMethod: methodEl.value,
+        schedule:      scheduleSlots,
+        message:       document.getElementById('message').value.trim()
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+
+      try {
+        // ===== fetch (no-cors) — PC・スマホ・LINEブラウザ実績あり =====
+        await fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+
+        form.reset();
+        phoneSchedule.classList.remove('active');
+        msgSuccess.style.display = 'block';
+        msgSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (err) {
+        msgError.textContent = '送信中にエラーが発生しました。しばらく経ってから再度お試しください。';
+        msgError.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          申し込みを送信する`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -828,7 +828,7 @@
                   <svg style="display:inline;vertical-align:middle;margin-right:.3rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 9.81a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   電話で相談したい
                 </div>
-                <div class="radio-label-sub">ご希望の日時を第3希望までお選びください。上記に電話番号もご記入ください。</div>
+                <div class="radio-label-sub">ご希望の日時を第3希望まですべてお選びください（必須）。上記に電話番号もご記入ください。</div>
               </div>
             </label>
 
@@ -1072,13 +1072,18 @@
         }
         const isOmakase = document.getElementById('timeOmakase').checked;
         const slots = [];
+        const missing = [];
         for (let i = 1; i <= 3; i++) {
           const d = document.getElementById('date' + i).value;
           const t = isOmakase ? 'お任せ' : document.getElementById('time' + i).value;
-          if (d) slots.push('第' + i + '希望: ' + d + (t ? ' ' + t : ''));
+          if (d) {
+            slots.push('第' + i + '希望: ' + d + (t ? ' ' + t : ''));
+          } else {
+            missing.push('第' + i + '希望');
+          }
         }
-        if (slots.length === 0) {
-          msgError.textContent = '電話相談をご希望の場合は、候補日を1つ以上お選びください。';
+        if (missing.length > 0) {
+          msgError.textContent = '電話相談をご希望の場合は、候補日を第3希望まですべてお選びください（' + missing.join('・') + ' が未入力です）。';
           msgError.style.display = 'block';
           return;
         }

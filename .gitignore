@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Claude Code settings
+.claude/
+
+# 作業メモ・引き継ぎドキュメント（ローカル保管のみ）
+*作業経緯メモ*.md
+SHIFT塾_作業経緯メモ.md
+
+# プレビュー・デモ用HTML（公開しない）
+airplane-icon-preview.html
+demo-calendar-booking.html
+
+# 素材ファイル（他用途でも使うためローカル保管）
+# ※ HPで使用する画像は通常通りgit管理する。下記は素材保管用のみ
+nintei_logo.jpg
+事業継続力強化計画認定ロゴ.jpeg

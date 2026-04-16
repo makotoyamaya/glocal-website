@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI × DX支援｜株式会社Glocal</title>
+<meta name="description" content="中小企業のAI活用・DX推進を伴走支援。自社で実証した知見をもとに、御社の業務効率化をサポートします。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+  /* ===== LINE Seed JP ===== */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_Th.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_Rg.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_XBd.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+  }
+
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-light: #888;
+    --bg: #ffffff;
+    --surface: rgba(255,255,255,0.82);
+    --surface-strong: rgba(255,255,255,0.95);
+    --border: rgba(0,0,0,0.06);
+    --radius: 20px;
+    --accent: #667eea;
+    --accent2: #764ba2;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'LINESeedJP', 'Noto Sans JP', sans-serif;
+    color: var(--text-primary);
+    background: var(--bg);
+    line-height: 1.8;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ===== Generative Art Canvas ===== */
+  #gen-art {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+
+  /* ===== Layout ===== */
+  .content-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  section { padding: 56px 0; }
+
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 0 40px;
+  }
+
+  .hero-logo {
+    width: 120px;
+    margin-bottom: 32px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.06));
+  }
+
+  .hero-catch {
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .hero-catch em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .hero-scroll svg { width: 20px; height: 20px; stroke: var(--text-light); }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ===== Glass Card ===== */
+  .glass-card {
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    margin-bottom: 20px;
+  }
+
+  /* ===== Section Headers ===== */
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+  }
+
+  /* ===== Definition List (「稼ぐ」とは) ===== */
+  .def-list { margin-top: 20px; }
+
+  .def-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .def-item:last-child { border-bottom: none; }
+
+  .def-icon {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .def-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; }
+
+  .def-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .def-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== Profile ===== */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .profile-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .profile-name { font-size: 1.05rem; font-weight: 700; }
+  .profile-company { font-size: 0.78rem; color: var(--text-light); }
+
+  .profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .profile-tag {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(102, 126, 234, 0.08);
+    color: #5a6acf;
+    font-weight: 500;
+  }
+
+  .ai-timeline {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .ai-timeline-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .ai-tool-row {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  .ai-tool-row:last-child { border-bottom: none; }
+
+  .ai-tool-year {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 42px;
+    padding-top: 1px;
+  }
+
+  .ai-tool-content { flex: 1; }
+
+  .ai-tool-main { font-weight: 500; margin-bottom: 2px; }
+
+  .ai-tool-note {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ===== Data Section ===== */
+  .data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .data-item {
+    background: rgba(102, 126, 234, 0.04);
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .data-number {
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+
+  .data-unit {
+    font-size: 0.85rem;
+    font-weight: 700;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .data-desc {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .data-source {
+    margin-top: 16px;
+    font-size: 0.65rem;
+    color: #aaa;
+    line-height: 1.6;
+  }
+
+  .data-source a { color: #aaa; }
+
+  /* ===== Pain Points ===== */
+  .pain-list { list-style: none; }
+
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  .pain-item:last-child { border-bottom: none; }
+
+  .pain-check {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .pain-check svg { width: 12px; height: 12px; stroke: var(--accent); stroke-width: 3; }
+
+  /* ===== Case Studies ===== */
+  .case-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .case-item:last-child { border-bottom: none; }
+
+  .case-num-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .case-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.1em;
+  }
+
+  .case-label {
+    font-size: 0.72rem;
+    color: var(--text-light);
+  }
+
+  .case-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .case-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .case-calc {
+    margin-top: 12px;
+    background: rgba(102,126,234,0.05);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .case-calc-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .case-result {
+    font-size: 1.1rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 4px;
+  }
+
+  /* ===== Services ===== */
+  .service-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .service-item:last-child { border-bottom: none; }
+
+  .service-num {
+    font-size: 1.4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 32px;
+  }
+
+  .service-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+  .service-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.7; }
+
+  /* ===== CTA ===== */
+  .cta-section { text-align: center; padding: 48px 0 32px; }
+
+  .cta-card {
+    background: var(--surface-strong);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 24px;
+  }
+
+  .cta-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; line-height: 1.6; }
+  .cta-text { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.8; }
+  .cta-contact { margin-bottom: 24px; }
+
+  .cta-contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .cta-contact-row svg { width: 16px; height: 16px; stroke: var(--accent); flex-shrink: 0; }
+  .cta-contact-row a { color: var(--text-primary); text-decoration: none; font-weight: 500; }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:active { transform: scale(0.97); }
+  .cta-btn svg { width: 16px; height: 16px; stroke: #fff; }
+
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center;
+    padding: 24px 0 48px;
+    font-size: 0.7rem;
+    color: var(--text-light);
+  }
+  .footer a { color: var(--text-light); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* ===== Reveal Animation ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== Desktop ===== */
+  @media (min-width: 768px) {
+    .content-wrap { max-width: 560px; }
+    .hero-catch { font-size: 2rem; }
+    .glass-card { padding: 40px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Generative Art Background -->
+<canvas id="gen-art"></canvas>
+
+<div class="content-wrap">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img src="logo.png" alt="Glocal" class="hero-logo" onerror="this.style.display='none'">
+    <h1 class="hero-catch">
+      AIを<em>「使ってる」</em>と<br>AIで<em>「稼いでいる」</em>は<br>全然違う
+    </h1>
+    <p class="hero-sub">中小企業のAI活用・DX推進を伴走支援</p>
+    <div class="hero-scroll">
+      <span>scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== 「稼ぐ」の定義 ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">What it means</div>
+    <h2 class="section-title">AIで「稼ぐ」とは</h2>
+    <p class="section-body">
+      AIで稼ぐ＝売上を増やすことだけではありません。<br>
+      人件費を"本当に強いところ"に集中させる。<br>
+      一人親方なら、自分ひとりで3人分の仕事をこなす。<br>
+      それが中小企業にとって最大の「稼ぎ方」です。<br><br>
+      これは「IT活用」や「生産性向上」というレベルの話ではなく、<br>
+      ビジネスの前提そのものが変わる<strong>パラダイムシフト</strong>です。<br>
+      インターネットの登場、スマートフォンの普及——<br>
+      それと同じか、それ以上の変化が、今この瞬間に起きています。
+    </p>
+    <div class="def-list">
+      <div class="def-item">
+        <div class="def-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div>
+          <div class="def-title">成果物を生み出す</div>
+          <div class="def-desc">資料、提案書、分析レポート……人が数時間かけていたアウトプットを、AIが数分で形にする。</div>
+        </div>
+      </div>
+      <div class="def-item">
+        <div class="def-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div>
+          <div class="def-title">生産性を上げる</div>
+          <div class="def-desc">繰り返しの定型作業をAIに任せて、社員は自社の強み——営業・企画・顧客対応——に時間を使う。これが一番大きい。</div>
+        </div>
+      </div>
+      <div class="def-item">
+        <div class="def-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <div>
+          <div class="def-title">判断のスピードを上げる</div>
+          <div class="def-desc">データ収集・比較・分析をAIが瞬時に処理。経営者の意思決定がより速く、より正確になる。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PROFILE ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Profile</div>
+    <div class="profile-header">
+      <div class="profile-icon">G</div>
+      <div>
+        <div class="profile-name">山谷 真</div>
+        <div class="profile-company">株式会社Glocal 代表取締役｜創業44期</div>
+      </div>
+    </div>
+    <p class="section-body">
+      越境EC・不動産・物流・製菓など多角経営で44期目。<br>
+      2022年よりChatGPTを皮切りに生成AIを実業務へ本格導入。<br>
+      自社で3年以上検証してきた知見をもとに、中小企業のDX支援を行っています。<br><br>
+      2026年、AIの進化にパラダイムシフトを感じています。<br>
+      持てる時間のすべてをこの領域に投入したいと思えるほど、<br>
+      毎日が発見と感動の連続です。
+    </p>
+    <div class="profile-tags">
+      <span class="profile-tag">越境EC</span>
+      <span class="profile-tag">物流</span>
+      <span class="profile-tag">不動産</span>
+      <span class="profile-tag">AI活用</span>
+      <span class="profile-tag">業務自動化</span>
+    </div>
+
+    <!-- AI Tool Timeline -->
+    <div class="ai-timeline">
+      <div class="ai-timeline-title">AI活用の歩み（すべて有料プラン）</div>
+      <div class="ai-tool-row">
+        <span class="ai-tool-year">2022</span>
+        <div class="ai-tool-content">
+          <div class="ai-tool-main">ChatGPT 導入開始</div>
+          <div class="ai-tool-note">衝撃的だったが、実務活用には至らない。将来のAGIに期待を持つ</div>
+        </div>
+      </div>
+      <div class="ai-tool-row">
+        <span class="ai-tool-year">2023</span>
+        <div class="ai-tool-content">
+          <div class="ai-tool-main">ChatGPT Plus（月$20）課金開始、Google Bard 併用</div>
+          <div class="ai-tool-note">徐々にできることが広がるが、まだ実務レベルとは言いがたい</div>
+        </div>
+      </div>
+      <div class="ai-tool-row">
+        <span class="ai-tool-year">2024</span>
+        <div class="ai-tool-content">
+          <div class="ai-tool-main">Claude・Gemini Advanced・xAI Grok を追加導入</div>
+          <div class="ai-tool-note">完全実用レベルへ。Deep Researchで企業分析・投資に成果が出始める</div>
+        </div>
+      </div>
+      <div class="ai-tool-row">
+        <span class="ai-tool-year">2025</span>
+        <div class="ai-tool-content">
+          <div class="ai-tool-main">ChatGPT Pro（月$200 / 約3万円）へ移行、Genspark 導入</div>
+          <div class="ai-tool-note">事業へのフィードバックはもちろん、個人の投資でも高いパフォーマンスを発揮</div>
+        </div>
+      </div>
+      <div class="ai-tool-row">
+        <span class="ai-tool-year">2026</span>
+        <div class="ai-tool-content">
+          <div class="ai-tool-main">6つ以上のAIを用途別に使い分け、業務の中核に定着</div>
+          <div class="ai-tool-note">AIコーディングの質の高さに感動。日々「どう業務をDXに落とし込むか」を実践中</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DATA ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Reality</div>
+    <h2 class="section-title">今、二極化が始まっている</h2>
+    <p class="section-body">
+      大企業の57.7%が生成AIを導入済み。<br>
+      一方、中小企業はわずか5〜10%。<br>
+      「何に使えるかわからない」が最大の障壁——<br>
+      この差は、今この瞬間も広がり続けています。
+    </p>
+    <div class="data-grid">
+      <div class="data-item">
+        <div class="data-number">5<span class="data-unit">-10%</span></div>
+        <div class="data-desc">中小企業の<br>AI導入率 *1</div>
+      </div>
+      <div class="data-item">
+        <div class="data-number">41.9<span class="data-unit">%</span></div>
+        <div class="data-desc">最大の障壁は<br>「用途不明」*2</div>
+      </div>
+      <div class="data-item">
+        <div class="data-number">57.7<span class="data-unit">%</span></div>
+        <div class="data-desc">大企業の<br>AI導入率 *3</div>
+      </div>
+      <div class="data-item">
+        <div class="data-number">1/4</div>
+        <div class="data-desc">日本のAI効果<br>vs 米英 *4</div>
+      </div>
+    </div>
+    <div class="data-source">
+      *1 情報通信総合研究所（2025年9月）中小企業のAI導入状況調査<br>
+      *2 同調査「AI未導入の理由」で最多回答<br>
+      *3 野村総合研究所 IT活用実態調査（2025年）<br>
+      *4 PwC Japan 生成AI実態調査 2025春「期待を上回る効果」の割合
+    </div>
+  </div>
+
+  <!-- ===== PAIN POINTS ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Check</div>
+    <h2 class="section-title">こんなお悩み<br>ありませんか？</h2>
+    <ul class="pain-list">
+      <li class="pain-item">
+        <div class="pain-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <span>同じ作業を毎日繰り返している</span>
+      </li>
+      <li class="pain-item">
+        <div class="pain-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <span>AIを試したけど、使いこなせていない</span>
+      </li>
+      <li class="pain-item">
+        <div class="pain-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <span>何から始めればいいかわからない</span>
+      </li>
+      <li class="pain-item">
+        <div class="pain-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <span>社内にITに詳しい人がいない</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===== CASE STUDIES ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Case Study</div>
+    <h2 class="section-title">自社で実践した<br>具体的な事例</h2>
+
+    <!-- Case 1 -->
+    <div class="case-item">
+      <div class="case-num-row">
+        <span class="case-num">CASE 01</span>
+        <span class="case-label">物流事業</span>
+      </div>
+      <div class="case-title">海外送り状・通関書類の作成を<br>「午前中いっぱい」→「1クリック5分」に</div>
+      <div class="case-desc">
+        毎日50件以上の海外発送で、社員1名が午前中まるごと送り状作成と通関処理に費やしていました。AIと自動化の組み合わせで、1クリック＋確認5分に短縮。
+      </div>
+      <div class="case-calc">
+        <div class="case-calc-label">削減コスト試算</div>
+        時給 2,500円 × 3時間 = 7,500円/日<br>
+        × 5日 × 4週 × 12ヶ月 =
+        <div class="case-result">年間 180万円 の人件費を圧縮</div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-item">
+      <div class="case-num-row">
+        <span class="case-num">CASE 02</span>
+        <span class="case-label">全社</span>
+      </div>
+      <div class="case-title">社内の定型業務をデジタル化<br>「探す」「教える」コストをほぼゼロに</div>
+      <div class="case-desc">
+        マニュアルや業務手順書をAIで自動生成・即時更新。「あの資料どこだっけ？」「新人に教える時間がない」を一掃。<br><br>
+        さらに新人教育では、定型業務の手順だけでなく、業務のボトルネックや注意すべきポイントまでを盛り込んだ<strong>その人専用の教育資料</strong>を自動作成。苦手な分野に合わせて内容を調整し、16問程度の<strong>おさらいドリル</strong>（出題形式付き）まで一気通貫で生成。教える側の負担も、教わる側の不安も、同時に解消しています。
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-item">
+      <div class="case-num-row">
+        <span class="case-num">CASE 03</span>
+        <span class="case-label">社内コミュニケーション</span>
+      </div>
+      <div class="case-title">会議の自動要約・<br>ホワイトボードの即時HTML共有</div>
+      <div class="case-desc">
+        会議内容をAIが自動要約。ホワイトボードの内容も撮影→HTML化→即座に社内共有。これを代表だけでなく、社員全員ができるレベルまで浸透させています。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Support</div>
+    <h2 class="section-title">Glocalができること</h2>
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div>
+        <div class="service-title">AI活用の壁打ち・伴走</div>
+        <div class="service-desc">「何に使えるか」から一緒に考えます。自社で3年以上検証してきた実例をベースにご提案。</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div>
+        <div class="service-title">繰り返し作業の自動化</div>
+        <div class="service-desc">日報、請求書、データ入力……PCで行う定型作業を仕組みで解決します。</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div>
+        <div class="service-title">中小企業向けDX設計</div>
+        <div class="service-desc">大企業向けの高額システムではなく、御社の規模と予算に合った現実的なDXプランを設計。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section reveal">
+    <div class="cta-card">
+      <h2 class="cta-title">まずは気軽に<br>お話ししませんか？</h2>
+      <p class="cta-text">
+        「うちの業務、AIでどうにかなる？」<br>
+        そんなご相談から大歓迎です。<br><br>
+        正直にお伝えすると、現在は自社のDX改革に<br>
+        全力で取り組んでいる真っ最中です。<br>
+        毎日が発見と感動の連続で、<br>
+        すべてのご依頼をお受けできる状況ではありません。<br><br>
+        だからこそ、本気で変えたい方と<br>
+        じっくり向き合いたいと思っています。
+      </p>
+      <div class="cta-contact">
+        <div class="cta-contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:080-1216-7717">080-1216-7717</a>
+          <span style="color:var(--text-light);font-size:0.75rem">（携帯）</span>
+        </div>
+        <div class="cta-contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:025-378-2539">025-378-2539</a>
+          <span style="color:var(--text-light);font-size:0.75rem">（代表）</span>
+        </div>
+        <div class="cta-contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          <a href="mailto:makoto@pepper-jp.com">makoto@pepper-jp.com</a>
+        </div>
+      </div>
+      <a href="https://glocal.link" class="cta-btn">
+        会社HPを見る
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>株式会社Glocal｜新潟県新潟市南区新飯田762</p>
+    <p style="margin-top:4px"><a href="https://glocal.link">glocal.link</a></p>
+  </footer>
+
+</div>
+
+<!-- ===== Generative Art Script ===== -->
+<script>
+(function() {
+  const canvas = document.getElementById('gen-art');
+  const ctx = canvas.getContext('2d');
+  let w, h, blobs;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  class Blob {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.r = Math.random() * 350 + 200;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      const hue = Math.random() * 360;
+      this.color = `hsla(${hue}, 80%, 72%, 0.5)`;
+      // Gentle pulsing
+      this.pulseSpeed = 0.002 + Math.random() * 0.003;
+      this.pulsePhase = Math.random() * Math.PI * 2;
+      this.baseR = this.r;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.pulsePhase += this.pulseSpeed;
+      this.r = this.baseR + Math.sin(this.pulsePhase) * 40;
+      if (this.x < -this.r) this.x = w + this.r;
+      if (this.x > w + this.r) this.x = -this.r;
+      if (this.y < -this.r) this.y = h + this.r;
+      if (this.y > h + this.r) this.y = -this.r;
+    }
+    draw() {
+      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+      g.addColorStop(0, this.color);
+      g.addColorStop(1, 'hsla(0,0%,100%,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(this.x - this.r, this.y - this.r, this.r * 2, this.r * 2);
+    }
+  }
+
+  function init() {
+    resize();
+    blobs = Array.from({ length: 8 }, () => new Blob());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    blobs.forEach(b => { b.update(); b.draw(); });
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize);
+  init();
+  animate();
+})();
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

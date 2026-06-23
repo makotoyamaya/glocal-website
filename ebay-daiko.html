@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eBay 出品代行・販売代行のご提案｜株式会社Glocal</title>
+<meta name="description" content="海外出品、まるごとおまかせ。箱に詰めて送るだけで、撮影・出品・海外販売・発送までGlocalが代行します。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+  /* ===== LINE Seed JP ===== */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_Th.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_Rg.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINESeedJP';
+    src: url('https://cdn.jsdelivr.net/gh/niceplugin/LINESeedKR/LINESeedSansJP_A_OTF_XBd.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+  }
+
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-light: #888;
+    --bg: #ffffff;
+    --surface: rgba(255,255,255,0.82);
+    --surface-strong: rgba(255,255,255,0.95);
+    --border: rgba(0,0,0,0.06);
+    --radius: 20px;
+    --accent: #667eea;
+    --accent2: #764ba2;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'LINESeedJP', 'Noto Sans JP', sans-serif;
+    color: var(--text-primary);
+    background: var(--bg);
+    line-height: 1.8;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ===== Generative Art Canvas ===== */
+  #gen-art {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+
+  /* ===== Layout ===== */
+  .content-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  section { padding: 56px 0; }
+
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 0 40px;
+  }
+
+  .hero-logo {
+    width: 120px;
+    margin-bottom: 32px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.06));
+  }
+
+  .hero-badge {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 16px;
+    margin-bottom: 24px;
+  }
+
+  .hero-catch {
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .hero-catch em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .hero-scroll svg { width: 20px; height: 20px; stroke: var(--text-light); }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ===== Glass Card ===== */
+  .glass-card {
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    margin-bottom: 20px;
+  }
+
+  /* ===== Section Headers ===== */
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+  }
+
+  /* ===== Flow (3 steps) ===== */
+  .flow-list { margin-top: 20px; }
+
+  .flow-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .flow-item:last-child { border-bottom: none; }
+
+  .flow-icon {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flow-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; }
+
+  .flow-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .flow-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== Strength tags ===== */
+  .strength-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .strength-item {
+    background: rgba(102, 126, 234, 0.04);
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .strength-number {
+    font-size: 1.7rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+
+  .strength-unit {
+    font-size: 0.85rem;
+    font-weight: 700;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .strength-desc {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* ===== Fee ===== */
+  .fee-box {
+    background: rgba(102, 126, 234, 0.06);
+    border-radius: 16px;
+    padding: 22px 18px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .fee-box-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .fee-box-value {
+    font-size: 1.9rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+
+  .fee-box-value small { font-size: 0.95rem; font-weight: 700; }
+
+  .fee-box-note {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  .fee-caption {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin: 24px 0 10px;
+  }
+
+  .fee-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .fee-table th {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    font-weight: 700;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--border);
+    letter-spacing: 0.04em;
+  }
+
+  .fee-table th.right { text-align: right; }
+
+  .fee-table td {
+    font-size: 0.9rem;
+    padding: 13px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  .fee-table tr:last-child td { border-bottom: none; }
+
+  .fee-table .price { font-weight: 500; color: var(--text-primary); }
+
+  .fee-table .rate {
+    text-align: right;
+    font-weight: 900;
+    font-size: 1.02rem;
+    white-space: nowrap;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .fee-notes {
+    margin-top: 16px;
+    font-size: 0.74rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  .fee-notes p { padding-left: 1em; text-indent: -1em; margin-bottom: 4px; }
+
+  /* ===== Assurance highlight ===== */
+  .assure-card {
+    background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08));
+    border: 1px solid rgba(102,126,234,0.18);
+  }
+
+  .assure-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+  }
+  .assure-icon svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 2; }
+
+  /* ===== CTA ===== */
+  .cta-section { text-align: center; padding: 48px 0 32px; }
+
+  .cta-card {
+    background: var(--surface-strong);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 24px;
+  }
+
+  .cta-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; line-height: 1.6; }
+  .cta-text { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.8; }
+  .cta-contact { margin-bottom: 24px; }
+
+  .cta-contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .cta-contact-row svg { width: 16px; height: 16px; stroke: var(--accent); flex-shrink: 0; }
+  .cta-contact-row a { color: var(--text-primary); text-decoration: none; font-weight: 500; }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:active { transform: scale(0.97); }
+  .cta-btn svg { width: 16px; height: 16px; stroke: #fff; }
+
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center;
+    padding: 24px 0 48px;
+    font-size: 0.7rem;
+    color: var(--text-light);
+  }
+  .footer a { color: var(--text-light); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* ===== Reveal Animation ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== Desktop ===== */
+  @media (min-width: 768px) {
+    .content-wrap { max-width: 560px; }
+    .hero-catch { font-size: 2rem; }
+    .glass-card { padding: 40px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Generative Art Background -->
+<canvas id="gen-art"></canvas>
+
+<div class="content-wrap">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img src="logo.png" alt="Glocal" class="hero-logo" onerror="this.style.display='none'">
+    <div class="hero-badge">eBay 出品代行・販売代行</div>
+    <h1 class="hero-catch">
+      海外出品、<br><em>まるごとおまかせ。</em>
+    </h1>
+    <p class="hero-sub">箱に詰めて送るだけ。あとはGlocalが世界へ。</p>
+    <div class="hero-scroll">
+      <span>scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Service</div>
+    <h2 class="section-title">こんなサービスです</h2>
+    <p class="section-body">
+      「海外で売れそうだけど、英語も発送も分からない」——<br>
+      そんな商品を、<strong>箱に詰めて送っていただくだけ</strong>。<br>
+      撮影・出品・海外のお客様対応・発送まで、<br>
+      eBayでの販売をまるごと代行します。<br><br>
+      越境EC44期、累計出荷10万件超の実績と、<br>
+      FedEx・DHL・EMSを自社運用する物流基盤で、<br>
+      あなたの「眠っている価値」を世界の市場へお届けします。
+    </p>
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="flow-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
+        </div>
+        <div>
+          <div class="flow-title">1｜送るだけ</div>
+          <div class="flow-desc">売りたい商品を箱に詰めて弊社へお送りください。1点からでもOKです。</div>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <div>
+          <div class="flow-title">2｜撮影・出品</div>
+          <div class="flow-desc">商品を撮影し、英語の商品ページを作成。世界中の買い手にアピールします。</div>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div>
+          <div class="flow-title">3｜販売・発送</div>
+          <div class="flow-desc">海外のお客様対応から梱包・国際発送まで代行。売れたら精算します。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STRENGTH ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Why Glocal</div>
+    <h2 class="section-title">選ばれる理由</h2>
+    <p class="section-body">
+      越境ECを軸に多角経営する事業会社だからこそ、<br>
+      「出品」だけでなく「売り切る」「現金化する」まで<br>
+      責任を持って伴走できます。
+    </p>
+    <div class="strength-grid">
+      <div class="strength-item">
+        <div class="strength-number">44<span class="strength-unit">期</span></div>
+        <div class="strength-desc">越境EC事業の実績</div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-number">10<span class="strength-unit">万件+</span></div>
+        <div class="strength-desc">累計の海外出荷</div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-number">3<span class="strength-unit">社</span></div>
+        <div class="strength-desc">FedEx/DHL/EMS<br>自社運用</div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-number">1<span class="strength-unit">点〜</span></div>
+        <div class="strength-desc">小ロットから対応</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRICING ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">料金のご案内</h2>
+
+    <div class="fee-box">
+      <div class="fee-box-label">出品手数料（撮影および出品）</div>
+      <div class="fee-box-value">1,100<small>円</small></div>
+      <div class="fee-box-note">1点あたり／撮影・英語ページ作成込み</div>
+    </div>
+
+    <div class="fee-caption">販売時の手数料（成功報酬）</div>
+    <table class="fee-table">
+      <thead>
+        <tr>
+          <th>販売価格</th>
+          <th class="right">手数料</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="price">300,000円以上</td><td class="rate">5%</td></tr>
+        <tr><td class="price">200,000円以上</td><td class="rate">8%</td></tr>
+        <tr><td class="price">100,000円以上</td><td class="rate">10%</td></tr>
+        <tr><td class="price">50,000円以上</td><td class="rate">13%</td></tr>
+        <tr><td class="price">10,000円以上</td><td class="rate">15%</td></tr>
+        <tr><td class="price">〜9,999円</td><td class="rate">20%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="fee-notes">
+      <p>※ 手数料は販売価格に対して計算します（送料を除く）。</p>
+      <p>※ 海外発送代金は商材によって異なります。送料無料とする場合や、出品価格へ上乗せする場合など、弊社の判断におまかせください。</p>
+    </div>
+  </div>
+
+  <!-- ===== ASSURANCE ===== -->
+  <div class="glass-card assure-card reveal">
+    <div class="assure-icon">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <h2 class="section-title">売れなくても、<br>ちゃんと現金化。</h2>
+    <p class="section-body">
+      3ヶ月以上、海外で売れなかった場合には、<br>
+      国内のヤフオク・メルカリへ切り替えて、<br>
+      最終的にしっかり<strong>現金化</strong>することが可能です。<br><br>
+      「出して終わり」にはしません。<br>
+      売り切るところまで、責任を持ってお手伝いします。
+    </p>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section reveal">
+    <div class="cta-card">
+      <h2 class="cta-title">まずはお気軽に<br>ご相談ください</h2>
+      <p class="cta-text">
+        「これ、海外で売れるかな？」<br>
+        そんな1点からのご相談も大歓迎です。<br>
+        商材を拝見し、最適な進め方をご提案します。
+      </p>
+      <div class="cta-contact">
+        <div class="cta-contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:025-378-2539">025-378-2539</a>
+          <span style="color:var(--text-light);font-size:0.75rem">（代表）</span>
+        </div>
+        <div class="cta-contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          <a href="mailto:makoto@pepper-jp.com">makoto@pepper-jp.com</a>
+        </div>
+      </div>
+      <a href="https://glocal.link" class="cta-btn">
+        会社HPを見る
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>株式会社Glocal｜新潟県新潟市南区新飯田762</p>
+    <p style="margin-top:4px"><a href="https://glocal.link">glocal.link</a></p>
+  </footer>
+
+</div>
+
+<!-- ===== Generative Art Script ===== -->
+<script>
+(function() {
+  const canvas = document.getElementById('gen-art');
+  const ctx = canvas.getContext('2d');
+  let w, h, blobs;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  class Blob {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.r = Math.random() * 350 + 200;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      const hue = Math.random() * 360;
+      this.color = `hsla(${hue}, 80%, 72%, 0.5)`;
+      this.pulseSpeed = 0.002 + Math.random() * 0.003;
+      this.pulsePhase = Math.random() * Math.PI * 2;
+      this.baseR = this.r;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.pulsePhase += this.pulseSpeed;
+      this.r = this.baseR + Math.sin(this.pulsePhase) * 40;
+      if (this.x < -this.r) this.x = w + this.r;
+      if (this.x > w + this.r) this.x = -this.r;
+      if (this.y < -this.r) this.y = h + this.r;
+      if (this.y > h + this.r) this.y = -this.r;
+    }
+    draw() {
+      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+      g.addColorStop(0, this.color);
+      g.addColorStop(1, 'hsla(0,0%,100%,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(this.x - this.r, this.y - this.r, this.r * 2, this.r * 2);
+    }
+  }
+
+  function init() {
+    resize();
+    blobs = Array.from({ length: 8 }, () => new Blob());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    blobs.forEach(b => { b.update(); b.draw(); });
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize);
+  init();
+  animate();
+})();
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

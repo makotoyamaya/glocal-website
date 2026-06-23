@@ -102,15 +102,81 @@
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.06));
   }
 
-  .hero-badge {
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+  .hero-lockup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 26px;
+  }
+
+  /* ===== eBay Brand Wordmark ===== */
+  .ebay-mark {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    font-size: 2.1rem;
+    display: inline-flex;
+  }
+  .ebay-mark .e { color: #e53238; }
+  .ebay-mark .b { color: #0064d2; }
+  .ebay-mark .a { color: #f5af02; }
+  .ebay-mark .y { color: #86b817; }
+
+  .hero-lockup-sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
     color: var(--text-light);
     border: 1px solid var(--border);
     border-radius: 100px;
-    padding: 6px 16px;
-    margin-bottom: 24px;
+    padding: 5px 16px;
+  }
+
+  /* ===== Platform Note ===== */
+  .platform-note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 4px 0;
+  }
+  .platform-note-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .platform-note .ebay-mark { font-size: 1.75rem; }
+  .platform-note-sub { font-size: 0.76rem; color: var(--text-secondary); }
+
+  /* ===== Honest Note List ===== */
+  .note-list { list-style: none; margin-top: 18px; }
+  .note-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .note-item:last-child { border-bottom: none; }
+  .note-mark {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(102,126,234,0.14), rgba(118,75,162,0.14));
+    color: var(--accent);
+    font-weight: 900;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-catch {
@@ -452,7 +518,10 @@
   <!-- ===== HERO ===== -->
   <section class="hero">
     <img src="logo.png" alt="Glocal" class="hero-logo" onerror="this.style.display='none'">
-    <div class="hero-badge">eBay 出品代行・販売代行</div>
+    <div class="hero-lockup">
+      <span class="ebay-mark" role="img" aria-label="eBay"><span class="e">e</span><span class="b">b</span><span class="a">a</span><span class="y">y</span></span>
+      <span class="hero-lockup-sub">出品代行・販売代行</span>
+    </div>
     <h1 class="hero-catch">
       海外出品、<br><em>まるごとおまかせ。</em>
     </h1>
@@ -472,7 +541,8 @@
       そんな商品を、<strong>箱に詰めて送っていただくだけ</strong>。<br>
       撮影・出品・海外のお客様対応・発送まで、<br>
       eBayでの販売をまるごと代行します。<br><br>
-      越境EC44期、累計出荷10万件超の実績と、<br>
+      創業45期・越境EC歴10年以上。<br>
+      累計出荷10万件超の実績と、<br>
       FedEx・DHL・EMSを自社運用する物流基盤で、<br>
       あなたの「眠っている価値」を世界の市場へお届けします。
     </p>
@@ -507,6 +577,13 @@
     </div>
   </div>
 
+  <!-- ===== PLATFORM NOTE ===== -->
+  <div class="platform-note reveal">
+    <span class="platform-note-label">出品先プラットフォーム</span>
+    <span class="ebay-mark" role="img" aria-label="eBay"><span class="e">e</span><span class="b">b</span><span class="a">a</span><span class="y">y</span></span>
+    <span class="platform-note-sub">世界中の購入者が集まる、越境ECの最大級マーケット</span>
+  </div>
+
   <!-- ===== STRENGTH ===== -->
   <div class="glass-card reveal">
     <div class="section-label">Why Glocal</div>
@@ -518,8 +595,8 @@
     </p>
     <div class="strength-grid">
       <div class="strength-item">
-        <div class="strength-number">44<span class="strength-unit">期</span></div>
-        <div class="strength-desc">越境EC事業の実績</div>
+        <div class="strength-number">10<span class="strength-unit">年+</span></div>
+        <div class="strength-desc">越境ECの実績</div>
       </div>
       <div class="strength-item">
         <div class="strength-number">10<span class="strength-unit">万件+</span></div>
@@ -571,6 +648,26 @@
     </div>
   </div>
 
+  <!-- ===== HONEST NOTE ===== -->
+  <div class="glass-card reveal">
+    <div class="section-label">Before we start</div>
+    <h2 class="section-title">正直に、<br>お伝えしておきたいこと</h2>
+    <p class="section-body">
+      私たちは「どんな物でも魔法のように売れる」とは申しません。<br>
+      だからこそ、お預かりする前に正直にお伝えします。
+    </p>
+    <ul class="note-list">
+      <li class="note-item"><span class="note-mark">!</span><span>必ず売れる保証はありません。海外で需要が見込めるかを見極めたうえで進めます。</span></li>
+      <li class="note-item"><span class="note-mark">!</span><span>相場や需要が見込めない商材は、出品をお断りする、または別の販路をご提案する場合があります。</span></li>
+      <li class="note-item"><span class="note-mark">!</span><span>為替・海外送料・eBay手数料の影響を受けます。価格帯によっては利益が出にくいこともあります。</span></li>
+      <li class="note-item"><span class="note-mark">!</span><span>販売までにお時間をいただく場合があります（数週間〜数ヶ月）。</span></li>
+    </ul>
+    <p class="section-body" style="margin-top:16px">
+      そのうえで——もし売れなかったときの「出口」も、<br>
+      きちんとご用意しています。
+    </p>
+  </div>
+
   <!-- ===== ASSURANCE ===== -->
   <div class="glass-card assure-card reveal">
     <div class="assure-icon">
@@ -580,7 +677,7 @@
     <p class="section-body">
       3ヶ月以上、海外で売れなかった場合には、<br>
       国内のヤフオク・メルカリへ切り替えて、<br>
-      最終的にしっかり<strong>現金化</strong>することが可能です。<br><br>
+      最終的にしっかり<strong>現金化</strong>すること“も”可能です。<br><br>
       「出して終わり」にはしません。<br>
       売り切るところまで、責任を持ってお手伝いします。
     </p>

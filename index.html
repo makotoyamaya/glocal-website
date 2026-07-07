@@ -272,7 +272,7 @@ nav{
   display:block;box-shadow:0 2px 12px rgba(0,0,0,0.03);
 }
 .service-card::after{display:none;}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+a.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.08);}
 .service-card.featured{background:var(--accent-dim);border-color:rgba(0,102,204,0.2);}
 .service-card.featured::before{
   content:'★ FEATURED';
@@ -283,8 +283,14 @@ nav{
 }
 
 .sc-photo{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:16px;}
-.sc-svg{width:100%;height:160px;display:flex;align-items:center;justify-content:center;background:var(--surface);border-radius:10px;margin-bottom:16px;}
-.sc-svg svg{width:120px;height:120px;}
+.sc-svg{width:100%;height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,rgba(0,102,204,0.055),rgba(0,102,204,0.012));border-radius:10px;margin-bottom:16px;}
+.sc-svg svg{width:108px;height:108px;}
+.sc-soon{
+  font-size:0.72rem;font-weight:500;color:var(--muted);
+  letter-spacing:0.05em;display:inline-block;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:100px;padding:3px 14px;
+}
 .sc-num{
   font-size:0.68rem;font-weight:700;
   color:var(--muted);letter-spacing:0.15em;margin-bottom:20px;display:block;
@@ -377,6 +383,11 @@ footer{
 .footer-brand{}
 .footer-logo-img{height:36px;margin-bottom:16px;}
 .footer-tagline{font-size:0.9rem;color:var(--muted);line-height:1.8;}
+.footer-address{font-size:0.78rem;color:var(--muted);line-height:1.9;margin-top:14px;}
+.footer-address a{color:var(--muted);text-decoration:none;}
+.footer-address a:hover{color:var(--accent);}
+.footer-certs{display:flex;align-items:center;gap:16px;margin-top:20px;}
+.footer-certs img{height:44px;width:auto;}
 .footer-nav{display:flex;gap:32px;list-style:none;flex-wrap:wrap;padding-top:8px;}
 .footer-nav a{
   font-size:0.88rem;color:var(--muted);text-decoration:none;
@@ -472,7 +483,7 @@ footer{
 <section class="philosophy" id="philosophy">
   <div class="phil-left reveal">
     <div class="phil-eyebrow">PHILOSOPHY</div>
-    <h2 class="phil-title">三方良しの<br><em>精神</em>で</h2>
+    <h2 class="phil-title">三方良しの<br>精神で</h2>
     <p class="phil-text">
       売り手よし、買い手よし、世間よし——近江商人の伝統的な経営哲学を、
       デジタルと物流が交差する現代のビジネスに活かしています。
@@ -512,38 +523,38 @@ footer{
 <section id="services" style="border-top:1px solid var(--border);">
 <div class="services">
   <div class="sec-eyebrow reveal">BUSINESS</div>
-  <h2 class="sec-title reveal">事業<em>領域</em></h2>
+  <h2 class="sec-title reveal">事業領域</h2>
   <p class="sec-lead reveal">越境ECから物流、不動産、教育まで——多角的に価値を創出します。</p>
 
   <div class="services-grid reveal">
-    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
+    <div class="service-card">
       <span class="sc-num">01</span>
       <div class="sc-svg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#5BC5C8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M 60 130 L 95 95 L 75 90 L 110 60 L 90 55 L 130 30 L 120 65 L 115 45 L 90 80 L 85 60 L 55 95 Z" fill="#5BC5C8" fill-opacity="0.08" stroke="#5BC5C8"/>
-          <path d="M 40 160 Q 70 140, 80 120" stroke="#5BC5C8" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
-          <circle cx="100" cy="165" r="28" stroke="#5BC5C8" stroke-width="2.5" fill="#5BC5C8" fill-opacity="0.05"/>
-          <ellipse cx="100" cy="165" rx="12" ry="28" stroke="#5BC5C8" stroke-width="1.5" fill="none"/>
-          <path d="M 73 158 Q 100 150, 127 158" stroke="#5BC5C8" stroke-width="1.5" fill="none"/>
-          <path d="M 73 173 Q 100 181, 127 173" stroke="#5BC5C8" stroke-width="1.5" fill="none"/>
-          <rect x="140" y="130" width="30" height="26" rx="3" stroke="#5BC5C8" stroke-width="2.5" fill="#5BC5C8" fill-opacity="0.08"/>
-          <line x1="155" y1="130" x2="155" y2="156" stroke="#5BC5C8" stroke-width="1.5"/>
-          <line x1="140" y1="143" x2="170" y2="143" stroke="#5BC5C8" stroke-width="1.5"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#0066cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 60 130 L 95 95 L 75 90 L 110 60 L 90 55 L 130 30 L 120 65 L 115 45 L 90 80 L 85 60 L 55 95 Z" fill="#0066cc" fill-opacity="0.08" stroke="#0066cc"/>
+          <path d="M 40 160 Q 70 140, 80 120" stroke="#0066cc" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+          <circle cx="100" cy="165" r="28" stroke="#0066cc" stroke-width="2.5" fill="#0066cc" fill-opacity="0.05"/>
+          <ellipse cx="100" cy="165" rx="12" ry="28" stroke="#0066cc" stroke-width="1.5" fill="none"/>
+          <path d="M 73 158 Q 100 150, 127 158" stroke="#0066cc" stroke-width="1.5" fill="none"/>
+          <path d="M 73 173 Q 100 181, 127 173" stroke="#0066cc" stroke-width="1.5" fill="none"/>
+          <rect x="140" y="130" width="30" height="26" rx="3" stroke="#0066cc" stroke-width="2.5" fill="#0066cc" fill-opacity="0.08"/>
+          <line x1="155" y1="130" x2="155" y2="156" stroke="#0066cc" stroke-width="1.5"/>
+          <line x1="140" y1="143" x2="170" y2="143" stroke="#0066cc" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="sc-title">Amazon越境EC事業</div>
       <p class="sc-desc">日本製品を世界へ。Amazon.comを主力に、米国・欧州市場向けの輸出販売を展開。独自のスクールで次世代の輸出事業者も育成。</p>
-      <div class="sc-link">詳細ページ準備中</div>
-    </a>
+      <div class="sc-soon">詳細ページ準備中</div>
+    </div>
 
     <a class="service-card featured" href="logistics.html">
       <span class="sc-num">02</span>
       <div class="sc-svg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#5BC5C8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="45" y="70" width="70" height="60" rx="4" stroke-width="2.5" fill="#5BC5C8" fill-opacity="0.05"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#0066cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="45" y="70" width="70" height="60" rx="4" stroke-width="2.5" fill="#0066cc" fill-opacity="0.05"/>
           <line x1="80" y1="70" x2="80" y2="130" stroke-width="1.5"/>
           <line x1="45" y1="100" x2="115" y2="100" stroke-width="1.5"/>
-          <path d="M 115 90 L 150 75 L 150 130 L 115 130" stroke-width="2" fill="#5BC5C8" fill-opacity="0.08"/>
+          <path d="M 115 90 L 150 75 L 150 130 L 115 130" stroke-width="2" fill="#0066cc" fill-opacity="0.08"/>
           <circle cx="65" cy="145" r="10" stroke-width="2.5"/>
           <circle cx="135" cy="145" r="10" stroke-width="2.5"/>
           <path d="M 60 70 L 80 45 L 100 70" stroke-width="2" fill="none"/>
@@ -554,45 +565,45 @@ footer{
       <div class="sc-link">詳細を見る</div>
     </a>
 
-    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
+    <div class="service-card">
       <span class="sc-num">03</span>
       <div class="sc-svg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#5BC5C8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M 100 40 L 45 80 L 45 155 L 155 155 L 155 80 Z" stroke-width="2.5" fill="#5BC5C8" fill-opacity="0.05"/>
-          <rect x="82" y="115" width="36" height="40" rx="2" stroke-width="2" fill="#5BC5C8" fill-opacity="0.08"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#0066cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 100 40 L 45 80 L 45 155 L 155 155 L 155 80 Z" stroke-width="2.5" fill="#0066cc" fill-opacity="0.05"/>
+          <rect x="82" y="115" width="36" height="40" rx="2" stroke-width="2" fill="#0066cc" fill-opacity="0.08"/>
           <line x1="100" y1="115" x2="100" y2="155" stroke-width="1.5"/>
           <rect x="58" y="90" width="22" height="18" rx="2" stroke-width="2"/>
           <rect x="120" y="90" width="22" height="18" rx="2" stroke-width="2"/>
           <path d="M 35 80 L 100 30 L 165 80" stroke-width="2.5" fill="none"/>
-          <path d="M 130 45 L 130 30 L 150 30 L 150 60" stroke-width="2" fill="#5BC5C8" fill-opacity="0.08"/>
+          <path d="M 130 45 L 130 30 L 150 30 L 150 60" stroke-width="2" fill="#0066cc" fill-opacity="0.08"/>
         </svg>
       </div>
       <div class="sc-title">不動産事業</div>
       <p class="sc-desc">新潟エリアを中心に古家を再生し、賃貸物件として運用。空き家問題の解決と地域活性化に貢献する不動産ポートフォリオを構築。</p>
-      <div class="sc-link">詳細ページ準備中</div>
-    </a>
+      <div class="sc-soon">詳細ページ準備中</div>
+    </div>
 
-    <a class="service-card" href="#" style="pointer-events:none;cursor:default;">
+    <div class="service-card">
       <span class="sc-num">04</span>
       <div class="sc-svg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#5BC5C8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="50" y="50" width="100" height="75" rx="4" stroke-width="2.5" fill="#5BC5C8" fill-opacity="0.05"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#0066cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="50" y="50" width="100" height="75" rx="4" stroke-width="2.5" fill="#0066cc" fill-opacity="0.05"/>
           <line x1="50" y1="65" x2="150" y2="65" stroke-width="1.5"/>
-          <circle cx="65" cy="57" r="3" fill="#5BC5C8" fill-opacity="0.3" stroke="none"/>
-          <circle cx="77" cy="57" r="3" fill="#5BC5C8" fill-opacity="0.3" stroke="none"/>
-          <circle cx="89" cy="57" r="3" fill="#5BC5C8" fill-opacity="0.3" stroke="none"/>
+          <circle cx="65" cy="57" r="3" fill="#0066cc" fill-opacity="0.3" stroke="none"/>
+          <circle cx="77" cy="57" r="3" fill="#0066cc" fill-opacity="0.3" stroke="none"/>
+          <circle cx="89" cy="57" r="3" fill="#0066cc" fill-opacity="0.3" stroke="none"/>
           <line x1="65" y1="80" x2="135" y2="80" stroke-width="1.5"/>
           <line x1="65" y1="92" x2="120" y2="92" stroke-width="1.5"/>
           <line x1="65" y1="104" x2="110" y2="104" stroke-width="1.5"/>
           <path d="M 85 135 L 100 155 L 115 135" stroke-width="2.5" fill="none"/>
-          <circle cx="100" cy="148" r="4" fill="#5BC5C8" fill-opacity="0.2" stroke="#5BC5C8" stroke-width="1.5"/>
+          <circle cx="100" cy="148" r="4" fill="#0066cc" fill-opacity="0.2" stroke="#0066cc" stroke-width="1.5"/>
           <path d="M 70 140 Q 100 165, 130 140" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
         </svg>
       </div>
       <div class="sc-title">教育事業（SHiFT塾）</div>
       <p class="sc-desc">越境ECのノウハウを体系化した教育プログラム「SHiFT塾」を運営。20期以上の開講実績、延べ1,200人超の教え子を輩出。</p>
-      <div class="sc-link">詳細ページ準備中</div>
-    </a>
+      <div class="sc-soon">詳細ページ準備中</div>
+    </div>
 
     <div class="service-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:var(--accent-dim);cursor:default;">
       <span style="font-size:2.2rem;font-weight:900;color:var(--accent);">挑戦</span>
@@ -609,7 +620,7 @@ footer{
   <div class="about-inner">
     <div class="about-left reveal">
       <div class="sec-eyebrow">COMPANY</div>
-      <h2 class="sec-title" style="margin-bottom:32px;">会社<em>概要</em></h2>
+      <h2 class="sec-title" style="margin-bottom:32px;">会社概要</h2>
       <table class="company-table">
         <tr><th>社名</th><td>株式会社Glocal（グローカル）</td></tr>
         <tr><th>代表</th><td>代表取締役　山谷 真（やまや まこと）</td></tr>
@@ -639,7 +650,7 @@ footer{
     <div class="about-right reveal">
       <div class="sec-eyebrow">MESSAGE</div>
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;margin-bottom:24px;line-height:1.2;">
-        代表<em style="font-style:normal;color:var(--accent);">メッセージ</em>
+        代表メッセージ
       </h3>
       <p style="font-size:0.85rem;color:var(--muted);line-height:2.2;margin-bottom:20px;">
         父から引き継いだ会社を、今期で45期目まで育ててきました。
@@ -660,13 +671,13 @@ footer{
 
 <!-- MAP -->
 <div style="width:100%;border-top:1px solid var(--border);">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6335.700759194817!2d138.97778157587922!3d37.68276767200872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4e1eee33858bf%3A0x5e511343ffdb7f41!2zKOagqinvvKfvvYzvvY_vvYPvvYHvvYw!5e1!3m2!1sja!2sjp!4v1774099373941!5m2!1sja!2sjp" width="100%" height="400" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6335.700759194817!2d138.97778157587922!3d37.68276767200872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4e1eee33858bf%3A0x5e511343ffdb7f41!2zKOagqinvvKfvvYzvvY_vvYPvvYHvvYw!5e0!3m2!1sja!2sjp!4v1774099373941!5m2!1sja!2sjp" width="100%" height="400" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-eyebrow reveal">CONTACT</div>
-  <h2 class="contact-title reveal">お<em>問い合わせ</em></h2>
+  <h2 class="contact-title reveal">お問い合わせ</h2>
   <p class="contact-sub reveal">
     事業に関するご相談、取材・メディアのお問い合わせなど、<br>
     お気軽にご連絡ください。
@@ -698,6 +709,11 @@ footer{
     <div class="footer-brand">
       <a href="index.html"><img src="logo.png" alt="Glocal" class="footer-logo-img"></a>
       <p class="footer-tagline">世界と地域を繋ぐ企業<br>新潟から世界へ。</p>
+      <p class="footer-address">〒950-1455 新潟県新潟市南区新飯田762<br>TEL <a href="tel:025-378-2539">025-378-2539</a></p>
+      <div class="footer-certs">
+        <img src="bcp-certification.jpeg" alt="事業継続力強化計画 認定">
+        <img src="security-action-2star.png" alt="SECURITY ACTION 二つ星">
+      </div>
     </div>
     <ul class="footer-nav">
       <li><a href="#philosophy">理念</a></li>

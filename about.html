@@ -214,13 +214,17 @@ nav{
 }
 .tl-item::before{
   content:'';position:absolute;
-  left:-33px;top:18px;
-  width:10px;height:10px;
+  left:-32px;top:21px;
+  width:8px;height:8px;
   border-radius:50%;
   background:var(--accent);
-  border:3px solid var(--bg);
-  box-shadow:0 0 0 2px var(--accent);
   z-index:1;
+}
+.tl-item::after{
+  content:'';position:absolute;
+  left:-26px;top:25px;
+  width:18px;height:1px;
+  background:var(--border);
 }
 
 .tl-accordion{
@@ -273,7 +277,8 @@ details[open] .tl-arrow{transform:rotate(180deg);}
   .timeline-section{padding:60px 20px;}
   .timeline{padding-left:28px;}
   .timeline::before{left:7px;}
-  .tl-item::before{left:-24px;top:16px;width:8px;height:8px;}
+  .tl-item::before{left:-24px;top:18px;width:7px;height:7px;}
+  .tl-item::after{display:none;}
   .tl-summary{padding:16px 16px;gap:12px;flex-wrap:wrap;}
   .tl-year{font-size:1.1rem;min-width:48px;}
   .tl-headline{font-size:0.88rem;}
@@ -558,7 +563,7 @@ footer{
 <!-- TIMELINE -->
 <section class="timeline-section" id="history">
   <div class="sec-eyebrow reveal">HISTORY</div>
-  <h2 class="sec-title reveal">会社<em>沿革</em></h2>
+  <h2 class="sec-title reveal">会社沿革</h2>
   <p class="sec-lead reveal">電子回路設計から越境EC、物流、不動産へ——時代に合わせて進化を続けてきた45年間の歩み。</p>
 
   <div class="timeline reveal">
@@ -724,7 +729,7 @@ footer{
 <section class="profile-section" id="ceo">
   <div class="profile-inner">
     <div class="sec-eyebrow reveal">CEO PROFILE</div>
-    <h2 class="sec-title reveal" style="margin-bottom:32px;">代表<em>紹介</em></h2>
+    <h2 class="sec-title reveal" style="margin-bottom:32px;">代表紹介</h2>
 
     <div class="profile-header reveal">
       <div class="profile-avatar">MY</div>
@@ -887,7 +892,7 @@ footer{
 <!-- MESSAGE -->
 <section class="message-section" id="message">
   <div class="sec-eyebrow reveal">MESSAGE</div>
-  <h2 class="sec-title reveal" style="margin-bottom:32px;">代表<em>メッセージ</em></h2>
+  <h2 class="sec-title reveal" style="margin-bottom:32px;">代表メッセージ</h2>
 
   <div class="reveal">
     <p class="message-text">
@@ -917,7 +922,7 @@ footer{
 <!-- CTA -->
 <section class="cta-section">
   <div class="reveal">
-    <h2 class="cta-title">お気軽に<em style="font-style:normal;color:var(--accent);">ご相談</em>ください</h2>
+    <h2 class="cta-title">お気軽にご相談ください</h2>
     <p class="cta-sub">
       越境EC・物流・不動産に関するご相談、<br>
       取材・講演のお問い合わせなど。

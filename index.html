@@ -187,6 +187,48 @@ nav{
     opacity:1;animation:none;}
 }
 
+/* ===== NEWS ===== */
+.news-section{
+  border-top:1px solid var(--border);
+  padding:36px 60px;
+  background:var(--surface);
+}
+.news-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:flex-start;gap:48px;
+}
+.news-label{
+  font-size:0.75rem;font-weight:700;letter-spacing:0.2em;
+  color:var(--accent);padding-top:10px;flex-shrink:0;
+  display:flex;align-items:center;gap:12px;
+}
+.news-label::before{content:'';width:28px;height:2px;background:var(--accent);}
+.news-list{list-style:none;flex:1;}
+.news-list li{border-bottom:1px solid var(--border);}
+.news-list li:last-child{border-bottom:none;}
+.news-list a{
+  display:flex;align-items:baseline;gap:20px;
+  padding:12px 4px;text-decoration:none;color:inherit;
+  transition:background 0.2s;flex-wrap:wrap;
+}
+.news-list a:hover{background:rgba(0,102,204,0.03);}
+.news-date{
+  font-family:'JetBrains Mono',monospace;font-size:0.78rem;
+  color:var(--muted);flex-shrink:0;
+}
+.news-cat{
+  font-size:0.68rem;font-weight:700;color:var(--accent);
+  background:var(--accent-dim);border-radius:4px;
+  padding:2px 10px;flex-shrink:0;
+}
+.news-title{font-size:0.88rem;color:var(--text);font-weight:400;}
+@media(max-width:768px){
+  .news-section{padding:28px 20px;}
+  .news-inner{flex-direction:column;gap:8px;}
+  .news-label{padding-top:0;}
+  .news-list a{gap:12px;padding:12px 0;}
+}
+
 /* ===== PHILOSOPHY ===== */
 .philosophy{
   padding:120px 60px;
@@ -474,6 +516,29 @@ footer{
   </div>
 </section>
 
+<!-- NEWS -->
+<section class="news-section" id="news">
+  <div class="news-inner">
+    <span class="news-label">NEWS</span>
+    <ul class="news-list">
+      <li>
+        <a href="news.html#dx-certification">
+          <time class="news-date">2026.08.01</time>
+          <span class="news-cat">認定</span>
+          <span class="news-title">経済産業大臣による「DX認定事業者」の認定を取得しました</span>
+        </a>
+      </li>
+      <li>
+        <a href="news.html#site-launch">
+          <time class="news-date">2026.03.21</time>
+          <span class="news-cat">お知らせ</span>
+          <span class="news-title">コーポレートサイトを公開しました</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- HERO BANNER -->
 <div class="hero-banner">
   <img src="https://images.unsplash.com/photo-1559297434-fae8a1916a79?w=1600&h=500&fit=crop&q=80" alt="貿易・国際物流">
@@ -646,6 +711,13 @@ footer{
           <div style="font-size:0.72rem;color:var(--muted);line-height:1.6;">独立行政法人 情報処理推進機構（IPA）<br>中小企業の情報セキュリティ対策の取組み宣言</div>
         </div>
       </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px 0;border-top:1px solid var(--border);">
+        <img src="dx-certification.png" alt="DX認定" style="width:130px;height:auto;flex-shrink:0;">
+        <div>
+          <div style="font-size:0.82rem;font-weight:700;color:var(--text);margin-bottom:4px;">DX認定事業者</div>
+          <div style="font-size:0.72rem;color:var(--muted);line-height:1.6;">経済産業大臣認定（認定日 2026年8月1日）<br>情報処理の促進に関する法律に基づくDX認定制度</div>
+        </div>
+      </div>
     </div>
     <div class="about-right reveal">
       <div class="sec-eyebrow">MESSAGE</div>
@@ -713,9 +785,11 @@ footer{
       <div class="footer-certs">
         <img src="bcp-certification.jpeg" alt="事業継続力強化計画 認定">
         <img src="security-action-2star.png" alt="SECURITY ACTION 二つ星">
+        <img src="dx-certification.png" alt="DX認定" style="height:36px;">
       </div>
     </div>
     <ul class="footer-nav">
+      <li><a href="news.html">お知らせ</a></li>
       <li><a href="#philosophy">理念</a></li>
       <li><a href="#services">事業内容</a></li>
       <li><a href="logistics.html">物流事業</a></li>

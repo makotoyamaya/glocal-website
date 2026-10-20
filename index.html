@@ -412,6 +412,12 @@ a.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0
   cursor:pointer;transition:background 0.25s;margin-top:8px;
 }
 .form-submit:hover{background:var(--accent2);}
+.form-check{display:flex;align-items:flex-start;gap:10px;font-size:0.82rem;color:var(--muted);line-height:1.7;cursor:pointer;}
+.form-check input{margin-top:5px;accent-color:var(--accent);flex-shrink:0;}
+.form-check a{color:var(--accent);}
+.form-note{font-size:0.72rem;color:var(--muted);margin-top:6px;}
+.hp-field{position:absolute;left:-9999px;top:-9999px;width:0;height:0;overflow:hidden;opacity:0;}
+select.form-input{cursor:pointer;}
 
 /* ===== FOOTER ===== */
 footer{
@@ -756,20 +762,44 @@ footer{
   </p>
   <form class="contact-form reveal" onsubmit="handleSubmit(event)">
     <div class="form-row">
-      <label class="form-label">お名前 *</label>
-      <input class="form-input" type="text" placeholder="山田 太郎" required>
+      <label class="form-label" for="f-type">ご相談の種類 *</label>
+      <select class="form-input" id="f-type" required>
+        <option value="">選択してください</option>
+        <option>サービスの利用・お見積りのご相談</option>
+        <option>既存のお客様からのご連絡</option>
+        <option>取材・メディアのお問い合わせ</option>
+        <option>協業のご提案</option>
+        <option>営業のご提案</option>
+        <option>その他</option>
+      </select>
     </div>
     <div class="form-row">
-      <label class="form-label">会社名</label>
-      <input class="form-input" type="text" placeholder="株式会社〇〇">
+      <label class="form-label" for="f-name">お名前 *</label>
+      <input class="form-input" id="f-name" type="text" placeholder="山田 太郎" required>
     </div>
     <div class="form-row">
-      <label class="form-label">メールアドレス *</label>
-      <input class="form-input" type="email" placeholder="info@example.com" required>
+      <label class="form-label" for="f-company">会社名<span id="company-req" style="display:none;"> *</span></label>
+      <input class="form-input" id="f-company" type="text" placeholder="株式会社〇〇">
+      <div class="form-note">法人・団体の方はご記入ください（ご提案の場合は必須です）</div>
     </div>
     <div class="form-row">
-      <label class="form-label">お問い合わせ内容 *</label>
-      <textarea class="form-textarea" placeholder="ご用件をご記入ください。" required></textarea>
+      <label class="form-label" for="f-email">メールアドレス *</label>
+      <input class="form-input" id="f-email" type="email" placeholder="info@example.com" required>
+    </div>
+    <div class="form-row">
+      <label class="form-label" for="f-phone">電話番号<span id="phone-req" style="display:none;"> *</span></label>
+      <input class="form-input" id="f-phone" type="tel" placeholder="025-000-0000">
+      <label class="form-check" style="margin-top:10px;"><input type="checkbox" id="f-callme" onchange="togglePhoneReq()"><span>電話でのご連絡を希望する</span></label>
+    </div>
+    <div class="form-row">
+      <label class="form-label" for="f-message">お問い合わせ内容 *</label>
+      <textarea class="form-textarea" id="f-message" placeholder="ご用件をご記入ください。" required></textarea>
+    </div>
+    <div class="hp-field" aria-hidden="true">
+      <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    <div class="form-row">
+      <label class="form-check"><input type="checkbox" id="f-privacy" required><span><a href="privacy-policy.html" target="_blank" rel="noopener">個人情報の取扱い</a>に同意します *</span></label>
     </div>
     <button class="form-submit" type="submit">送信する →</button>
   </form>
@@ -814,19 +844,38 @@ const observer = new IntersectionObserver(entries => {
 reveals.forEach(el => observer.observe(el));
 
 // フォーム送信（GAS連携）
+const formLoadedAt = Date.now();
+
+function togglePhoneReq() {
+  const on = document.getElementById('f-callme').checked;
+  document.getElementById('f-phone').required = on;
+  document.getElementById('phone-req').style.display = on ? 'inline' : 'none';
+}
+
+// ご提案系を選んだら会社名を必須に
+document.getElementById('f-type').addEventListener('change', function() {
+  const need = /ご提案/.test(this.value);
+  document.getElementById('f-company').required = need;
+  document.getElementById('company-req').style.display = need ? 'inline' : 'none';
+});
+
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.form-submit');
-  const inputs = e.target.querySelectorAll('.form-input, .form-textarea');
 
   btn.textContent = '送信中...';
   btn.disabled = true;
 
   const data = {
-    name: inputs[0].value,
-    company: inputs[1].value,
-    email: inputs[2].value,
-    message: inputs[3].value
+    category: document.getElementById('f-type').value,
+    name: document.getElementById('f-name').value,
+    company: document.getElementById('f-company').value,
+    email: document.getElementById('f-email').value,
+    phone: document.getElementById('f-phone').value,
+    callme: document.getElementById('f-callme').checked ? '希望する' : '',
+    message: document.getElementById('f-message').value,
+    hp: document.getElementById('f-website').value,
+    elapsed: Math.round((Date.now() - formLoadedAt) / 1000)
   };
 
   fetch('https://script.google.com/macros/s/AKfycbwuEqQF7ifwSsYtTdP3_cVgTCFdCJjg2Ldsp_Z-ky8fDeI8c7lNo2piyvLz1b1-HPrK/exec', {
